@@ -8,21 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85EE27A049C600E95536 /* PillAppApp.swift */; };
-		CBAE85F127A049C600E95536 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85F027A049C600E95536 /* ContentView.swift */; };
 		CBAE85F327A049C900E95536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE85F227A049C900E95536 /* Assets.xcassets */; };
 		CBAE85F627A049C900E95536 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE85F527A049C900E95536 /* Preview Assets.xcassets */; };
 		CBAE85F827A049C900E95536 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85F727A049C900E95536 /* Persistence.swift */; };
 		CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85F927A049C900E95536 /* PillApp.xcdatamodeld */; };
+		CBAE860227A0501A00E95536 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860127A0501A00E95536 /* ContentView.swift */; };
+		CBAE860827A053F600E95536 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860727A053F600E95536 /* Model.swift */; };
+		CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860927A0546E00E95536 /* MedicinasView.swift */; };
+		CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */; };
+		CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861127A0584800E95536 /* DayPickerView.swift */; };
+		CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861427A0587300E95536 /* DayPickerVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CBAE85EB27A049C600E95536 /* PillApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE85EE27A049C600E95536 /* PillAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillAppApp.swift; sourceTree = "<group>"; };
-		CBAE85F027A049C600E95536 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CBAE85F227A049C900E95536 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBAE85F527A049C900E95536 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBAE85F727A049C900E95536 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CBAE85FA27A049C900E95536 /* PillApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PillApp.xcdatamodel; sourceTree = "<group>"; };
+		CBAE860127A0501A00E95536 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CBAE860727A053F600E95536 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CBAE860927A0546E00E95536 /* MedicinasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasView.swift; sourceTree = "<group>"; };
+		CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasViewModel.swift; sourceTree = "<group>"; };
+		CBAE861127A0584800E95536 /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
+		CBAE861427A0587300E95536 /* DayPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +65,14 @@
 		CBAE85ED27A049C600E95536 /* PillApp */ = {
 			isa = PBXGroup;
 			children = (
+				CBAE860627A053E200E95536 /* ViewModel */,
+				CBAE860527A053DE00E95536 /* Model */,
+				CBAE860427A053DA00E95536 /* View */,
 				CBAE85EE27A049C600E95536 /* PillAppApp.swift */,
-				CBAE85F027A049C600E95536 /* ContentView.swift */,
 				CBAE85F227A049C900E95536 /* Assets.xcassets */,
 				CBAE85F727A049C900E95536 /* Persistence.swift */,
 				CBAE85F927A049C900E95536 /* PillApp.xcdatamodeld */,
+				CBAE860127A0501A00E95536 /* ContentView.swift */,
 				CBAE85F427A049C900E95536 /* Preview Content */,
 			);
 			path = PillApp;
@@ -71,6 +84,80 @@
 				CBAE85F527A049C900E95536 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CBAE860327A053CD00E95536 /* Medicinas */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE860927A0546E00E95536 /* MedicinasView.swift */,
+			);
+			path = Medicinas;
+			sourceTree = "<group>";
+		};
+		CBAE860427A053DA00E95536 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE861027A057FD00E95536 /* Comun */,
+				CBAE860D27A054C600E95536 /* MedicinasAPI */,
+				CBAE860327A053CD00E95536 /* Medicinas */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBAE860527A053DE00E95536 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE860727A053F600E95536 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBAE860627A053E200E95536 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE861327A0586600E95536 /* Comun */,
+				CBAE860F27A054DC00E95536 /* MedicinasAPI */,
+				CBAE860E27A054CF00E95536 /* Medicinas */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CBAE860D27A054C600E95536 /* MedicinasAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MedicinasAPI;
+			sourceTree = "<group>";
+		};
+		CBAE860E27A054CF00E95536 /* Medicinas */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */,
+			);
+			path = Medicinas;
+			sourceTree = "<group>";
+		};
+		CBAE860F27A054DC00E95536 /* MedicinasAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MedicinasAPI;
+			sourceTree = "<group>";
+		};
+		CBAE861027A057FD00E95536 /* Comun */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE861127A0584800E95536 /* DayPickerView.swift */,
+			);
+			path = Comun;
+			sourceTree = "<group>";
+		};
+		CBAE861327A0586600E95536 /* Comun */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE861427A0587300E95536 /* DayPickerVM.swift */,
+			);
+			path = Comun;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */,
+				CBAE860827A053F600E95536 /* Model.swift in Sources */,
 				CBAE85F827A049C900E95536 /* Persistence.swift in Sources */,
-				CBAE85F127A049C600E95536 /* ContentView.swift in Sources */,
 				CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */,
+				CBAE860227A0501A00E95536 /* ContentView.swift in Sources */,
+				CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */,
+				CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */,
+				CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */,
 				CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

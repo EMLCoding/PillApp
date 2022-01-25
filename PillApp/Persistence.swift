@@ -13,10 +13,32 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
+        
+        // MARK: - Datos de prueba Core Data
+        let pruebaCategoriaMedicina = CategoriasMedicinas(context: viewContext)
+        pruebaCategoriaMedicina.id = UUID()
+        pruebaCategoriaMedicina.name = "Test category"
+        
+        let pruebaIcono = Iconos(context: viewContext)
+        pruebaIcono.id = UUID()
+        pruebaIcono.name = "Test icon"
+        
+        let pruebaMedicina = Medicinas(context: viewContext)
+        pruebaMedicina.id = UUID()
+        pruebaMedicina.name = "Test medicine"
+        pruebaMedicina.date = Date.now
+        pruebaMedicina.taken = false
+        pruebaMedicina.category = pruebaCategoriaMedicina
+        pruebaMedicina.icon = pruebaIcono
+        
+        let pruebaMedicina2 = Medicinas(context: viewContext)
+        pruebaMedicina2.id = UUID()
+        pruebaMedicina2.name = "Test medicine 2"
+        pruebaMedicina2.date = Date.now
+        pruebaMedicina2.taken = true
+        pruebaMedicina2.category = pruebaCategoriaMedicina
+        pruebaMedicina2.icon = pruebaIcono
+        
         do {
             try viewContext.save()
         } catch {
