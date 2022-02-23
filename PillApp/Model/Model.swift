@@ -9,6 +9,7 @@ import Foundation
 
 struct Medicine: Identifiable {
     let id: UUID
+    let idGroup: UUID
     let name: String
     let date: Date
     let category: CategoryMedicine

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="CategoriasMedicinas" representedClassName="CategoriasMedicinas" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -13,14 +13,15 @@
     <entity name="Medicinas" representedClassName="Medicinas" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="idGroup" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="taken" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoriasMedicinas" inverseName="medicine" inverseEntity="CategoriasMedicinas"/>
         <relationship name="icon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Iconos" inverseName="medicine" inverseEntity="Iconos"/>
     </entity>
     <elements>
-        <element name="Medicinas" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="CategoriasMedicinas" positionX="-54" positionY="0" width="128" height="74"/>
         <element name="Iconos" positionX="-36" positionY="45" width="128" height="74"/>
+        <element name="Medicinas" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

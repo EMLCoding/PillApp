@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct MedicinasView: View {
-    @FetchRequest(sortDescriptors: [SortDescriptor(\Medicinas.id)],  animation: .default) var fetchMedicines: FetchedResults<Medicinas>
     @ObservedObject var medicinesVM: MedicinesVM
+    
+    @State var currentDate = Date()
     
     var body: some View {
         NavigationView {
             VStack {
-                DayPickerView(dayPickerVM: DayPickerVM())
-                List {
-                    ForEach(fetchMedicines) { medicine in
-                        Text(medicine.name ?? "")
-                    }
-                }
+                DayPickerView(dayPickerVM: DayPickerVM(), currentDate: $currentDate)
+                MedicinasListView(currentDate: currentDate)
             }
-            
             .navigationTitle("Medicines")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -30,7 +26,20 @@ struct MedicinasView: View {
                     } label: {
                         Text("Add")
                     }
-
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu("Year") {
+                        Button {
+                            
+                        } label: {
+                            Text("\(medicinesVM.currentYear)")
+                        }
+                        Button {
+                            
+                        } label: {
+                            Text("\(medicinesVM.currentYear)")
+                        }
+                    }
                 }
             }
         }
