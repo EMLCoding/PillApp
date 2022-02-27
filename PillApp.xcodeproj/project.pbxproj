@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CB218D0B27BAD02400A719D8 /* MedicinasListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */; };
 		CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */; };
+		CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */; };
+		CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */; };
 		CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85EE27A049C600E95536 /* PillAppApp.swift */; };
 		CBAE85F327A049C900E95536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE85F227A049C900E95536 /* Assets.xcassets */; };
 		CBAE85F627A049C900E95536 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE85F527A049C900E95536 /* Preview Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasListView.swift; sourceTree = "<group>"; };
 		CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
+		CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIView.swift; sourceTree = "<group>"; };
+		CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIVM.swift; sourceTree = "<group>"; };
 		CBAE85EB27A049C600E95536 /* PillApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE85EE27A049C600E95536 /* PillAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillAppApp.swift; sourceTree = "<group>"; };
 		CBAE85F227A049C900E95536 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		CBAE860D27A054C600E95536 /* MedicinasAPI */ = {
 			isa = PBXGroup;
 			children = (
+				CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */,
 			);
 			path = MedicinasAPI;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		CBAE860F27A054DC00E95536 /* MedicinasAPI */ = {
 			isa = PBXGroup;
 			children = (
+				CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */,
 			);
 			path = MedicinasAPI;
 			sourceTree = "<group>";
@@ -247,6 +253,8 @@
 				CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */,
 				CB218D0B27BAD02400A719D8 /* MedicinasListView.swift in Sources */,
 				CBAE860827A053F600E95536 /* Model.swift in Sources */,
+				CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */,
+				CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */,
 				CBAE85F827A049C900E95536 /* Persistence.swift in Sources */,
 				CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */,
 				CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */,

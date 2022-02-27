@@ -12,7 +12,11 @@ struct ContentView: View {
         TabView {
             MedicinasView(medicinesVM: MedicinesVM())
                 .tabItem {
-                    Label("Inicio", systemImage: "house")
+                    Label("Home", systemImage: "house")
+                }
+            MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
+                .tabItem {
+                    Label("Medicines", systemImage: "pills")
                 }
         }
     }

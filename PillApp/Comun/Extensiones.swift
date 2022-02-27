@@ -30,3 +30,24 @@ extension Date {
         return calendar.isDate(self, inSameDayAs: date)
     }
 }
+
+let urlBase = URL(string: "https://cima.aemps.es/cima/rest/medicamentos")!
+
+extension URL {
+    static func urlMedicines(name: String, page: Int) -> URL {
+        guard var urlC = URLComponents(url: urlBase, resolvingAgainstBaseURL: false) else {
+            return urlBase
+        }
+        //urlC.path = "nombre=\(name)"
+        let pagination = URLQueryItem(name: "pagina", value: String(page))
+        if (name != "") {
+            let search = URLQueryItem(name: "nombre", value: name)
+            urlC.queryItems = [search, pagination]
+        } else {
+            urlC.queryItems = [pagination]
+        }
+        
+        print("RUTA API: \(urlC.url!)")
+        return urlC.url!
+    }
+}
