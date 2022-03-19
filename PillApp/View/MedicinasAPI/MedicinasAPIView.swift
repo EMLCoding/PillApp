@@ -14,7 +14,7 @@ struct MedicinasAPIView: View {
         NavigationView {
             List {
                 ForEach(medicinesAPIVM.searchedMedicines) { medicine in
-                    Text(medicine.nombre)
+                    Text(medicine.nombre.capitalized)
                         .onAppear {
                             if medicine.id == medicinesAPIVM.searchedMedicines.last?.id {
                                 medicinesAPIVM.page += 1

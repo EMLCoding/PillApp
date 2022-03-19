@@ -15,29 +15,21 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         
         // MARK: - Datos de prueba Core Data
-        let pruebaCategoriaMedicina = CategoriasMedicinas(context: viewContext)
-        pruebaCategoriaMedicina.id = UUID()
-        pruebaCategoriaMedicina.name = "Test category"
-        
-        let pruebaIcono = Iconos(context: viewContext)
-        pruebaIcono.id = UUID()
-        pruebaIcono.name = "Test icon"
-        
         let pruebaMedicina = Medicinas(context: viewContext)
         pruebaMedicina.id = UUID()
         pruebaMedicina.name = "Test medicine"
         pruebaMedicina.date = Date.now
         pruebaMedicina.taken = false
-        pruebaMedicina.category = pruebaCategoriaMedicina
-        pruebaMedicina.icon = pruebaIcono
+        pruebaMedicina.category = Categories(rawValue: "Otros")?.rawValue
+        pruebaMedicina.icon = Icons(rawValue: "Tirita")?.rawValue
         
         let pruebaMedicina2 = Medicinas(context: viewContext)
         pruebaMedicina2.id = UUID()
         pruebaMedicina2.name = "Test medicine 2"
         pruebaMedicina2.date = Date.now
         pruebaMedicina2.taken = true
-        pruebaMedicina2.category = pruebaCategoriaMedicina
-        pruebaMedicina2.icon = pruebaIcono
+        pruebaMedicina2.category = Categories(rawValue: "Otros")?.rawValue
+        pruebaMedicina2.icon = Icons(rawValue: "Tirita")?.rawValue
         
         do {
             try viewContext.save()

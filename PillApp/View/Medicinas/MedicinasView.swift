@@ -10,6 +10,7 @@ import SwiftUI
 struct MedicinasView: View {
     @ObservedObject var medicinesVM: MedicinesVM
     
+    
     @State var currentDate = Date()
     
     var body: some View {
@@ -21,16 +22,11 @@ struct MedicinasView: View {
             .navigationTitle("Medicines")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        medicinesVM.addMedicine()
-                    } label: {
-                        Text("Add")
-                    }
+                    NavigationLink("Add", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM()))
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Menu("Year") {
                         Button {
-                            
                         } label: {
                             Text("\(medicinesVM.currentYear)")
                         }

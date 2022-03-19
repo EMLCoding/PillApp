@@ -8,17 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var btnClick: ClicksBoton = .ok
+    
+    @State private var showAlert = false
+    @State private var alertData = AlertData.empty
+    
     var body: some View {
-        TabView {
-            MedicinasView(medicinesVM: MedicinesVM())
-                .tabItem {
-                    Label("Home", systemImage: "house")
+        ZStack {
+            TabView {
+                MedicinasView(medicinesVM: MedicinesVM())
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
+                    .tabItem {
+                        Label("Medicines", systemImage: "pills")
+                    }
+            }
+            .blur(radius: showAlert ? 30 : 0)
+            .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
+                if let data = notification.object as? AlertData {
+                    showAlert = true
+                    alertData = data
                 }
-            MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
-                .tabItem {
-                    Label("Medicines", systemImage: "pills")
-                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
+                showAlert = false
+            }
+            
+            if (showAlert) {
+                AlertView(image: alertData.image, title: alertData.title, text: alertData.text, seeButtons: true)
+            }
         }
+        
     }
 }
 

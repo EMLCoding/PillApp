@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */; };
+		CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */; };
+		CB0F61DB27E60769008A9AFF /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DA27E60769008A9AFF /* DateFormat.swift */; };
+		CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DC27E60FB0008A9AFF /* Notifications.swift */; };
+		CB0F61DF27E623D2008A9AFF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DE27E623D2008A9AFF /* AlertView.swift */; };
 		CB218D0B27BAD02400A719D8 /* MedicinasListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */; };
 		CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */; };
 		CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */; };
@@ -25,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasView.swift; sourceTree = "<group>"; };
+		CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasVM.swift; sourceTree = "<group>"; };
+		CB0F61DA27E60769008A9AFF /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		CB0F61DC27E60FB0008A9AFF /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		CB0F61DE27E623D2008A9AFF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasListView.swift; sourceTree = "<group>"; };
 		CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
 		CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIView.swift; sourceTree = "<group>"; };
@@ -58,6 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */,
+				CB0F61DA27E60769008A9AFF /* DateFormat.swift */,
+				CB0F61DC27E60FB0008A9AFF /* Notifications.swift */,
 			);
 			path = Comun;
 			sourceTree = "<group>";
@@ -108,6 +120,7 @@
 			children = (
 				CBAE860927A0546E00E95536 /* MedicinasView.swift */,
 				CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */,
+				CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */,
 			);
 			path = Medicinas;
 			sourceTree = "<group>";
@@ -152,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */,
+				CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */,
 			);
 			path = Medicinas;
 			sourceTree = "<group>";
@@ -168,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAE861127A0584800E95536 /* DayPickerView.swift */,
+				CB0F61DE27E623D2008A9AFF /* AlertView.swift */,
 			);
 			path = Comun;
 			sourceTree = "<group>";
@@ -255,14 +270,19 @@
 				CBAE860827A053F600E95536 /* Model.swift in Sources */,
 				CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */,
 				CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */,
+				CB0F61DB27E60769008A9AFF /* DateFormat.swift in Sources */,
 				CBAE85F827A049C900E95536 /* Persistence.swift in Sources */,
 				CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */,
+				CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */,
 				CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */,
 				CBAE860227A0501A00E95536 /* ContentView.swift in Sources */,
+				CB0F61DF27E623D2008A9AFF /* AlertView.swift in Sources */,
 				CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */,
+				CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */,
 				CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */,
 				CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */,
 				CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */,
+				CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
