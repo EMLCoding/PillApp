@@ -29,7 +29,6 @@ final class DayPickerVM: ObservableObject {
             return
         }
         
-        print("PRIMER DIA: \(firstDayOfYear)")
         
         (0...364).forEach { day in
             if let yearDay = calendar.date(byAdding: .day, value: day, to: firstDayOfYear) {

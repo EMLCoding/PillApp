@@ -48,7 +48,7 @@ final class Notifications {
         }
     }
     
-    static func eliminarNotificacion(id: UUID) {
+    func eliminarNotificacion(id: UUID) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id.uuidString])
     }
     

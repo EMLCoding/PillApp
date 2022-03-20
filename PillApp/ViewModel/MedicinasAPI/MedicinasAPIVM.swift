@@ -14,9 +14,6 @@ final class MedicinasAPIVM: ObservableObject {
         didSet {
             page = 1
             
-            print("BUSCADO POR \(query)")
-            
-            
             Task(priority: .medium) {
                 await find()
             }

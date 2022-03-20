@@ -32,14 +32,15 @@ struct AlertView: View {
                     .multilineTextAlignment(.center)
                 
                 if (seeButtons) {
-                    Spacer()
                     Divider()
                     Button("OK") {
                         NotificationCenter.default.post(name: .hideAlert, object: nil)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
                 }                
             }
-            .frame(width: UIScreen.main.bounds.width - 150, height: seeButtons ? UIScreen.main.bounds.height - 450 : UIScreen.main.bounds.height * 0.3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: 250)
             .padding(.vertical,25)
             .padding(.horizontal, 30)
             .background(BlurView())

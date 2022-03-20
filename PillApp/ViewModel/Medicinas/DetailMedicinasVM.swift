@@ -9,12 +9,14 @@ import SwiftUI
 import CoreData
 
 final class DetailMedicinasVM: ObservableObject {
+    @Published var isEdition = false
     @Published var medicineName = ""
     @Published var category: Categories = .others
     @Published var icon: Icons = .pastillas
     
     @Published var initialDate = Date.now
     @Published var finalDate = Date.now
+    @Published var medicineDate = Date.now // Se utiliza para la edicion de una medicina
     
     @Published var dailyPeriodicities = [1, 2, 3, 4]
     @Published var dailyPeriodicity = 0
@@ -28,12 +30,27 @@ final class DetailMedicinasVM: ObservableObject {
     @Published var dayOfWeek = DaysOfWeek.monday
     
     
-    var medicine: Medicine?
+    var medicine: Medicinas?
+    
+    init(medicine: Medicinas?) {
+        if let medicine = medicine {
+            self.medicine = medicine
+            isEdition = true
+            medicineName = medicine.name ?? ""
+            category = Categories(rawValue: medicine.category ?? "Others") ?? .others
+            icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pastillas
+            medicineDate = medicine.date ?? Date.now
+        }
+    }
     
     func save(context: NSManagedObjectContext) {
         Task {
             do {
-                try await create(context: context)
+                if isEdition {
+                    try await edit(context: context)
+                } else {
+                    try await create(context: context)
+                }
             } catch {
                 print("Error saving data \(error)")
             }
@@ -41,17 +58,12 @@ final class DetailMedicinasVM: ObservableObject {
     }
     
     func create(context: NSManagedObjectContext) async throws{
-        print("Primera hora: \(hourFirstTime)")
-        print("Segunda hora: \(hourSecondTime)")
-        print("Tercera hora: \(hourThirdTime)")
-        print("Cuarta hora: \(hourFourthTime)")
-        
-        let components = Calendar.current.dateComponents([.day], from: initialDate, to: finalDate)
+        let components = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: initialDate), to: Calendar.current.startOfDay(for: finalDate))
         let idGroup = UUID()
         if let days = components.day {
             switch periodicity {
             case .day:
-                for day in 0...(days + 1) {
+                for day in 0...days {
                     var date = Calendar.current.date(byAdding: .day, value: day, to: initialDate) ?? Date.now
                     
                     for period in 0...dailyPeriodicity {
@@ -87,7 +99,7 @@ final class DetailMedicinasVM: ObservableObject {
             case .week:
                 for day in 0...(days + 1) {
                     var date = Calendar.current.date(byAdding: .day, value: day, to: initialDate) ?? Date.now
-
+                    
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "EEEE"
                     let dayInWeek = dateFormatter.string(from: date)
@@ -140,11 +152,37 @@ final class DetailMedicinasVM: ObservableObject {
         medicine.category = category.rawValue
         medicine.icon = icon.rawValue
         
+        print("SE CREA LA MEDICINA CON FECHA \(date)")
+        
         try await context.perform {
             try context.save()
             Notifications().createNotification(id: id, date: date, element: self.medicineName, type: 1)
             // TODO: Conseguir traducir los parametros
             NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Medication reminder", image: "heart.text.square.fill", text: "Reminders have been created successfully"))
+        }
+    }
+    
+    func edit(context: NSManagedObjectContext) async throws {
+        let oldDate = medicine?.date ?? Date.now
+        medicine?.name = medicineName
+        medicine?.category = category.rawValue
+        medicine?.icon = icon.rawValue
+        medicine?.date = medicineDate
+        
+        
+        try await context.perform {
+            if ((self.medicine?.hasChanges) != nil) {
+                print("Se edita la medicina")
+                try context.save()
+                let id = self.medicine?.id ?? UUID()
+                if self.medicineDate != oldDate {
+                    print("Se actualiza la notificacion")
+                    Notifications().eliminarNotificacion(id: id)
+                    Notifications().createNotification(id: id, date: self.medicineDate, element: self.medicineName, type: 1)
+                }
+                
+            }
+            
         }
     }
 }

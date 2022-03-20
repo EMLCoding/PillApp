@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var btnClick: ClicksBoton = .ok
-    
     @State private var showAlert = false
     @State private var alertData = AlertData.empty
     
@@ -25,7 +23,8 @@ struct ContentView: View {
                         Label("Medicines", systemImage: "pills")
                     }
             }
-            .blur(radius: showAlert ? 30 : 0)
+            // TODO: Corregir bug del Blur
+            //.blur(radius: showAlert ? 30 : 0)
             .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
                 if let data = notification.object as? AlertData {
                     showAlert = true
@@ -36,9 +35,11 @@ struct ContentView: View {
                 showAlert = false
             }
             
+            
             if (showAlert) {
                 AlertView(image: alertData.image, title: alertData.title, text: alertData.text, seeButtons: true)
             }
+             
         }
         
     }

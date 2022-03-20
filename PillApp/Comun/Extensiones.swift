@@ -47,7 +47,6 @@ extension URL {
             urlC.queryItems = [pagination]
         }
         
-        print("RUTA API: \(urlC.url!)")
         return urlC.url!
     }
 }

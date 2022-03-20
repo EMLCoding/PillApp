@@ -18,7 +18,6 @@ struct MedicinasListView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\Medicinas.id)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default) var fetchMedicines: FetchedResults<Medicinas>
     */
     init(currentDate: Date) {
-        print("SE CARGA DE NUEVO LA PANTALLA \(currentDate)")
         fetchRequest = FetchRequest<Medicinas>(sortDescriptors: [SortDescriptor(\Medicinas.id)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default)
     }
     
@@ -26,7 +25,13 @@ struct MedicinasListView: View {
         VStack {
             List {
                 ForEach(userMedicines) { medicine in
-                    Text(medicine.name ?? "")
+                    NavigationLink {
+                        DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))
+                    } label: {
+                        Text(medicine.name ?? "")
+                    }
+
+                    
                 }
             }
         }

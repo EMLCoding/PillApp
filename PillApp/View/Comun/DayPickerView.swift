@@ -13,27 +13,34 @@ struct DayPickerView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(dayPickerVM.dates, id:\.self) { day in
-                    VStack(spacing: 10) {
-                        Text(day.extractDate(format: "dd"))
-                        Text(day.extractDate(format: "EEE"))
-                    }
-                    .foregroundColor($currentDate.wrappedValue.currentDate(date: day) ? .white : .red)
-                    .frame(width: 45, height: 90)
-                    .background {
-                        Capsule()
-                            .fill(.black)
-                    }
-                    .onTapGesture {
-                        withAnimation {
-                            currentDate = day
-                            print("Current Date: ", currentDate)
-                        }
-                    }
-                }
+            ScrollViewReader { value in
+                HStack {
+                                ForEach(dayPickerVM.dates, id:\.self) { day in
+                                    VStack(spacing: 10) {
+                                        Text(day.extractDate(format: "dd"))
+                                        Text(day.extractDate(format: "EEE"))
+                                    }
+                                    .foregroundColor($currentDate.wrappedValue.currentDate(date: day) ? .white : .red)
+                                    .frame(width: 45, height: 90)
+                                    .background {
+                                        Capsule()
+                                            .fill(.black)
+                                    }
+                                    .onTapGesture {
+                                        withAnimation {
+                                            currentDate = day
+                                        }
+                                    }
+                                }
+                            }
+                            .padding()
+                            .onAppear {
+                                if let index = dayPickerVM.dates.firstIndex(where: {Calendar.current.startOfDay(for: $0) == Calendar.current.startOfDay(for: currentDate)}) {
+                                    value.scrollTo(dayPickerVM.dates[index])
+                                }
+                            }
             }
-            .padding()
+            
         }
         
     }

@@ -22,7 +22,7 @@ struct MedicinasView: View {
             .navigationTitle("Medicines")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Add", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM()))
+                    NavigationLink("Add", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: nil)))
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Menu("Year") {
