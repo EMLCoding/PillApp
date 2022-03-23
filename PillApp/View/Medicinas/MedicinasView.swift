@@ -10,34 +10,41 @@ import SwiftUI
 struct MedicinasView: View {
     @ObservedObject var medicinesVM: MedicinesVM
     
-    
     @State var currentDate = Date()
     
     var body: some View {
         NavigationView {
-            VStack {
-                DayPickerView(dayPickerVM: DayPickerVM(), currentDate: $currentDate)
-                MedicinasListView(currentDate: currentDate)
-            }
-            .navigationTitle("Medicines")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Add", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: nil)))
+            ZStack {
+                Color("Background").edgesIgnoringSafeArea(.all)
+                VStack {
+                    DayPickerView(dayPickerVM: DayPickerVM(), currentDate: $currentDate)
+                    
+                        
+                    MedicinasListView(currentDate: currentDate)
                 }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Menu("Year") {
-                        Button {
-                        } label: {
-                            Text("\(medicinesVM.currentYear)")
-                        }
-                        Button {
-                            
-                        } label: {
-                            Text("\(medicinesVM.currentYear)")
+                .navigationTitle("Medication reminder")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink("Add", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: nil)))
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Menu("Year") {
+                            Button {
+                            } label: {
+                                Text("\(medicinesVM.currentYear)")
+                            }
+                            Button {
+                                
+                            } label: {
+                                Text("\(medicinesVM.currentYear)")
+                            }
                         }
                     }
                 }
             }
+                    
+                
+            
         }
     }
 }

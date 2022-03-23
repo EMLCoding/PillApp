@@ -39,7 +39,7 @@ struct ContentView: View {
             if (showAlert) {
                 AlertView(image: alertData.image, title: alertData.title, text: alertData.text, seeButtons: true)
             }
-             
+            
         }
         
     }
@@ -48,6 +48,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

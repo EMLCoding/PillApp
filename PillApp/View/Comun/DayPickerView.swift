@@ -15,30 +15,34 @@ struct DayPickerView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { value in
                 HStack {
-                                ForEach(dayPickerVM.dates, id:\.self) { day in
-                                    VStack(spacing: 10) {
-                                        Text(day.extractDate(format: "dd"))
-                                        Text(day.extractDate(format: "EEE"))
-                                    }
-                                    .foregroundColor($currentDate.wrappedValue.currentDate(date: day) ? .white : .red)
-                                    .frame(width: 45, height: 90)
-                                    .background {
-                                        Capsule()
-                                            .fill(.black)
-                                    }
-                                    .onTapGesture {
-                                        withAnimation {
-                                            currentDate = day
-                                        }
-                                    }
-                                }
+                    ForEach(dayPickerVM.dates, id:\.self) { day in
+                        VStack(spacing: 5) {
+                            Text(day.extractDate(format: "dd"))
+                                .font(.title)
+                                .bold()
+                            Text(day.extractDate(format: "EEE"))
+                                .font(.caption)
+                        }
+                        .foregroundColor(.white)
+                        .frame(width: 45, height: 75)
+                        .background {
+                            Capsule()
+                                .fill(
+                                    $currentDate.wrappedValue.currentDate(date: day) ? LinearGradient(gradient: Gradient(colors: [.white, Color("MainColor")]), startPoint: .top, endPoint: .bottom) : LinearGradient(gradient: Gradient(colors: [.gray, .black]), startPoint: .top, endPoint: .bottom)
+                                )
+                        }
+                        .onTapGesture {
+                            withAnimation {
+                                currentDate = day
                             }
-                            .padding()
-                            .onAppear {
-                                if let index = dayPickerVM.dates.firstIndex(where: {Calendar.current.startOfDay(for: $0) == Calendar.current.startOfDay(for: currentDate)}) {
-                                    value.scrollTo(dayPickerVM.dates[index])
-                                }
-                            }
+                        }
+                    }
+                }
+                .onAppear {
+                    if let index = dayPickerVM.dates.firstIndex(where: {Calendar.current.startOfDay(for: $0) == Calendar.current.startOfDay(for: currentDate)}) {
+                        value.scrollTo(dayPickerVM.dates[index])
+                    }
+                }
             }
             
         }

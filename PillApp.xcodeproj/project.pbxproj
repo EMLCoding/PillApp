@@ -27,6 +27,7 @@
 		CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */; };
 		CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861127A0584800E95536 /* DayPickerView.swift */; };
 		CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861427A0587300E95536 /* DayPickerVM.swift */; };
+		CBF7161A27E7590D00A96AFD /* MedicinaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7161927E7590D00A96AFD /* MedicinaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasViewModel.swift; sourceTree = "<group>"; };
 		CBAE861127A0584800E95536 /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		CBAE861427A0587300E95536 /* DayPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerVM.swift; sourceTree = "<group>"; };
+		CBF7161927E7590D00A96AFD /* MedicinaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				CBAE860927A0546E00E95536 /* MedicinasView.swift */,
 				CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */,
 				CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */,
+				CBF7161927E7590D00A96AFD /* MedicinaView.swift */,
 			);
 			path = Medicinas;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */,
 				CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */,
 				CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */,
+				CBF7161A27E7590D00A96AFD /* MedicinaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

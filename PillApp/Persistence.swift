@@ -66,4 +66,18 @@ struct PersistenceController {
             }
         })
     }
+    
+    static let testMedicine: Medicinas = {
+        let context = PersistenceController.preview.container.viewContext
+        
+        let newMedicine = Medicinas(context: context)
+        newMedicine.id = UUID()
+        newMedicine.name = "Test medicine"
+        newMedicine.date = Date.now
+        newMedicine.taken = false
+        newMedicine.category = Categories(rawValue: "Otros")?.rawValue
+        newMedicine.icon = Icons(rawValue: "Tirita")?.rawValue
+        
+        return newMedicine
+    }()
 }

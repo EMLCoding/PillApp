@@ -13,25 +13,26 @@ struct MedicinasListView: View {
     var userMedicines: FetchedResults<Medicinas> {
         fetchRequest.wrappedValue
     }
+    var date = Date.now
     
     /*
-    @FetchRequest(sortDescriptors: [SortDescriptor(\Medicinas.id)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default) var fetchMedicines: FetchedResults<Medicinas>
-    */
+     @FetchRequest(sortDescriptors: [SortDescriptor(\Medicinas.id)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default) var fetchMedicines: FetchedResults<Medicinas>
+     */
     init(currentDate: Date) {
+        date = currentDate
         fetchRequest = FetchRequest<Medicinas>(sortDescriptors: [SortDescriptor(\Medicinas.id)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default)
     }
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(userMedicines) { medicine in
-                    NavigationLink {
-                        DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))
-                    } label: {
-                        Text(medicine.name ?? "")
-                    }
-
-                    
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(date.extractDate(format: "MMMM yyyy"))
+                .bold()
+            ForEach(userMedicines) { medicine in
+                NavigationLink {
+                    DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))
+                } label: {
+                    MedicinaView(medicine: medicine)
+                        .padding(.bottom)
                 }
             }
         }
