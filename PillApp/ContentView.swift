@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showAlert = false
+    @State private var showBlurEffect = false
     @State private var alertData = AlertData.empty
     
     var body: some View {
@@ -24,7 +25,7 @@ struct ContentView: View {
                     }
             }
             // TODO: Corregir bug del Blur
-            //.blur(radius: showAlert ? 30 : 0)
+            //.blur(radius: showBlurEffect ? 30 : 0)
             .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
                 if let data = notification.object as? AlertData {
                     showAlert = true
@@ -34,10 +35,15 @@ struct ContentView: View {
             .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
                 showAlert = false
             }
-            
+            .onReceive(NotificationCenter.default.publisher(for: .activateBlurEffect)) { _ in
+                showBlurEffect = true
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .deactivateBlurEffect)) { _ in
+                showBlurEffect = false
+            }
             
             if (showAlert) {
-                AlertView(image: alertData.image, title: alertData.title, text: alertData.text, seeButtons: true)
+                AlertView(image: alertData.image, title: alertData.title, text: alertData.text, seeButtons: true, functionButton1: {}, functionButton2: {})
             }
             
         }

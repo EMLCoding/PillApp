@@ -37,9 +37,12 @@ final class DetailMedicinasVM: ObservableObject {
             self.medicine = medicine
             isEdition = true
             medicineName = medicine.name ?? ""
+            print("MEDICINENAME: \(medicineName)")
             category = Categories(rawValue: medicine.category ?? "Others") ?? .others
             icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pastillas
             medicineDate = medicine.date ?? Date.now
+        } else {
+            
         }
     }
     
@@ -52,7 +55,7 @@ final class DetailMedicinasVM: ObservableObject {
                     try await create(context: context)
                 }
             } catch {
-                print("Error saving data \(error)")
+                print("Error saving data \(error.localizedDescription)")
             }
         }
     }
@@ -152,13 +155,11 @@ final class DetailMedicinasVM: ObservableObject {
         medicine.category = category.rawValue
         medicine.icon = icon.rawValue
         
-        print("SE CREA LA MEDICINA CON FECHA \(date)")
-        
         try await context.perform {
             try context.save()
             Notifications().createNotification(id: id, date: date, element: self.medicineName, type: 1)
             // TODO: Conseguir traducir los parametros
-            NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Medication reminder", image: "heart.text.square.fill", text: "Reminders have been created successfully"))
+            NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Medication reminder", image: "heart.text.square.fill", text: "Reminders have been created successfully", textButton1: nil))
         }
     }
     
@@ -184,5 +185,45 @@ final class DetailMedicinasVM: ObservableObject {
             }
             
         }
+    }
+    
+    // TODO: Eliminar
+    func showDeleteAlert() {
+        
+    }
+    
+    func prueba(valor: String) {
+        print("ES LA FUNCION DE PRUEBA \(valor)")
+    }
+    
+    func delete(context: NSManagedObjectContext, deleteAll: Bool, medicine: Medicinas) {
+        Task {
+            do {
+                if deleteAll {
+                    print("SE ELIMINAN TODOS LOS RECORDATORIOS")
+                    //try await deleteAllGroup(context: context, medicine: medicine)
+                } else {
+                    print("SE ELIMINA SOLO ESTE RECORDATORIO")
+                    try await deleteOne(context: context, medicine: medicine)
+                }
+            }
+        }
+    }
+    
+    func deleteOne(context: NSManagedObjectContext, medicine: Medicinas) async throws {
+        if let id = medicine.id {
+            context.delete(medicine)
+            do {
+                try context.save()
+                Notifications().eliminarNotificacion(id: id)
+            } catch {
+                print("ERROR in medicine delete: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func deleteAllGroup(context: NSManagedObjectContext, medicine: Medicinas) async throws {
+        // TODO: Desarrollar
+        
     }
 }

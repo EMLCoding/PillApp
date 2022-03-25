@@ -12,14 +12,20 @@ struct MedicinasAPIView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(medicinesAPIVM.searchedMedicines) { medicine in
-                    Text(medicine.nombre.capitalized)
+            ZStack {
+                Color("Background").edgesIgnoringSafeArea(.all)
+                List {
+                    ForEach(medicinesAPIVM.searchedMedicines) { medicine in
+                        NavigationLink(medicine.nombre.capitalized) {
+                            DetalleMedicinaApiView(medicament: medicine)
+                        }
                         .onAppear {
                             if medicine.id == medicinesAPIVM.searchedMedicines.last?.id {
                                 medicinesAPIVM.page += 1
                             }
                         }
+                    }
+                    
                 }
                 
             }

@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct MedicinaView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var detailMedicinasVM = DetailMedicinasVM(medicine: nil)
+    
+    @State var showAlert = false
+    
     let medicine: Medicinas
     
     var body: some View {
@@ -44,13 +49,31 @@ struct MedicinaView: View {
                 Label("Mark as taken", systemImage: "checkmark")
             }
             Button {
-                
+                showAlert = true
             } label: {
                 Label("Delete", systemImage: "trash.fill")
             }
         }
+        .confirmationDialog("Delete reminder", isPresented: $showAlert) {
+            Button(role: .destructive) {
+                detailMedicinasVM.delete(context: viewContext, deleteAll: false, medicine: medicine)
+            } label: {
+                Text("Delete this reminder")
+            }
+            
+            Button(role: .destructive) {
+                detailMedicinasVM.delete(context: viewContext, deleteAll: true, medicine: medicine)
+            } label: {
+                Text("Delete all reminder group")
+            }
+
+        } message: {
+            Text("Do you want to delete this reminder or all future reminders for this medication?")
+        }
+        
         
     }
+    
 }
 
 struct MedicinaView_Previews: PreviewProvider {
