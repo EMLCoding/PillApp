@@ -201,7 +201,7 @@ final class DetailMedicinasVM: ObservableObject {
             do {
                 if deleteAll {
                     print("SE ELIMINAN TODOS LOS RECORDATORIOS")
-                    //try await deleteAllGroup(context: context, medicine: medicine)
+                    try await deleteAllGroup(context: context, medicine: medicine)
                 } else {
                     print("SE ELIMINA SOLO ESTE RECORDATORIO")
                     try await deleteOne(context: context, medicine: medicine)
@@ -222,8 +222,6 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
-    func deleteAllGroup(context: NSManagedObjectContext, medicine: Medicinas) async throws {
-        // TODO: Desarrollar
-        
-    }
+    // TODO: Desarrollo para proximas versiones
+    func deleteAllGroup(context: NSManagedObjectContext, medicine: Medicinas) async throws {}
 }

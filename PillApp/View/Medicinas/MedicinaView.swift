@@ -61,11 +61,11 @@ struct MedicinaView: View {
                 Text("Delete this reminder")
             }
             
-            Button(role: .destructive) {
-                detailMedicinasVM.delete(context: viewContext, deleteAll: true, medicine: medicine)
-            } label: {
-                Text("Delete all reminder group")
-            }
+//            Button(role: .destructive) {
+//                detailMedicinasVM.delete(context: viewContext, deleteAll: true, medicine: medicine)
+//            } label: {
+//                Text("Delete all reminder group")
+//            }
 
         } message: {
             Text("Do you want to delete this reminder or all future reminders for this medication?")

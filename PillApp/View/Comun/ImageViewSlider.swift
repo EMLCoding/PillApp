@@ -12,14 +12,29 @@ struct ImageViewSlider: View {
     @ObservedObject var imageSliderVM: ImageSliderVM
     
     var body: some View {
-        TabView {
-            ForEach(imageSliderVM.downloadedImages, id: \.self) { image in
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-            }
+        GeometryReader { proxy in
+            ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(imageSliderVM.downloadedImages, id: \.self) { image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: proxy.size.width, height: 200)
+                            }
+                        }
+                        
+                    }
         }
-        .tabViewStyle(PageTabViewStyle())
+        
+        
+        //        TabView {
+        //            ForEach(imageSliderVM.downloadedImages, id: \.self) { image in
+        //                Image(uiImage: image)
+        //                    .resizable()
+        //                    .scaledToFill()
+        //            }
+        //        }
+        //        .tabViewStyle(PageTabViewStyle())
     }
 }
 

@@ -15,11 +15,9 @@ struct DetalleMedicinaApiView: View {
             Color("Background").edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading) {
                 
-                List {
-                    ImageViewSlider(imageSliderVM: ImageSliderVM(images: medicament.fotos ?? []))
-                        .frame(height: 300)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                }
+                ImageViewSlider(imageSliderVM: ImageSliderVM(images: medicament.fotos ?? []))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .frame(height: 200)
                 
                 HStack {
                     Image(systemName: "heart.text.square")
@@ -56,10 +54,10 @@ struct DetalleMedicinaApiView: View {
                         .resizable()
                         .frame(width: 25, height: 25)
                     /*
-                    Link("Ver Prospecto", destination: URL(string: urlProspecto)!)
-                        .foregroundColor(Color("MainColor"))
-                        .disabled(urlProspecto == "")
-                        .padding(.leading, 10)
+                     Link("Ver Prospecto", destination: URL(string: urlProspecto)!)
+                     .foregroundColor(Color("MainColor"))
+                     .disabled(urlProspecto == "")
+                     .padding(.leading, 10)
                      */
                 }
                 
@@ -67,6 +65,7 @@ struct DetalleMedicinaApiView: View {
             }
             .padding()
         }
+        .navigationTitle("Details")
         
     }
 }

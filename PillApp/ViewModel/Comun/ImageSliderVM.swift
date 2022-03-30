@@ -10,12 +10,14 @@ import SwiftUI
 final class ImageSliderVM: ObservableObject {
     
     @Published var downloadedImages: [UIImage] = []
+    @Published var imageDownloaded: UIImage = UIImage()
     
-    let images: [Foto]
+    var images: [Foto]
     
     init(images: [Foto]) {
         self.images = images
-        
+        self.downloadedImages = []
+
         Task {
             do {
                 try await getImages()
@@ -25,15 +27,26 @@ final class ImageSliderVM: ObservableObject {
         }
     }
     
-    func getImages() async throws {
+    @MainActor func getImages() async throws {
         for image in images {
             if let urlImage = URL(string: image.url) {
-                let image = try await getNetwork(url: urlImage) {
-                    UIImage(data: $0)
+                let (data, _) = try await URLSession.shared.data(from: urlImage)
+                if let image = UIImage(data: data) {
+                    downloadedImages.append(image)
+                    print("IMAGEN: \(image)")
+                } else {
+                    print("Content not valid: \(urlImage)")
                 }
-                downloadedImages.append(image)
             }
         }
+//        for image in images {
+//            if let urlImage = URL(string: image.url) {
+//                let image = try await getNetwork(url: urlImage) {
+//                    UIImage(data: $0)
+//                }
+//                downloadedImages.append(image)
+//            }
+//        }
     }
     
     func getNetwork<Element>(url: URL, builder: @escaping (Data) -> Element?) async throws -> Element {

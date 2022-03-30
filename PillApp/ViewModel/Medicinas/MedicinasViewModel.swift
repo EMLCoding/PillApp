@@ -11,7 +11,5 @@ final class MedicinesVM: ObservableObject {
     
     @Published var currentYear = Date.now.extractDate(format: "yyyy")
     
-    func addMedicine() {
-        
-    }
+    // TODO: Cambio de fecha
 }

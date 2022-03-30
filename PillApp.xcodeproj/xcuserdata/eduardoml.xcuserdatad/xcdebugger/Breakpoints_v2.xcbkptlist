@@ -3,4 +3,166 @@
    uuid = "DBD92BD0-8B97-430D-A588-4812977D8095"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "87919055-5D24-48ED-83C8-B1D0AC1B37AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getImages()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC8EA335-507B-4C9D-B937-7A046B75FC8B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getImages()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D78F3F70-8585-453C-84CF-DC9F00F520B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getImages()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "init(images:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F - 8440819d365b55fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in PillApp.ImageSliderVM.init(images: Swift.Array&lt;PillApp.Foto&gt;) -&gt; PillApp.ImageSliderVM"
+                  moduleName = "PillApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/Comun/ImageSliderVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F - f8140e174bc1e5ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in PillApp.ImageSliderVM.init(images: Swift.Array&lt;PillApp.Foto&gt;) -&gt; PillApp.ImageSliderVM"
+                  moduleName = "PillApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/Comun/ImageSliderVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C352DC8-B281-4704-9991-141ADF3A5B8A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getImages()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41C8CBA1-FCF1-466A-9636-EFFB7B081B05"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getImages()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "41C8CBA1-FCF1-466A-9636-EFFB7B081B05 - 9385802c54433dcc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for PillApp.ImageSliderVM.getImages() async throws -&gt; ()"
+                  moduleName = "PillApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/Comun/ImageSliderVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "542">
+               </Location>
+               <Location
+                  uuid = "41C8CBA1-FCF1-466A-9636-EFFB7B081B05 - 6a8a1ac62598c9ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for PillApp.ImageSliderVM.getImages() async throws -&gt; ()"
+                  moduleName = "PillApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/Comun/ImageSliderVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "477">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
