@@ -17,7 +17,7 @@ struct MedicinasAPIView: View {
                 List {
                     ForEach(medicinesAPIVM.searchedMedicines) { medicine in
                         NavigationLink(medicine.nombre.capitalized) {
-                            DetalleMedicinaApiView(medicament: medicine)
+                            DetalleMedicinaApiView(medicinasAPIVM: medicinesAPIVM, medicament: medicine)
                         }
                         .onAppear {
                             if medicine.id == medicinesAPIVM.searchedMedicines.last?.id {

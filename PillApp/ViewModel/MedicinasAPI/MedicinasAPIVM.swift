@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class MedicinasAPIVM: ObservableObject {
-    @Published var searchedMedicines = [MedicineAPI]()
+    @Published var searchedMedicines: [MedicineAPI] = []
     
     @Published var query = "" {
         didSet {
@@ -29,6 +29,9 @@ final class MedicinasAPIVM: ObservableObject {
         }
     }
     
+    @Published var dataSheetURL = ""
+    @Published var leaftletURL = ""
+    
     
     @MainActor func find() async {
         do {
@@ -41,11 +44,20 @@ final class MedicinasAPIVM: ObservableObject {
                 if self.page == 1 {
                     self.searchedMedicines.removeAll()
                 }
-                searchedMedicines.append(contentsOf: result.resultados.sorted(by: { $0.nombre > $1.nombre }))
+                searchedMedicines.append(contentsOf: result.resultados)
+                searchedMedicines.sort(by: {$0.nombre < $1.nombre})
             }
             
         } catch {
             print("Error recuperando la lista de medicinas \(error)")
+        }
+    }
+    
+    func getFile(_ medicament: MedicineAPI, type: Int) -> String {
+        if let docs = medicament.docs, let document = docs.filter({ $0.tipo == type}).first {
+            return document.url
+        } else {
+            return ""
         }
     }
 }

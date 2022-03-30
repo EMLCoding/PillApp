@@ -40,13 +40,16 @@ extension URL {
         }
         //urlC.path = "nombre=\(name)"
         let pagination = URLQueryItem(name: "pagina", value: String(page))
+        let comerc = URLQueryItem(name: "comerc", value: "1")
+        let authorized = URLQueryItem(name: "autorizados", value: "1")
         if (name != "") {
             let search = URLQueryItem(name: "nombre", value: name)
-            urlC.queryItems = [search, pagination]
+            urlC.queryItems = [search, pagination, comerc, authorized]
         } else {
-            urlC.queryItems = [pagination]
+            urlC.queryItems = [pagination, comerc, authorized]
         }
         
+        print("URL: \(urlC.url!)")
         return urlC.url!
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DetalleMedicinaApiView: View {
+    @ObservedObject var medicinasAPIVM: MedicinasAPIVM
+    
     var medicament: MedicineAPI
     
     var body: some View {
@@ -15,9 +17,12 @@ struct DetalleMedicinaApiView: View {
             Color("Background").edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading) {
                 
-                ImageViewSlider(imageSliderVM: ImageSliderVM(images: medicament.fotos ?? []))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .frame(height: 200)
+                if (!(medicament.fotos?.isEmpty ?? true)) {
+                    ImageViewSlider(imageSliderVM: ImageSliderVM(images: medicament.fotos ?? []))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .frame(height: 200)
+                        .padding(.bottom)
+                }
                 
                 HStack {
                     Image(systemName: "heart.text.square")
@@ -49,16 +54,28 @@ struct DetalleMedicinaApiView: View {
                 
                 Divider()
                 
-                HStack {
-                    Image(systemName: "doc.circle")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                    /*
-                     Link("Ver Prospecto", destination: URL(string: urlProspecto)!)
-                     .foregroundColor(Color("MainColor"))
-                     .disabled(urlProspecto == "")
-                     .padding(.leading, 10)
-                     */
+                if (!(medicament.docs?.filter {$0.tipo == 1}.isEmpty ?? true)) {
+                    HStack {
+                        Image(systemName: "doc.circle")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                        NavigationLink("See data sheet") {
+                            PdfView(url: medicinasAPIVM.getFile(medicament, type: 1))
+                        }
+                        .padding(.leading, 10)
+                    }
+                }
+                
+                if (!(medicament.docs?.filter {$0.tipo == 2}.isEmpty ?? true)) {
+                    HStack {
+                        Image(systemName: "doc.circle")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                        NavigationLink("See leaflet") {
+                            PdfView(url: medicinasAPIVM.getFile(medicament, type: 2))
+                        }
+                        .padding(.leading, 10)
+                    }
                 }
                 
                 Spacer()
@@ -72,6 +89,6 @@ struct DetalleMedicinaApiView: View {
 
 struct DetalleMedicinaApiView_Previews: PreviewProvider {
     static var previews: some View {
-        DetalleMedicinaApiView(medicament: MedicineAPI(id: "", nombre: "", labtitular: "", cpresc: "", viasAdministracion: nil, docs: nil, fotos: nil))
+        DetalleMedicinaApiView(medicinasAPIVM: MedicinasAPIVM(), medicament: MedicineAPI(id: "", nombre: "", labtitular: "", cpresc: "", viasAdministracion: nil, docs: nil, fotos: nil))
     }
 }

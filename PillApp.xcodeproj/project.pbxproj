@@ -30,6 +30,8 @@
 		CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */; };
 		CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861127A0584800E95536 /* DayPickerView.swift */; };
 		CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861427A0587300E95536 /* DayPickerVM.swift */; };
+		CBF6FFE027F49C0600D2CF14 /* PdfReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6FFDF27F49C0600D2CF14 /* PdfReader.swift */; };
+		CBF6FFE227F49F5100D2CF14 /* PdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6FFE127F49F5100D2CF14 /* PdfView.swift */; };
 		CBF7161A27E7590D00A96AFD /* MedicinaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7161927E7590D00A96AFD /* MedicinaView.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasViewModel.swift; sourceTree = "<group>"; };
 		CBAE861127A0584800E95536 /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		CBAE861427A0587300E95536 /* DayPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerVM.swift; sourceTree = "<group>"; };
+		CBF6FFDF27F49C0600D2CF14 /* PdfReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfReader.swift; sourceTree = "<group>"; };
+		CBF6FFE127F49F5100D2CF14 /* PdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfView.swift; sourceTree = "<group>"; };
 		CBF7161927E7590D00A96AFD /* MedicinaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +171,7 @@
 			children = (
 				CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */,
 				CB32826127EE6F3200CA70B1 /* DetalleMedicinaApiView.swift */,
+				CBF6FFE127F49F5100D2CF14 /* PdfView.swift */,
 			);
 			path = MedicinasAPI;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				CB32826327EE735E00CA70B1 /* ImageViewSlider.swift */,
 				CBAE861127A0584800E95536 /* DayPickerView.swift */,
 				CB0F61DE27E623D2008A9AFF /* AlertView.swift */,
+				CBF6FFDF27F49C0600D2CF14 /* PdfReader.swift */,
 			);
 			path = Comun;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				CBAE860827A053F600E95536 /* Model.swift in Sources */,
 				CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */,
 				CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */,
+				CBF6FFE227F49F5100D2CF14 /* PdfView.swift in Sources */,
 				CB0F61DB27E60769008A9AFF /* DateFormat.swift in Sources */,
 				CBAE85F827A049C900E95536 /* Persistence.swift in Sources */,
 				CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */,
@@ -292,6 +299,7 @@
 				CB0F61DF27E623D2008A9AFF /* AlertView.swift in Sources */,
 				CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */,
 				CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */,
+				CBF6FFE027F49C0600D2CF14 /* PdfReader.swift in Sources */,
 				CB32826427EE735E00CA70B1 /* ImageViewSlider.swift in Sources */,
 				CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */,
 				CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */,

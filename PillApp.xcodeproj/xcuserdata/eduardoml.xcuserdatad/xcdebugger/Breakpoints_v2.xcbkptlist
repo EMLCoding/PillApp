@@ -68,7 +68,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F - 8440819d365b55fd"
+                  uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F - 8440819d365b55de"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -78,12 +78,12 @@
                   urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/Comun/ImageSliderVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
                   offsetFromSymbolStart = "64">
                </Location>
                <Location
-                  uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F - f8140e174bc1e5ee"
+                  uuid = "4A38A6C5-19D7-419C-AA9A-6C1B2A02826F - f8140e174bc1e5cd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -93,8 +93,8 @@
                   urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/Comun/ImageSliderVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
                   offsetFromSymbolStart = "100">
                </Location>
             </Locations>
@@ -160,6 +160,54 @@
                   startingLineNumber = "32"
                   endingLineNumber = "32"
                   offsetFromSymbolStart = "477">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF4C9B72-8577-40AF-BED3-E2BEC40FBA9F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/MedicinasAPI/MedicinasAPIVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "getFile(_:type:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF4C9B72-8577-40AF-BED3-E2BEC40FBA9F - d6192ae52d8d269"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PillApp.MedicinasAPIVM.getFile(_: PillApp.MedicineAPI, type: Swift.Int) -&gt; Swift.String"
+                  moduleName = "PillApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/MedicinasAPI/MedicinasAPIVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  uuid = "CF4C9B72-8577-40AF-BED3-E2BEC40FBA9F - d6192ae52d8d269"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PillApp.MedicinasAPIVM.getFile(_: PillApp.MedicineAPI, type: Swift.Int) -&gt; Swift.String"
+                  moduleName = "PillApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardoml/Desarrollos/PillApp/PillApp/PillApp/ViewModel/MedicinasAPI/MedicinasAPIVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "163">
                </Location>
             </Locations>
          </BreakpointContent>
