@@ -31,19 +31,15 @@ struct ContentView: View {
                     showAlert = true
                     alertData = data
                 }
+                showBlurEffect = true
             }
             .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
                 showAlert = false
-            }
-            .onReceive(NotificationCenter.default.publisher(for: .activateBlurEffect)) { _ in
-                showBlurEffect = true
-            }
-            .onReceive(NotificationCenter.default.publisher(for: .deactivateBlurEffect)) { _ in
                 showBlurEffect = false
             }
             
             if (showAlert) {
-                AlertView(image: alertData.image, title: alertData.title, text: alertData.text, seeButtons: true, functionButton1: {}, functionButton2: {})
+                AlertView(image: alertData.image, title: alertData.title, text: alertData.text, textButton: alertData.textButton)
             }
             
         }

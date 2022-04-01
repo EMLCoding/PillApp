@@ -172,8 +172,8 @@ struct AlertData {
     let title: String
     let image: String
     let text: String
-    let textButton1: String?
+    let textButton: String?
     
-    static let empty = AlertData(title: "", image: "", text: "", textButton1: nil)
+    static let empty = AlertData(title: "", image: "", text: "", textButton: nil)
 }
 

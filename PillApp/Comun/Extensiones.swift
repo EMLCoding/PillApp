@@ -57,6 +57,4 @@ extension URL {
 extension Notification.Name {
     static let showAlert = Notification.Name("showAlert")
     static let hideAlert = Notification.Name("hideAlert")
-    static let activateBlurEffect = Notification.Name("activateBlurEffect")
-    static let deactivateBlurEffect = Notification.Name("deactivateBlurEffect")
 }

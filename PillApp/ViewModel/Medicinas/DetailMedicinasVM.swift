@@ -159,7 +159,7 @@ final class DetailMedicinasVM: ObservableObject {
             try context.save()
             Notifications().createNotification(id: id, date: date, element: self.medicineName, type: 1)
             // TODO: Conseguir traducir los parametros
-            NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Medication reminder", image: "heart.text.square.fill", text: "Reminders have been created successfully", textButton1: nil))
+            NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Medication reminder", image: "heart.text.square.fill", text: "Reminders have been created successfully", textButton: nil))
         }
     }
     

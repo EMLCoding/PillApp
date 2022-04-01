@@ -13,13 +13,7 @@ struct AlertView: View {
     var image: String
     var title: String
     var text: String
-    var seeButtons: Bool
-    let functionButton1: () -> ()
-    let functionButton2: () -> ()
-    var textButton1: String?
-    var seeSecondButton = false
-    var textButton2: String?
-    var seeCancelButton = false
+    var textButton: String?
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
@@ -37,38 +31,14 @@ struct AlertView: View {
                 Text(text)
                     .multilineTextAlignment(.center)
                 
-                if (seeButtons) {
                     Divider()
                     HStack {
-                        Button(action: functionButton1) {
-                            Text("Hola")
-                        }
-                        Button(textButton1 ?? "OK") {
+                        Button(textButton ?? "OK") {
                             NotificationCenter.default.post(name: .hideAlert, object: nil)
                         }
                         .buttonStyle(.borderedProminent)
                         .buttonBorderShape(.capsule)
-                        
-                        if (seeSecondButton) {
-                            Button(textButton2 ?? "") {
-                                NotificationCenter.default.post(name: .hideAlert, object: nil)
-                                functionButton2()
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .buttonBorderShape(.capsule)
-                        }
-                        
-                        if (seeCancelButton) {
-                            Button("Cancel") {
-                                NotificationCenter.default.post(name: .hideAlert, object: nil)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .buttonBorderShape(.capsule)
-                        }
                     }
-                    
-                    
-                }
             }
             .frame(width: 250)
             .padding(.vertical,25)
@@ -93,6 +63,6 @@ struct BlurView: UIViewRepresentable {
 
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertView(image: "heart.text.square.fill", title: "Medicines reminder", text: "Reminders have been created successfully", seeButtons: true, functionButton1: {}, functionButton2: {})
+        AlertView(image: "heart.text.square.fill", title: "Medicines reminder", text: "Reminders have been created successfully")
     }
 }

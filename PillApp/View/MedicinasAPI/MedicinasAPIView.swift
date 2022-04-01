@@ -34,6 +34,12 @@ struct MedicinasAPIView: View {
             }
             .navigationTitle("Search a medicine")
             .searchable(text: $medicinesAPIVM.query)
+            .onAppear {
+                if (NSLocale.preferredLanguages[0] != "es") {
+                    NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Data Notice", image: "heart.text.square.fill", text: "The medicines that appear in this functionality are only medicines sold in Spain.", textButton: "See spanish info"))
+                }
+                
+            }
         }
     }
 }
