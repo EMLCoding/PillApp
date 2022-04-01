@@ -8,22 +8,27 @@
 import SwiftUI
 
 final class MedicinasAPIVM: ObservableObject {
+    var task: Task<(), Never>?
+    
     @Published var searchedMedicines: [MedicineAPI] = []
+    @Published var isLoadingData = false
     
     @Published var query = "" {
         didSet {
             page = 1
             
-            Task(priority: .medium) {
-                await find()
-            }
-             
+            if !query.isEmpty {
+                if task != nil {
+                    task?.cancel()
+                }
+                task = Task { await find() }
+            }             
         }
     }
     
     @Published var page = 1 {
         didSet {
-            Task(priority: .medium) {
+            Task(priority: .high) {
                 await find()
             }
         }
@@ -38,6 +43,7 @@ final class MedicinasAPIVM: ObservableObject {
             if (query == "") {
                 searchedMedicines.removeAll()
             } else {
+                isLoadingData = true
                 let decoder = JSONDecoder()
                 let (data, _) = try await URLSession.shared.data(from: .urlMedicines(name: query, page: page))
                 let result = try decoder.decode(Results.self, from: data)
@@ -45,7 +51,8 @@ final class MedicinasAPIVM: ObservableObject {
                     self.searchedMedicines.removeAll()
                 }
                 searchedMedicines.append(contentsOf: result.resultados)
-                searchedMedicines.sort(by: {$0.nombre < $1.nombre})
+                isLoadingData = false
+                //searchedMedicines.sort(by: {$0.nombre < $1.nombre})
             }
             
         } catch {
