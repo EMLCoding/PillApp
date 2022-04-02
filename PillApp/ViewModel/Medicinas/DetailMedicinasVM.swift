@@ -37,7 +37,6 @@ final class DetailMedicinasVM: ObservableObject {
             self.medicine = medicine
             isEdition = true
             medicineName = medicine.name ?? ""
-            print("MEDICINENAME: \(medicineName)")
             category = Categories(rawValue: medicine.category ?? "Others") ?? .others
             icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pastillas
             medicineDate = medicine.date ?? Date.now
@@ -173,11 +172,9 @@ final class DetailMedicinasVM: ObservableObject {
         
         try await context.perform {
             if ((self.medicine?.hasChanges) != nil) {
-                print("Se edita la medicina")
                 try context.save()
                 let id = self.medicine?.id ?? UUID()
                 if self.medicineDate != oldDate {
-                    print("Se actualiza la notificacion")
                     Notifications().eliminarNotificacion(id: id)
                     Notifications().createNotification(id: id, date: self.medicineDate, element: self.medicineName, type: 1)
                 }
@@ -187,24 +184,13 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
-    // TODO: Eliminar
-    func showDeleteAlert() {
-        
-    }
-    
-    func prueba(valor: String) {
-        print("ES LA FUNCION DE PRUEBA \(valor)")
-    }
-    
-    func delete(context: NSManagedObjectContext, deleteAll: Bool, medicine: Medicinas) {
+    func delete(context: NSManagedObjectContext, medicine: Medicinas, deleteAll: Bool) {
         Task {
             do {
-                if deleteAll {
-                    print("SE ELIMINAN TODOS LOS RECORDATORIOS")
-                    try await deleteAllGroup(context: context, medicine: medicine)
+                if !deleteAll {
+                        try await deleteOne(context: context, medicine: medicine)
                 } else {
-                    print("SE ELIMINA SOLO ESTE RECORDATORIO")
-                    try await deleteOne(context: context, medicine: medicine)
+                        try await deleteAllGroup(context: context, medicines: getMedicamentsWith(medicament: medicine, context: context))
                 }
             }
         }
@@ -222,6 +208,29 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
-    // TODO: Desarrollo para proximas versiones
-    func deleteAllGroup(context: NSManagedObjectContext, medicine: Medicinas) async throws {}
+    func deleteAllGroup(context: NSManagedObjectContext, medicines: [Medicinas]) async throws {
+        for medicine in medicines {
+            if let id = medicine.id {
+                context.delete(medicine)
+                Notifications().eliminarNotificacion(id: id)
+            }
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print("ERROR in medicament delete: \(error.localizedDescription)")
+        }
+    }
+    
+    func getMedicamentsWith(medicament: Medicinas, context: NSManagedObjectContext) -> [Medicinas] {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Medicinas")
+        fetchRequest.predicate = NSPredicate(format: "idGroup == %@ && date >= %@", (medicament.idGroup ?? UUID()) as CVarArg, Calendar.current.startOfDay(for: medicament.date ?? Date.now) as CVarArg)
+        do {
+            return try context.fetch(fetchRequest) as! [Medicinas]
+        } catch {
+            print("ERROR: \(error.localizedDescription)")
+        }
+        return []
+    }
 }

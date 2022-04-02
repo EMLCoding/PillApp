@@ -17,6 +17,7 @@ struct MedicinaView: View {
     
     var body: some View {
         HStack {
+            // TODO: Arreglar
             Image(/*Icons(rawValue: medicine.icon ?? "Pills")?.rawValue ??*/ "tirita")
                 .resizable()
                 .scaledToFit()
@@ -56,16 +57,16 @@ struct MedicinaView: View {
         }
         .confirmationDialog("Delete reminder", isPresented: $showAlert) {
             Button(role: .destructive) {
-                detailMedicinasVM.delete(context: viewContext, deleteAll: false, medicine: medicine)
+                detailMedicinasVM.delete(context: viewContext, medicine: medicine, deleteAll: false)
             } label: {
                 Text("Delete this reminder")
             }
             
-//            Button(role: .destructive) {
-//                detailMedicinasVM.delete(context: viewContext, deleteAll: true, medicine: medicine)
-//            } label: {
-//                Text("Delete all reminder group")
-//            }
+            Button(role: .destructive) {
+                detailMedicinasVM.delete(context: viewContext, medicine: medicine, deleteAll: true)
+            } label: {
+                Text("Delete all reminder group")
+            }
 
         } message: {
             Text("Do you want to delete this reminder or all future reminders for this medication?")
