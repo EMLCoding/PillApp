@@ -222,8 +222,8 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "deleteAllGroup(context:medicines:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "getMedicamentsWith(medicament:context:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,9 +254,25 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "deleteAllGroup(context:medicines:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE59CA56-5E4B-419B-BA55-F4A20BFC6DB1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "changeState(medicament:context:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

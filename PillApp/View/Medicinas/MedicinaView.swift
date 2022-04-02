@@ -45,9 +45,11 @@ struct MedicinaView: View {
         )
         .contextMenu {
             Button {
-                
+                Task {
+                    await detailMedicinasVM.changeState(medicament: medicine, context: viewContext)
+                }
             } label: {
-                Label("Mark as taken", systemImage: "checkmark")
+                Label(medicine.taken ? "Demark as taken" : "Mark as taken", systemImage: medicine.taken ? "minus.circle" : "checkmark")
             }
             Button {
                 showAlert = true

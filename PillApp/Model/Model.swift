@@ -15,6 +15,7 @@ struct Medicine: Identifiable {
     let date: Date
     var category: String
     var icon: String
+    var taken: Bool
     
     var medicineCategory: Categories {
         set {

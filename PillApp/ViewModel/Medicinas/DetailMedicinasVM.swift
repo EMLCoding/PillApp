@@ -153,6 +153,7 @@ final class DetailMedicinasVM: ObservableObject {
         medicine.date = date
         medicine.category = category.rawValue
         medicine.icon = icon.rawValue
+        medicine.taken = false
         
         try await context.perform {
             try context.save()
@@ -188,9 +189,9 @@ final class DetailMedicinasVM: ObservableObject {
         Task {
             do {
                 if !deleteAll {
-                        try await deleteOne(context: context, medicine: medicine)
+                    try await deleteOne(context: context, medicine: medicine)
                 } else {
-                        try await deleteAllGroup(context: context, medicines: getMedicamentsWith(medicament: medicine, context: context))
+                    try await deleteAllGroup(context: context, medicines: getMedicamentsWith(medicament: medicine, context: context))
                 }
             }
         }
@@ -232,5 +233,22 @@ final class DetailMedicinasVM: ObservableObject {
             print("ERROR: \(error.localizedDescription)")
         }
         return []
+    }
+    
+    func changeState(medicament: Medicinas, context: NSManagedObjectContext) async {
+        medicament.taken.toggle()
+        
+        do {
+            try await context.perform {
+                    try context.save()
+                    if (medicament.taken) {
+                        Notifications().eliminarNotificacion(id: medicament.id ?? UUID())
+                    } else {
+                        Notifications().createNotification(id: medicament.id ?? UUID(), date: medicament.date ?? Date.now, element: medicament.name ?? "", type: 1)
+                    }
+            }
+        } catch {
+            print("ERROR changing state: \(error.localizedDescription)")
+        }
     }
 }
