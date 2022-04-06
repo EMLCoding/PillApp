@@ -26,6 +26,7 @@ struct DetailMedicinasView: View {
                 Section(header: Text("Details \(actualField ?? 999)")) {
                     TextField("Name of medicine", text: $detailMedicinasVM.medicineName)
                         .focused($actualField, equals: 0)
+                        .submitLabel(.next)
                     
                     Menu {
                         Picker(selection: $detailMedicinasVM.category, label: Text("Category")) {
@@ -136,6 +137,7 @@ struct DetailMedicinasView: View {
                     TextEditor(text: $detailMedicinasVM.medicineNotes)
                         .frame(minHeight: 100)
                         .focused($actualField, equals: 1)
+                        .submitLabel(.next)
                 }
             }
             .background(Color("Background"))

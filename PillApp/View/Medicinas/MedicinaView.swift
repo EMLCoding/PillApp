@@ -18,7 +18,7 @@ struct MedicinaView: View {
     var body: some View {
         HStack {
             // TODO: Arreglar
-            Image(/*Icons(rawValue: medicine.icon ?? "Pills")?.rawValue ??*/ "tirita")
+            Image(Icons(rawValue: medicine.icon ?? "Pills")?.getIconName() ?? "tirita")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 40, height: 40)

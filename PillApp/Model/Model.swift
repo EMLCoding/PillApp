@@ -121,6 +121,21 @@ enum Icons: String, Identifiable, CaseIterable {
         return NSLocalizedString(self.rawValue, comment: "")
     }
     
+    func getIconName() -> String {
+        switch self {
+        case .tirita:
+            return "tirita"
+        case .botiquin:
+            return "botiquin"
+        case .corazon:
+            return "corazon"
+        case .pastillas:
+            return "pastillas"
+        case .frasco:
+            return "frasco"
+        }
+    }
+    
     static func getTitleFor(title:Icons) -> String {
         return title.localizedString()
     }
