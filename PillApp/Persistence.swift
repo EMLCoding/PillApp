@@ -22,6 +22,7 @@ struct PersistenceController {
         pruebaMedicina.taken = false
         pruebaMedicina.category = Categories(rawValue: "Otros")?.rawValue
         pruebaMedicina.icon = Icons(rawValue: "Tirita")?.rawValue
+        pruebaMedicina.notes = "Notes medicament 1"
         
         let pruebaMedicina2 = Medicinas(context: viewContext)
         pruebaMedicina2.id = UUID()
@@ -30,6 +31,7 @@ struct PersistenceController {
         pruebaMedicina2.taken = true
         pruebaMedicina2.category = Categories(rawValue: "Otros")?.rawValue
         pruebaMedicina2.icon = Icons(rawValue: "Tirita")?.rawValue
+        pruebaMedicina2.notes = "Notes medicament 2"
         
         do {
             try viewContext.save()
@@ -77,6 +79,7 @@ struct PersistenceController {
         newMedicine.taken = false
         newMedicine.category = Categories(rawValue: "Otros")?.rawValue
         newMedicine.icon = Icons(rawValue: "Tirita")?.rawValue
+        newMedicine.notes = "Notes"
         
         return newMedicine
     }()

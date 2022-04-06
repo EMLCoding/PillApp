@@ -14,8 +14,8 @@
             filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "getImages()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "getImages()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "PillApp/ViewModel/Comun/ImageSliderVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "getImages()"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "deleteAllGroup(context:medicines:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "getMedicamentsWith(medicament:context:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +254,8 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "deleteAllGroup(context:medicines:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "PillApp/ViewModel/Medicinas/DetailMedicinasVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "changeState(medicament:context:)"
             landmarkType = "7">
          </BreakpointContent>

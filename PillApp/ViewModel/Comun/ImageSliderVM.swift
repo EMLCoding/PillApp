@@ -33,7 +33,6 @@ final class ImageSliderVM: ObservableObject {
                 let (data, _) = try await URLSession.shared.data(from: urlImage)
                 if let image = UIImage(data: data) {
                     downloadedImages.append(image)
-                    print("IMAGEN: \(image)")
                 } else {
                     print("Content not valid: \(urlImage)")
                 }

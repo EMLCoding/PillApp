@@ -11,6 +11,7 @@ import CoreData
 final class DetailMedicinasVM: ObservableObject {
     @Published var isEdition = false
     @Published var medicineName = ""
+    @Published var medicineNotes = ""
     @Published var category: Categories = .others
     @Published var icon: Icons = .pastillas
     
@@ -30,6 +31,8 @@ final class DetailMedicinasVM: ObservableObject {
     @Published var dayOfWeek = DaysOfWeek.monday
     
     
+    
+    
     var medicine: Medicinas?
     
     init(medicine: Medicinas?) {
@@ -37,6 +40,7 @@ final class DetailMedicinasVM: ObservableObject {
             self.medicine = medicine
             isEdition = true
             medicineName = medicine.name ?? ""
+            medicineNotes = medicine.notes ?? ""
             category = Categories(rawValue: medicine.category ?? "Others") ?? .others
             icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pastillas
             medicineDate = medicine.date ?? Date.now
@@ -150,6 +154,7 @@ final class DetailMedicinasVM: ObservableObject {
         medicine.id = id
         medicine.idGroup = idGroup
         medicine.name = medicineName
+        medicine.notes = medicineNotes
         medicine.date = date
         medicine.category = category.rawValue
         medicine.icon = icon.rawValue
@@ -166,6 +171,7 @@ final class DetailMedicinasVM: ObservableObject {
     func edit(context: NSManagedObjectContext) async throws {
         let oldDate = medicine?.date ?? Date.now
         medicine?.name = medicineName
+        medicine?.notes = medicineNotes
         medicine?.category = category.rawValue
         medicine?.icon = icon.rawValue
         medicine?.date = medicineDate

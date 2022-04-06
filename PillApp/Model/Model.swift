@@ -16,6 +16,7 @@ struct Medicine: Identifiable {
     var category: String
     var icon: String
     var taken: Bool
+    var notes: String
     
     var medicineCategory: Categories {
         set {
@@ -178,3 +179,7 @@ struct AlertData {
     static let empty = AlertData(title: "", image: "", text: "", textButton: nil)
 }
 
+// MARK: - Fields enums
+enum FieldDetailMedicaments: Int {
+    case name = 1
+}

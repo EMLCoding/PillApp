@@ -13,6 +13,8 @@ struct DetailMedicinasView: View {
     
     @ObservedObject var detailMedicinasVM: DetailMedicinasVM
     
+    @FocusState var actualField: Int?
+    
     init(detailMedicinasVM: DetailMedicinasVM){
         self.detailMedicinasVM = detailMedicinasVM
             UITableView.appearance().backgroundColor = .clear
@@ -21,8 +23,9 @@ struct DetailMedicinasView: View {
     @State var alertPresented = false
     var body: some View {
             Form {
-                Section(header: Text("Details")) {
+                Section(header: Text("Details \(actualField ?? 999)")) {
                     TextField("Name of medicine", text: $detailMedicinasVM.medicineName)
+                        .focused($actualField, equals: 0)
                     
                     Menu {
                         Picker(selection: $detailMedicinasVM.category, label: Text("Category")) {
@@ -129,6 +132,11 @@ struct DetailMedicinasView: View {
                     }
                 }
                 
+                Section(header: Text("Notes")) {
+                    TextEditor(text: $detailMedicinasVM.medicineNotes)
+                        .frame(minHeight: 100)
+                        .focused($actualField, equals: 1)
+                }
             }
             .background(Color("Background"))
         
@@ -140,6 +148,9 @@ struct DetailMedicinasView: View {
                     dismiss()
                 }
                 .disabled(detailMedicinasVM.medicineName == "")
+            }
+            ToolbarItem(placement: .keyboard) {
+                KeyboardButtons(keyboardVM: KeyboardVM(fields: [0, 1]), actualField: $actualField)
             }
         }
     }
