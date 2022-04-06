@@ -91,7 +91,7 @@ struct DetailMedicinasView: View {
                                         HStack {
                                             Text("Times a day")
                                             Picker("", selection: $detailMedicinasVM.dailyPeriodicity) {
-                                                ForEach(0 ..< $detailMedicinasVM.dailyPeriodicities.count) {
+                                                ForEach(0..<4) {
                                                     Text("\(self.detailMedicinasVM.dailyPeriodicities[$0])")
                                                 }
                                             }

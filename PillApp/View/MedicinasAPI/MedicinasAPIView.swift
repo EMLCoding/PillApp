@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MedicinasAPIView: View {
     @ObservedObject var medicinesAPIVM: MedicinasAPIVM
+    @AppStorage("hideLanguageDialog") private var hideLanguageDialog = false
     
     var body: some View {
         NavigationView {
@@ -32,11 +33,12 @@ struct MedicinasAPIView: View {
                 }
                 
             }
-            .navigationTitle("Search a medicine")
+            .navigationTitle("Search medicaments")
             .searchable(text: $medicinesAPIVM.query)
             .onAppear {
-                if (NSLocale.preferredLanguages[0] != "es") {
+                if (!hideLanguageDialog && NSLocale.preferredLanguages[0] != "es") {
                     NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Data Notice", image: "heart.text.square.fill", text: "The medicines that appear in this functionality are only medicines sold in Spain.", textButton: "See spanish info"))
+                    hideLanguageDialog = true
                 }
                 
             }
