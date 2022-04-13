@@ -24,8 +24,6 @@ struct ContentView: View {
                         Label("Medicines", systemImage: "pills")
                     }
             }
-            // TODO: Corregir bug del Blur
-            //.blur(radius: showBlurEffect ? 30 : 0)
             .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
                 if let data = notification.object as? AlertData {
                     showAlert = true
@@ -37,9 +35,8 @@ struct ContentView: View {
                 showAlert = false
                 showBlurEffect = false
             }
-            
-            if (showAlert) {
-                AlertView(image: alertData.image, title: alertData.title, text: alertData.text, textButton: alertData.textButton)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(alertData.title), message: Text(alertData.text), dismissButton: .default(Text(alertData.textButton ?? "Got it")))
             }
             
         }
