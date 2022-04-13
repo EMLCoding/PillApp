@@ -15,12 +15,18 @@ struct ImageViewSlider: View {
         GeometryReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(imageSliderVM.downloadedImages, id: \.self) { image in
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFit()
+                            if (imageSliderVM.loading) {
+                                ProgressView()
                                     .frame(width: proxy.size.width, height: 200)
+                            } else {
+                                ForEach(imageSliderVM.downloadedImages, id: \.self) { image in
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: proxy.size.width, height: 200)
+                                }
                             }
+                            
                         }
                         
                     }

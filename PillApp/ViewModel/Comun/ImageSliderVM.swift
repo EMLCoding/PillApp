@@ -11,16 +11,19 @@ final class ImageSliderVM: ObservableObject {
     
     @Published var downloadedImages: [UIImage] = []
     @Published var imageDownloaded: UIImage = UIImage()
+    @Published var loading = false
     
     var images: [Foto]
     
     init(images: [Foto]) {
         self.images = images
         self.downloadedImages = []
+        self.loading = true
 
         Task {
             do {
                 try await getImages()
+                loading = false
             } catch {
                 print("ERROR getting images: \(error.localizedDescription)")
             }
