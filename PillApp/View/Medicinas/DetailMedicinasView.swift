@@ -13,135 +13,141 @@ struct DetailMedicinasView: View {
     
     @ObservedObject var detailMedicinasVM: DetailMedicinasVM
     
-    @FocusState var actualField: Int?
+    enum MedicamentsField {
+        case name, notes
+    }
+    @FocusState var actualField: MedicamentsField?
+    
     
     init(detailMedicinasVM: DetailMedicinasVM){
         self.detailMedicinasVM = detailMedicinasVM
-            UITableView.appearance().backgroundColor = .clear
-        }
+        UITableView.appearance().backgroundColor = .clear
+    }
     
     @State var alertPresented = false
     var body: some View {
-            Form {
-                Section(header: Text("Details \(actualField ?? 999)")) {
-                    TextField("Name of medicine", text: $detailMedicinasVM.medicineName)
-                        .focused($actualField, equals: 0)
-                        .submitLabel(.next)
-                    
+        Form {
+            Section(header: Text("Details")) {
+                TextField("Name of medicine", text: $detailMedicinasVM.medicineName)
+                    .focused($actualField, equals: .name)
+                    .submitLabel(.next)
+                
+                Menu {
+                    Picker(selection: $detailMedicinasVM.category, label: Text("Category")) {
+                        ForEach(Categories.allCases) { category in
+                            Text("\(category.localizedString())")
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Text("Category")
+                        
+                        Spacer()
+                        
+                        Text("\(detailMedicinasVM.category.localizedString())")
+                    }
+                }
+                
+                Menu {
+                    Picker(selection: $detailMedicinasVM.icon, label: Text("Icons")) {
+                        ForEach(Icons.allCases) { icon in
+                            HStack {
+                                Image("\(icon)")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 5, height: 5)
+                                Text(icon.rawValue)
+                            }
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Text("Icon")
+                        
+                        Spacer()
+                        
+                        Text("\(detailMedicinasVM.icon.localizedString())")
+                    }
+                }
+                
+            }
+            
+            if !detailMedicinasVM.isEdition {
+                Section(header: Text("Dates")) {
+                    DatePicker("Initial", selection: $detailMedicinasVM.initialDate,displayedComponents: .date)
+                    DatePicker("End", selection: $detailMedicinasVM.finalDate, in: detailMedicinasVM.initialDate...,displayedComponents: .date)
+                }
+                
+                Section(header: Text("Notifications")) {
                     Menu {
-                        Picker(selection: $detailMedicinasVM.category, label: Text("Category")) {
-                            ForEach(Categories.allCases) { category in
-                                Text("\(category.localizedString())")
+                        Picker(selection: $detailMedicinasVM.periodicity, label: Text("Periodicity")) {
+                            ForEach(Periodicities.allCases) { periodicity in
+                                Text("\(periodicity.localizedString())")
                             }
                         }
                     } label: {
                         HStack {
-                            Text("Category")
+                            Text("Periodicity")
                             
                             Spacer()
                             
-                            Text("\(detailMedicinasVM.category.localizedString())")
+                            Text("\(detailMedicinasVM.periodicity.localizedString())")
                         }
                     }
                     
-                    Menu {
-                        Picker(selection: $detailMedicinasVM.icon, label: Text("Icons")) {
-                            ForEach(Icons.allCases) { icon in
-                                HStack {
-                                    Image("\(icon)")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 5, height: 5)
-                                    Text(icon.rawValue)
+                    if detailMedicinasVM.periodicity == .day {
+                        HStack {
+                            Text("Times a day")
+                            Picker("", selection: $detailMedicinasVM.dailyPeriodicity) {
+                                ForEach(0..<4) {
+                                    Text("\(self.detailMedicinasVM.dailyPeriodicities[$0])")
                                 }
                             }
+                            .pickerStyle(SegmentedPickerStyle())
                         }
-                    } label: {
-                        HStack {
-                            Text("Icon")
-                            
-                            Spacer()
-                            
-                            Text("\(detailMedicinasVM.icon.localizedString())")
+                        DatePicker("First dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)
+                        
+                        if detailMedicinasVM.dailyPeriodicity == 1 {
+                            DatePicker("Second dose", selection: $detailMedicinasVM.hourSecondTime, in: detailMedicinasVM.hourFirstTime...,displayedComponents: .hourAndMinute)
+                        } else if detailMedicinasVM.dailyPeriodicity == 2 {
+                            DatePicker("Second dose", selection: $detailMedicinasVM.hourSecondTime, in: detailMedicinasVM.hourFirstTime...,displayedComponents: .hourAndMinute)
+                            DatePicker("Third dose", selection: $detailMedicinasVM.hourThirdTime, in: detailMedicinasVM.hourSecondTime...,displayedComponents: .hourAndMinute)
+                        } else if detailMedicinasVM.dailyPeriodicity == 3 {
+                            DatePicker("Second dose", selection: $detailMedicinasVM.hourSecondTime, in: detailMedicinasVM.hourFirstTime...,displayedComponents: .hourAndMinute)
+                            DatePicker("Third dose", selection: $detailMedicinasVM.hourThirdTime, in: detailMedicinasVM.hourSecondTime...,displayedComponents: .hourAndMinute)
+                            DatePicker("Fourth dose", selection: $detailMedicinasVM.hourFourthTime, in: detailMedicinasVM.hourThirdTime...,displayedComponents: .hourAndMinute)
                         }
+                    } else if detailMedicinasVM.periodicity == .week {
+                        Picker(selection: $detailMedicinasVM.dayOfWeek, label: Text("Day of the week")) {
+                            ForEach(DaysOfWeek.allCases) { day in
+                                Text(day.localizedString())
+                            }
+                        }
+                        DatePicker("Time of first dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)
+                    } else {
+                        DatePicker("Time of first dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)
                     }
-                    
-                }
-                
-                if !detailMedicinasVM.isEdition {
-                    Section(header: Text("Dates")) {
-                        DatePicker("Initial", selection: $detailMedicinasVM.initialDate,displayedComponents: .date)
-                        DatePicker("End", selection: $detailMedicinasVM.finalDate, in: detailMedicinasVM.initialDate...,displayedComponents: .date)
-                    }
-                    
-                    Section(header: Text("Notifications")) {
-                                    Menu {
-                                        Picker(selection: $detailMedicinasVM.periodicity, label: Text("Periodicity")) {
-                                            ForEach(Periodicities.allCases) { periodicity in
-                                                Text("\(periodicity.localizedString())")
-                                            }
-                                        }
-                                    } label: {
-                                        HStack {
-                                            Text("Periodicity")
-                                            
-                                            Spacer()
-                                            
-                                            Text("\(detailMedicinasVM.periodicity.localizedString())")
-                                        }
-                                    }
-                                    
-                                    if detailMedicinasVM.periodicity == .day {
-                                        HStack {
-                                            Text("Times a day")
-                                            Picker("", selection: $detailMedicinasVM.dailyPeriodicity) {
-                                                ForEach(0..<4) {
-                                                    Text("\(self.detailMedicinasVM.dailyPeriodicities[$0])")
-                                                }
-                                            }
-                                            .pickerStyle(SegmentedPickerStyle())
-                                        }
-                                        DatePicker("First dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)
-                                        
-                                        if detailMedicinasVM.dailyPeriodicity == 1 {
-                                            DatePicker("Second dose", selection: $detailMedicinasVM.hourSecondTime, in: detailMedicinasVM.hourFirstTime...,displayedComponents: .hourAndMinute)
-                                        } else if detailMedicinasVM.dailyPeriodicity == 2 {
-                                            DatePicker("Second dose", selection: $detailMedicinasVM.hourSecondTime, in: detailMedicinasVM.hourFirstTime...,displayedComponents: .hourAndMinute)
-                                            DatePicker("Third dose", selection: $detailMedicinasVM.hourThirdTime, in: detailMedicinasVM.hourSecondTime...,displayedComponents: .hourAndMinute)
-                                        } else if detailMedicinasVM.dailyPeriodicity == 3 {
-                                            DatePicker("Second dose", selection: $detailMedicinasVM.hourSecondTime, in: detailMedicinasVM.hourFirstTime...,displayedComponents: .hourAndMinute)
-                                            DatePicker("Third dose", selection: $detailMedicinasVM.hourThirdTime, in: detailMedicinasVM.hourSecondTime...,displayedComponents: .hourAndMinute)
-                                            DatePicker("Fourth dose", selection: $detailMedicinasVM.hourFourthTime, in: detailMedicinasVM.hourThirdTime...,displayedComponents: .hourAndMinute)
-                                        }
-                                    } else if detailMedicinasVM.periodicity == .week {
-                                        Picker(selection: $detailMedicinasVM.dayOfWeek, label: Text("Day of the week")) {
-                                            ForEach(DaysOfWeek.allCases) { day in
-                                                Text(day.localizedString())
-                                            }
-                                        }
-                                        DatePicker("Time of first dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)
-                                    } else {
-                                        DatePicker("Time of first dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)
-                                    }
-                                }
-                }
-                
-                if detailMedicinasVM.isEdition {
-                    Section("Medicine time") {
-                        DatePicker("Date", selection: $detailMedicinasVM.medicineDate)
-                            .datePickerStyle(.graphical)
-                    }
-                }
-                
-                Section(header: Text("Notes")) {
-                    TextEditor(text: $detailMedicinasVM.medicineNotes)
-                        .frame(minHeight: 100)
-                        .focused($actualField, equals: 1)
-                        .submitLabel(.next)
                 }
             }
-            .background(Color("Background"))
-        
+            
+            if detailMedicinasVM.isEdition {
+                Section("Medicine time") {
+                    DatePicker("Date", selection: $detailMedicinasVM.medicineDate)
+                        .datePickerStyle(.graphical)
+                }
+            }
+            
+            Section(header: Text("Notes")) {
+                TextEditor(text: $detailMedicinasVM.medicineNotes)
+                    .frame(minHeight: 100)
+                    .focused($actualField, equals: .notes)
+                    .submitLabel(.done)
+            }
+        }
+        .background(Color("Background"))
+        .onSubmit {
+            next()
+        }
         .navigationTitle("Add reminders")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -152,8 +158,45 @@ struct DetailMedicinasView: View {
                 .disabled(detailMedicinasVM.medicineName == "")
             }
             ToolbarItem(placement: .keyboard) {
-                KeyboardButtons(keyboardVM: KeyboardVM(fields: [0, 1]), actualField: $actualField)
+                HStack {
+                    Button {
+                        previous()
+                    } label: {
+                        Image(systemName: "chevron.up")
+                    }
+                    Button {
+                        next()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                    }
+                    Spacer()
+                    Button {
+                        actualField = nil
+                    } label: {
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
+                }
             }
+        }
+    }
+    
+    func next() {
+        switch actualField {
+        case .name:
+            actualField = .notes
+        case .notes:
+            actualField = nil
+        default: ()
+        }
+    }
+    
+    func previous() {
+        switch actualField {
+        case .name:
+            actualField = nil
+        case .notes:
+            actualField = .name
+        default: ()
         }
     }
 }
