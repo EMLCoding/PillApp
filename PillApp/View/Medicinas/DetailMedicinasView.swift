@@ -31,7 +31,6 @@ struct DetailMedicinasView: View {
                 TextField("Name of medicine", text: $detailMedicinasVM.medicineName)
                     .focused($actualField, equals: .name)
                     .submitLabel(.next)
-                
                 Menu {
                     Picker(selection: $detailMedicinasVM.category, label: Text("Category")) {
                         ForEach(Categories.allCases) { category in
@@ -70,6 +69,16 @@ struct DetailMedicinasView: View {
                     }
                 }
                 
+                TextEditor(text: $detailMedicinasVM.medicineNotes)
+                    .frame(minHeight: 100)
+                    .focused($actualField, equals: .notes)
+                    .submitLabel(.done)
+                    .onTapGesture {
+                        if (!detailMedicinasVM.textEditorTouched) {
+                            detailMedicinasVM.medicineNotes = ""
+                            detailMedicinasVM.textEditorTouched = true
+                        }
+                    }
             }
             
             if !detailMedicinasVM.isEdition {
@@ -136,18 +145,8 @@ struct DetailMedicinasView: View {
                         .datePickerStyle(.graphical)
                 }
             }
-            
-            Section(header: Text("Notes")) {
-                TextEditor(text: $detailMedicinasVM.medicineNotes)
-                    .frame(minHeight: 100)
-                    .focused($actualField, equals: .notes)
-                    .submitLabel(.done)
-            }
         }
         .background(Color("Background"))
-        .onSubmit {
-            next()
-        }
         .navigationTitle("Add reminders")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -159,16 +158,6 @@ struct DetailMedicinasView: View {
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {
-                    Button {
-                        previous()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                    }
-                    Button {
-                        next()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                    }
                     Spacer()
                     Button {
                         actualField = nil
@@ -177,26 +166,6 @@ struct DetailMedicinasView: View {
                     }
                 }
             }
-        }
-    }
-    
-    func next() {
-        switch actualField {
-        case .name:
-            actualField = .notes
-        case .notes:
-            actualField = nil
-        default: ()
-        }
-    }
-    
-    func previous() {
-        switch actualField {
-        case .name:
-            actualField = nil
-        case .notes:
-            actualField = .name
-        default: ()
         }
     }
 }

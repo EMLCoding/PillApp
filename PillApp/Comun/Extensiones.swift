@@ -5,7 +5,8 @@
 //  Created by Eduardo Martin Lorenzo on 25/1/22.
 //
 
-import Foundation
+import SwiftUI
+import UIKit
 
 extension Date {
     /// Esta funcion devuelve una fecha en formato String utilizando el conjunto de formatos de fechas
@@ -58,3 +59,4 @@ extension Notification.Name {
     static let showAlert = Notification.Name("showAlert")
     static let hideAlert = Notification.Name("hideAlert")
 }
+

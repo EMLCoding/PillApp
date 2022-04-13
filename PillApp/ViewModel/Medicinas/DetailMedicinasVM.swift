@@ -11,7 +11,7 @@ import CoreData
 final class DetailMedicinasVM: ObservableObject {
     @Published var isEdition = false
     @Published var medicineName = ""
-    @Published var medicineNotes = ""
+    @Published var medicineNotes = "Add your notes"
     @Published var category: Categories = .others
     @Published var icon: Icons = .pastillas
     
@@ -30,7 +30,8 @@ final class DetailMedicinasVM: ObservableObject {
     @Published var periodicity = Periodicities.day
     @Published var dayOfWeek = DaysOfWeek.monday
     
-    
+    // To control the placeholder of TextEditor
+    @Published var textEditorTouched: Bool
     
     
     var medicine: Medicinas?
@@ -44,8 +45,9 @@ final class DetailMedicinasVM: ObservableObject {
             category = Categories(rawValue: medicine.category ?? "Others") ?? .others
             icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pastillas
             medicineDate = medicine.date ?? Date.now
+            textEditorTouched = true
         } else {
-            
+            textEditorTouched = false
         }
     }
     

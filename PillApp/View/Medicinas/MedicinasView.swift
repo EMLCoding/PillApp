@@ -11,6 +11,7 @@ struct MedicinasView: View {
     @ObservedObject var medicinesVM: MedicinesVM
     
     @State var currentDate = Date()
+    @State var isShowingSheet = false
     
     var body: some View {
         NavigationView {
@@ -25,7 +26,12 @@ struct MedicinasView: View {
                 .navigationTitle("Medication reminder")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink("Add", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: nil)))
+                        Button("Add", action: {isShowingSheet.toggle()})
+                            .sheet(isPresented: $isShowingSheet, content: {
+                                NavigationView {
+                                    DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: nil))
+                                }
+                            })                        
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Menu("Year") {
