@@ -18,14 +18,15 @@ struct PdfReader: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> UIView {
-            if let url = url {
-                pdfView.document = PDFDocument(url: url)
-            }
-
-            return pdfView
+        if let url = url {
+            pdfView.document = PDFDocument(url: url)
+            pdfView.autoScales = true
         }
-
-        func updateUIView(_ uiView: UIView, context: Context) {
-            // Empty
-        }
+        
+        return pdfView
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        // Empty
+    }
 }
