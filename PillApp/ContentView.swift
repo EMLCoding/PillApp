@@ -13,32 +13,29 @@ struct ContentView: View {
     @State private var alertData = AlertData.empty
     
     var body: some View {
-        ZStack {
-            TabView {
-                MedicinasView(medicinesVM: MedicinesVM())
-                    .tabItem {
-                        Label("Home", systemImage: "house")
-                    }
-                MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
-                    .tabItem {
-                        Label("Medicines", systemImage: "pills")
-                    }
-            }
-            .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
-                if let data = notification.object as? AlertData {
-                    showAlert = true
-                    alertData = data
+        TabView {
+            MedicinasView(medicinesVM: MedicinesVM())
+                .tabItem {
+                    Label("Home", systemImage: "house")
                 }
-                showBlurEffect = true
+            MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
+                .tabItem {
+                    Label("Medicines", systemImage: "pills")
+                }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
+            if let data = notification.object as? AlertData {
+                showAlert = true
+                alertData = data
             }
-            .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
-                showAlert = false
-                showBlurEffect = false
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text(alertData.title), message: Text(alertData.text), dismissButton: .default(Text(alertData.textButton ?? "Got it")))
-            }
-            
+            showBlurEffect = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
+            showAlert = false
+            showBlurEffect = false
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(alertData.title), message: Text(alertData.text), dismissButton: .default(Text(alertData.textButton ?? "Got it")))
         }
         
     }

@@ -19,7 +19,7 @@ struct MedicinasView: View {
                 VStack {
                     DayPickerView(dayPickerVM: DayPickerVM(), currentDate: $currentDate)
                     
-                        
+                    
                     MedicinasListView(currentDate: currentDate)
                 }
                 .navigationTitle("Medication reminder")
@@ -42,9 +42,6 @@ struct MedicinasView: View {
                     }
                 }
             }
-                    
-                
-            
         }
     }
 }
