@@ -5,8 +5,8 @@
 //  Created by Eduardo Martin Lorenzo on 25/1/22.
 //
 
-import Foundation
 import SwiftUI
+import MapKit
 
 struct Medicine: Identifiable {
     let id: UUID
@@ -194,7 +194,52 @@ struct AlertData {
     static let empty = AlertData(title: "", image: "", text: "", textButton: nil)
 }
 
-// MARK: - Fields enums
-enum FieldDetailMedicaments: Int {
-    case name = 1
+// MARK: - Medical appointments
+struct MedicalAppointment: Identifiable {
+    let id: UUID
+    let name: String
+    let attended: Bool
+    let date: Date
+    let dateReminder: Date
+    let notes: String
+    let ubication: String
+}
+
+struct Place: Identifiable {
+    var id = UUID().uuidString
+    var place: CLPlacemark
+}
+
+enum DoctorTypes: String, Identifiable, CaseIterable {
+    case others = "Others"
+    case allergology = "Allergology"
+    case anesthetist = "Anesthetist"
+    case digestiveSystem = "Digestive system"
+    case cardiology = "Cardiology"
+    case endocrine = "Endocrine"
+    case geriatrics = "Geriatrics"
+    case hermatology = "Hermatology"
+    case sport = "Medicine of physical education and sports"
+    case spaces = "Space medicine"
+    case intensive = "Intensive medicine"
+    case interna = "Internal Medicine"
+    case headboard = "GP"
+    case work = "Work medicine"
+    case nephrology = "Nephrology"
+    case pneumology = "Pneumology"
+    case neurology = "Neurology"
+    case clinical = "Clinical neurophysiology"
+    case oncology = "Oncology"
+    case pediatrics = "Pediatrics"
+    case psychology = "Psychology"
+    case dentist = "Dentist"
+    case ophthalmology = "Ophthalmology"
+    case rehabilitation = "Rehabilitation"
+    case rheumatology = "Rheumatology"
+    case urology = "Urology"
+    case chiropody = "Chiropody"
+    case otorhinolaryngology = "Otorhinolaryngology"
+    case analytics = "Analytics"
+
+    var id: DoctorTypes {self}
 }

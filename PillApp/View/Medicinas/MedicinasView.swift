@@ -23,7 +23,7 @@ struct MedicinasView: View {
                     
                     MedicinasListView(currentDate: currentDate)
                 }
-                .navigationTitle("Medication reminder")
+                .navigationTitle("Medication reminders")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Add", action: {isShowingSheet.toggle()})

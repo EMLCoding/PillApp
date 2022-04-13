@@ -22,6 +22,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Medicines", systemImage: "pills")
                 }
+            CitasMedicasView()
+                .tabItem {
+                    Label("Schedule", systemImage: "calendar")
+                }
         }
         .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
             if let data = notification.object as? AlertData {

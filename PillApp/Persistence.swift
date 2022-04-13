@@ -33,6 +33,15 @@ struct PersistenceController {
         pruebaMedicina2.icon = Icons(rawValue: "Tirita")?.rawValue
         pruebaMedicina2.notes = "Notes medicament 2"
         
+        let pruebaCitaMedica = CitaMedica(context: viewContext)
+        pruebaCitaMedica.id = UUID()
+        pruebaCitaMedica.name = "Test medical appointment"
+        pruebaCitaMedica.attended = false
+        pruebaCitaMedica.date = Date.now
+        pruebaCitaMedica.dateReminder = Date.now
+        pruebaCitaMedica.notes = "Test notes"
+        pruebaCitaMedica.ubication = "Test ubication"
+        
         do {
             try viewContext.save()
         } catch {
@@ -82,5 +91,20 @@ struct PersistenceController {
         newMedicine.notes = "Notes"
         
         return newMedicine
+    }()
+    
+    static let testMedicalAppointment: CitaMedica = {
+        let context = PersistenceController.preview.container.viewContext
+        
+        let newMedicalAppointment = CitaMedica(context: context)
+        newMedicalAppointment.id = UUID()
+        newMedicalAppointment.name = "Test medical appointment"
+        newMedicalAppointment.attended = false
+        newMedicalAppointment.date = Date.now
+        newMedicalAppointment.dateReminder = Date.now
+        newMedicalAppointment.notes = "Test notes"
+        newMedicalAppointment.ubication = "Test ubication"
+        
+        return newMedicalAppointment
     }()
 }
