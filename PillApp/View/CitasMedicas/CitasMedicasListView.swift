@@ -24,7 +24,12 @@ struct CitasMedicasListView: View {
             Text(date.extractDate(format: "MMMM yyyy"))
                 .bold()
             ForEach(userMedicalAppointments) { medicalAppointment in
-                Text(medicalAppointment.name ?? "Prueba")
+                NavigationLink {
+                    DetailCitasMedicasView(detailCitasMedicasVM: DetailCitasMedicasVM(medicalAppoitment: medicalAppointment))
+                } label: {
+                    CitaMedicaView(medicalAppoitment: medicalAppointment)
+                        .padding(.bottom)
+                }
             }
         }
     }

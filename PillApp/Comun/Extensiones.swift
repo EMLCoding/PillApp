@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import CoreLocation
 
 extension Date {
     /// Esta funcion devuelve una fecha en formato String utilizando el conjunto de formatos de fechas
@@ -59,4 +60,3 @@ extension Notification.Name {
     static let showAlert = Notification.Name("showAlert")
     static let hideAlert = Notification.Name("hideAlert")
 }
-

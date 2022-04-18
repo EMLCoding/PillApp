@@ -176,7 +176,6 @@ final class DetailMedicinasVM: ObservableObject {
         medicine?.icon = icon.rawValue
         medicine?.date = medicineDate
         
-        
         try await context.perform {
             if ((self.medicine?.hasChanges) != nil) {
                 try context.save()
@@ -185,9 +184,7 @@ final class DetailMedicinasVM: ObservableObject {
                     Notifications().eliminarNotificacion(id: id)
                     Notifications().createNotification(id: id, date: self.medicineDate, element: self.medicineName, type: 1)
                 }
-                
             }
-            
         }
     }
     

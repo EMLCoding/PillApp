@@ -13,12 +13,17 @@
 		CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DC27E60FB0008A9AFF /* Notifications.swift */; };
 		CB0F61DF27E623D2008A9AFF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DE27E623D2008A9AFF /* AlertView.swift */; };
 		CB218D0B27BAD02400A719D8 /* MedicinasListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */; };
+		CB230EBE280CAC440089B01D /* CitaMedicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB230EBD280CAC430089B01D /* CitaMedicaView.swift */; };
 		CB32826227EE6F3200CA70B1 /* DetalleMedicinaApiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB32826127EE6F3200CA70B1 /* DetalleMedicinaApiView.swift */; };
 		CB32826427EE735E00CA70B1 /* ImageViewSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB32826327EE735E00CA70B1 /* ImageViewSlider.swift */; };
 		CB32826627EE753500CA70B1 /* ImageSliderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB32826527EE753500CA70B1 /* ImageSliderVM.swift */; };
 		CB4E444527FDDA4200506F6A /* KeyboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E444427FDDA4200506F6A /* KeyboardVM.swift */; };
 		CB4E444727FDE2F000506F6A /* KeyboardButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E444627FDE2F000506F6A /* KeyboardButtons.swift */; };
+		CB63AF1B280DA271005B4386 /* StreetsFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB63AF1A280DA271005B4386 /* StreetsFinder.swift */; };
+		CB63AF1D280DA329005B4386 /* StreetsFinderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB63AF1C280DA328005B4386 /* StreetsFinderVM.swift */; };
 		CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */; };
+		CB9965E428072E0300B0BF2A /* DetailCitasMedicasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */; };
+		CB9965E628072E4300B0BF2A /* DetailCitasMedicasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9965E528072E4300B0BF2A /* DetailCitasMedicasVM.swift */; };
 		CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */; };
 		CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */; };
 		CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85EE27A049C600E95536 /* PillAppApp.swift */; };
@@ -37,6 +42,9 @@
 		CBF6FFE027F49C0600D2CF14 /* PdfReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6FFDF27F49C0600D2CF14 /* PdfReader.swift */; };
 		CBF6FFE227F49F5100D2CF14 /* PdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6FFE127F49F5100D2CF14 /* PdfView.swift */; };
 		CBF7161A27E7590D00A96AFD /* MedicinaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7161927E7590D00A96AFD /* MedicinaView.swift */; };
+		CBF794B8280DB31300BF5995 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF794B7280DB31300BF5995 /* MapView.swift */; };
+		CBF794BA280DB32800BF5995 /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF794B9280DB32800BF5995 /* MapVM.swift */; };
+		CBF794BC280DB4A800BF5995 /* MapComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF794BB280DB4A800BF5995 /* MapComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,12 +54,17 @@
 		CB0F61DC27E60FB0008A9AFF /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		CB0F61DE27E623D2008A9AFF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		CB218D0A27BAD02400A719D8 /* MedicinasListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasListView.swift; sourceTree = "<group>"; };
+		CB230EBD280CAC430089B01D /* CitaMedicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitaMedicaView.swift; sourceTree = "<group>"; };
 		CB32826127EE6F3200CA70B1 /* DetalleMedicinaApiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleMedicinaApiView.swift; sourceTree = "<group>"; };
 		CB32826327EE735E00CA70B1 /* ImageViewSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewSlider.swift; sourceTree = "<group>"; };
 		CB32826527EE753500CA70B1 /* ImageSliderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderVM.swift; sourceTree = "<group>"; };
 		CB4E444427FDDA4200506F6A /* KeyboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardVM.swift; sourceTree = "<group>"; };
 		CB4E444627FDE2F000506F6A /* KeyboardButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButtons.swift; sourceTree = "<group>"; };
+		CB63AF1A280DA271005B4386 /* StreetsFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetsFinder.swift; sourceTree = "<group>"; };
+		CB63AF1C280DA328005B4386 /* StreetsFinderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetsFinderVM.swift; sourceTree = "<group>"; };
 		CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
+		CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCitasMedicasView.swift; sourceTree = "<group>"; };
+		CB9965E528072E4300B0BF2A /* DetailCitasMedicasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCitasMedicasVM.swift; sourceTree = "<group>"; };
 		CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIView.swift; sourceTree = "<group>"; };
 		CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIVM.swift; sourceTree = "<group>"; };
 		CBAE85EB27A049C600E95536 /* PillApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +84,9 @@
 		CBF6FFDF27F49C0600D2CF14 /* PdfReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfReader.swift; sourceTree = "<group>"; };
 		CBF6FFE127F49F5100D2CF14 /* PdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfView.swift; sourceTree = "<group>"; };
 		CBF7161927E7590D00A96AFD /* MedicinaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinaView.swift; sourceTree = "<group>"; };
+		CBF794B7280DB31300BF5995 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CBF794B9280DB32800BF5995 /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
+		CBF794BB280DB4A800BF5995 /* MapComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +246,11 @@
 			children = (
 				CBB6DB4A2807180900221459 /* CitasMedicasView.swift */,
 				CBB6DB4C2807192F00221459 /* CitasMedicasListView.swift */,
+				CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */,
+				CB230EBD280CAC430089B01D /* CitaMedicaView.swift */,
+				CB63AF1A280DA271005B4386 /* StreetsFinder.swift */,
+				CBF794B7280DB31300BF5995 /* MapView.swift */,
+				CBF794BB280DB4A800BF5995 /* MapComponentView.swift */,
 			);
 			path = CitasMedicas;
 			sourceTree = "<group>";
@@ -237,6 +258,9 @@
 		CBB6DB492807131200221459 /* CitasMedicas */ = {
 			isa = PBXGroup;
 			children = (
+				CB9965E528072E4300B0BF2A /* DetailCitasMedicasVM.swift */,
+				CB63AF1C280DA328005B4386 /* StreetsFinderVM.swift */,
+				CBF794B9280DB32800BF5995 /* MapVM.swift */,
 			);
 			path = CitasMedicas;
 			sourceTree = "<group>";
@@ -311,28 +335,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB63AF1D280DA329005B4386 /* StreetsFinderVM.swift in Sources */,
 				CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */,
 				CB218D0B27BAD02400A719D8 /* MedicinasListView.swift in Sources */,
 				CBB6DB4D2807192F00221459 /* CitasMedicasListView.swift in Sources */,
 				CBAE860827A053F600E95536 /* Model.swift in Sources */,
+				CBF794BA280DB32800BF5995 /* MapVM.swift in Sources */,
 				CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */,
 				CB4E444727FDE2F000506F6A /* KeyboardButtons.swift in Sources */,
 				CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */,
 				CBF6FFE227F49F5100D2CF14 /* PdfView.swift in Sources */,
+				CBF794B8280DB31300BF5995 /* MapView.swift in Sources */,
 				CB0F61DB27E60769008A9AFF /* DateFormat.swift in Sources */,
+				CB230EBE280CAC440089B01D /* CitaMedicaView.swift in Sources */,
 				CBAE85F827A049C900E95536 /* Persistence.swift in Sources */,
 				CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */,
 				CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */,
 				CB32826627EE753500CA70B1 /* ImageSliderVM.swift in Sources */,
+				CBF794BC280DB4A800BF5995 /* MapComponentView.swift in Sources */,
 				CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */,
 				CBB6DB4B2807180900221459 /* CitasMedicasView.swift in Sources */,
+				CB63AF1B280DA271005B4386 /* StreetsFinder.swift in Sources */,
 				CBAE860227A0501A00E95536 /* ContentView.swift in Sources */,
 				CB4E444527FDDA4200506F6A /* KeyboardVM.swift in Sources */,
 				CB0F61DF27E623D2008A9AFF /* AlertView.swift in Sources */,
 				CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */,
 				CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */,
 				CBF6FFE027F49C0600D2CF14 /* PdfReader.swift in Sources */,
+				CB9965E428072E0300B0BF2A /* DetailCitasMedicasView.swift in Sources */,
 				CB32826427EE735E00CA70B1 /* ImageViewSlider.swift in Sources */,
+				CB9965E628072E4300B0BF2A /* DetailCitasMedicasVM.swift in Sources */,
 				CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */,
 				CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */,
 				CB32826227EE6F3200CA70B1 /* DetalleMedicinaApiView.swift in Sources */,
@@ -472,6 +504,7 @@
 				DEVELOPMENT_TEAM = 5Q3AH9TS7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +534,7 @@
 				DEVELOPMENT_TEAM = 5Q3AH9TS7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

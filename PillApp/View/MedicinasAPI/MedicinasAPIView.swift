@@ -15,23 +15,35 @@ struct MedicinasAPIView: View {
         NavigationView {
             ZStack {
                 Color("Background").edgesIgnoringSafeArea(.all)
-                List {
-                    ForEach(medicinesAPIVM.searchedMedicines) { medicine in
-                        NavigationLink(medicine.nombre.capitalized) {
-                            DetalleMedicinaApiView(medicinasAPIVM: medicinesAPIVM, medicament: medicine)
-                        }
-                        .onAppear {
-                            if medicine.id == medicinesAPIVM.searchedMedicines.last?.id {
-                                medicinesAPIVM.page += 1
+                if (medicinesAPIVM.searchedMedicines.isEmpty) {
+                    VStack(alignment: .center) {
+                        Image(systemName: "magnifyingglass.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color("MainColor"))
+                            .frame(width: 80, height: 80)
+                        Text("Find the medicine you want here.")
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                    }
+                } else {
+                    List {
+                        ForEach(medicinesAPIVM.searchedMedicines) { medicine in
+                            NavigationLink(medicine.nombre.capitalized) {
+                                DetalleMedicinaApiView(medicinasAPIVM: medicinesAPIVM, medicament: medicine)
+                            }
+                            .onAppear {
+                                if medicine.id == medicinesAPIVM.searchedMedicines.last?.id {
+                                    medicinesAPIVM.page += 1
+                                }
                             }
                         }
-                    }
-                    if (medicinesAPIVM.isLoadingData) {
-                        ProgressView()
-                            .frame(alignment: .center)
+                        if (medicinesAPIVM.isLoadingData) {
+                            ProgressView()
+                                .frame(alignment: .center)
+                        }
                     }
                 }
-                
             }
             .navigationTitle("Search medicaments")
             .searchable(text: $medicinesAPIVM.query)
@@ -40,7 +52,6 @@ struct MedicinasAPIView: View {
                     NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Data Notice", image: "heart.text.square.fill", text: "The medicines that appear in this functionality are only medicines sold in Spain.", textButton: "See spanish info"))
                     hideLanguageDialog = true
                 }
-                
             }
         }
     }

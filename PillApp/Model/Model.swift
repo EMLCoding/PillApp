@@ -8,6 +8,8 @@
 import SwiftUI
 import MapKit
 
+// TODO: Eliminar los structs no necesarios
+
 struct Medicine: Identifiable {
     let id: UUID
     let idGroup: UUID
@@ -242,4 +244,12 @@ enum DoctorTypes: String, Identifiable, CaseIterable {
     case analytics = "Analytics"
 
     var id: DoctorTypes {self}
+    
+    func localizedString() -> String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
+    
+    static func getTitleFor(title:DoctorTypes) -> String {
+        return title.localizedString()
+    }
 }

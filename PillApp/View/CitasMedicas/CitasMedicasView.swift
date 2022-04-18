@@ -27,8 +27,7 @@ struct CitasMedicasView: View {
                         Button("Add", action: {isShowingSheet.toggle()})
                             .sheet(isPresented: $isShowingSheet, content: {
                                 NavigationView {
-                                    // TODO: Cambiar
-                                    DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: nil))
+                                    DetailCitasMedicasView(detailCitasMedicasVM: DetailCitasMedicasVM(medicalAppoitment: nil))
                                 }
                             })
                     }

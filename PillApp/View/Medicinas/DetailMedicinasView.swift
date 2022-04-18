@@ -24,7 +24,6 @@ struct DetailMedicinasView: View {
         UITableView.appearance().backgroundColor = .clear
     }
     
-    @State var alertPresented = false
     var body: some View {
         Form {
             Section(header: Text("Details")) {
@@ -147,7 +146,7 @@ struct DetailMedicinasView: View {
             }
         }
         .background(Color("Background"))
-        .navigationTitle("Add reminders")
+        .navigationTitle(detailMedicinasVM.isEdition ? "Edit reminder" : "Add reminders")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(detailMedicinasVM.isEdition ? "Edit" : "Create") {
