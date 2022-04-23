@@ -52,6 +52,6 @@ struct DayPickerView: View {
 
 struct DayPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        DayPickerView(dayPickerVM: DayPickerVM(), currentDate: .constant(Date()))
+        DayPickerView(dayPickerVM: DayPickerVM(currentDate: Date.now), currentDate: .constant(Date()))
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CitasMedicasView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var citasMedicasVM: CitasMedicasVM
     
     @State var currentDate = Date()
     @State var isShowingSheet = false
@@ -17,9 +19,9 @@ struct CitasMedicasView: View {
             ZStack {
                 Color("Background").edgesIgnoringSafeArea(.all)
                 VStack {
-                    DayPickerView(dayPickerVM: DayPickerVM(), currentDate: $currentDate)
+                    DayPickerView(dayPickerVM: DayPickerVM(currentDate: citasMedicasVM.currentDate), currentDate: $citasMedicasVM.currentDate)
                     
-                    CitasMedicasListView(currentDate: currentDate)
+                    CitasMedicasListView(currentDate: citasMedicasVM.currentDate)
                 }
                 .navigationTitle("Medical appointments")
                 .toolbar {
@@ -31,14 +33,31 @@ struct CitasMedicasView: View {
                                 }
                             })
                     }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Menu("Year") {
+                            ForEach(citasMedicasVM.years, id:\.self) { year in
+                                Button {
+                                    citasMedicasVM.changeDate(year: year)
+                                } label: {
+                                    Text(String(year))
+                                }
+                            }
+                        }
+                    }
                 }
             }
+        }
+        .onAppear {
+            citasMedicasVM.getAllYears(context: viewContext)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .updateYearsAppoitment)) { _ in
+            citasMedicasVM.getAllYears(context: viewContext)
         }
     }
 }
 
 struct CitasMedicasView_Previews: PreviewProvider {
     static var previews: some View {
-        CitasMedicasView()
+        CitasMedicasView(citasMedicasVM: CitasMedicasVM())
     }
 }

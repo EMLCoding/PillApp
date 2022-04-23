@@ -11,16 +11,16 @@ final class DayPickerVM: ObservableObject {
     
     @Published var dates: [Date] = []
     
-    init() {
-        fetchDates()
+    init(currentDate: Date) {
+        fetchDates(currenDate: currentDate)
     }
     
     /// Esta funcion devuelve array de fechas
     ///
     ///  - Parameter format: El formato en que se va a recuperar la fecha ('dd' devuelve el numero del dia; 'EEE' devulve el nombre del dia reducido).
     ///   - Returns: Devuelve la fecha en formato texto
-    func fetchDates() {
-        let today = Date.now
+    func fetchDates(currenDate: Date) {
+        let today = currenDate 
         let calendar = Calendar.current
         
         let year = calendar.dateInterval(of: .year, for: today)

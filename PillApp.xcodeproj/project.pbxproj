@@ -24,6 +24,7 @@
 		CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */; };
 		CB9965E428072E0300B0BF2A /* DetailCitasMedicasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */; };
 		CB9965E628072E4300B0BF2A /* DetailCitasMedicasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9965E528072E4300B0BF2A /* DetailCitasMedicasVM.swift */; };
+		CBA9D5E92814185100029C86 /* CitasMedicasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D5E82814185100029C86 /* CitasMedicasVM.swift */; };
 		CBAD930D27CB88D700273D5E /* MedicinasAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */; };
 		CBAD930F27CB88FC00273D5E /* MedicinasAPIVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */; };
 		CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE85EE27A049C600E95536 /* PillAppApp.swift */; };
@@ -34,7 +35,7 @@
 		CBAE860227A0501A00E95536 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860127A0501A00E95536 /* ContentView.swift */; };
 		CBAE860827A053F600E95536 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860727A053F600E95536 /* Model.swift */; };
 		CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860927A0546E00E95536 /* MedicinasView.swift */; };
-		CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */; };
+		CBAE860C27A0547900E95536 /* MedicinasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE860B27A0547900E95536 /* MedicinasVM.swift */; };
 		CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861127A0584800E95536 /* DayPickerView.swift */; };
 		CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE861427A0587300E95536 /* DayPickerVM.swift */; };
 		CBB6DB4B2807180900221459 /* CitasMedicasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6DB4A2807180900221459 /* CitasMedicasView.swift */; };
@@ -65,6 +66,7 @@
 		CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
 		CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCitasMedicasView.swift; sourceTree = "<group>"; };
 		CB9965E528072E4300B0BF2A /* DetailCitasMedicasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCitasMedicasVM.swift; sourceTree = "<group>"; };
+		CBA9D5E82814185100029C86 /* CitasMedicasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasMedicasVM.swift; sourceTree = "<group>"; };
 		CBAD930C27CB88D600273D5E /* MedicinasAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIView.swift; sourceTree = "<group>"; };
 		CBAD930E27CB88FC00273D5E /* MedicinasAPIVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasAPIVM.swift; sourceTree = "<group>"; };
 		CBAE85EB27A049C600E95536 /* PillApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +78,7 @@
 		CBAE860127A0501A00E95536 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CBAE860727A053F600E95536 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CBAE860927A0546E00E95536 /* MedicinasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasView.swift; sourceTree = "<group>"; };
-		CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasViewModel.swift; sourceTree = "<group>"; };
+		CBAE860B27A0547900E95536 /* MedicinasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinasVM.swift; sourceTree = "<group>"; };
 		CBAE861127A0584800E95536 /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		CBAE861427A0587300E95536 /* DayPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerVM.swift; sourceTree = "<group>"; };
 		CBB6DB4A2807180900221459 /* CitasMedicasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasMedicasView.swift; sourceTree = "<group>"; };
@@ -205,7 +207,7 @@
 		CBAE860E27A054CF00E95536 /* Medicinas */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE860B27A0547900E95536 /* MedicinasViewModel.swift */,
+				CBAE860B27A0547900E95536 /* MedicinasVM.swift */,
 				CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */,
 			);
 			path = Medicinas;
@@ -261,6 +263,7 @@
 				CB9965E528072E4300B0BF2A /* DetailCitasMedicasVM.swift */,
 				CB63AF1C280DA328005B4386 /* StreetsFinderVM.swift */,
 				CBF794B9280DB32800BF5995 /* MapVM.swift */,
+				CBA9D5E82814185100029C86 /* CitasMedicasVM.swift */,
 			);
 			path = CitasMedicas;
 			sourceTree = "<group>";
@@ -336,7 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB63AF1D280DA329005B4386 /* StreetsFinderVM.swift in Sources */,
-				CBAE860C27A0547900E95536 /* MedicinasViewModel.swift in Sources */,
+				CBAE860C27A0547900E95536 /* MedicinasVM.swift in Sources */,
 				CB218D0B27BAD02400A719D8 /* MedicinasListView.swift in Sources */,
 				CBB6DB4D2807192F00221459 /* CitasMedicasListView.swift in Sources */,
 				CBAE860827A053F600E95536 /* Model.swift in Sources */,
@@ -367,6 +370,7 @@
 				CB9965E628072E4300B0BF2A /* DetailCitasMedicasVM.swift in Sources */,
 				CBAE861527A0587300E95536 /* DayPickerVM.swift in Sources */,
 				CBAE860A27A0546E00E95536 /* MedicinasView.swift in Sources */,
+				CBA9D5E92814185100029C86 /* CitasMedicasVM.swift in Sources */,
 				CB32826227EE6F3200CA70B1 /* DetalleMedicinaApiView.swift in Sources */,
 				CBAE85EF27A049C600E95536 /* PillAppApp.swift in Sources */,
 				CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */,

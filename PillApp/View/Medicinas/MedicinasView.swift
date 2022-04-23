@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct MedicinasView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var medicinesVM: MedicinesVM
     
-    @State var currentDate = Date()
     @State var isShowingSheet = false
     
     var body: some View {
@@ -18,10 +18,10 @@ struct MedicinasView: View {
             ZStack {
                 Color("Background").edgesIgnoringSafeArea(.all)
                 VStack {
-                    DayPickerView(dayPickerVM: DayPickerVM(), currentDate: $currentDate)
+                    DayPickerView(dayPickerVM: DayPickerVM(currentDate: medicinesVM.currentDate), currentDate: $medicinesVM.currentDate)
                     
                     
-                    MedicinasListView(currentDate: currentDate)
+                    MedicinasListView(currentDate: medicinesVM.currentDate)
                 }
                 .navigationTitle("Medication reminders")
                 .toolbar {
@@ -35,19 +35,23 @@ struct MedicinasView: View {
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Menu("Year") {
-                            Button {
-                            } label: {
-                                Text("\(medicinesVM.currentYear)")
-                            }
-                            Button {
-                                
-                            } label: {
-                                Text("\(medicinesVM.currentYear)")
+                            ForEach(medicinesVM.years, id:\.self) { year in
+                                Button {
+                                    medicinesVM.changeDate(year: year)
+                                } label: {
+                                    Text(String(year))
+                                }
                             }
                         }
                     }
                 }
             }
+        }
+        .onAppear {
+            medicinesVM.getAllYears(context: viewContext)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .updateYears)) { _ in
+            medicinesVM.getAllYears(context: viewContext)
         }
     }
 }

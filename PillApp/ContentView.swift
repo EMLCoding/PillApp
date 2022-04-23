@@ -22,7 +22,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Medicines", systemImage: "pills")
                 }
-            CitasMedicasView()
+            CitasMedicasView(citasMedicasVM: CitasMedicasVM())
                 .tabItem {
                     Label("Schedule", systemImage: "calendar")
                 }

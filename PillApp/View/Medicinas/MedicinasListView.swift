@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct MedicinasListView: View {
-    //@Binding var currentDate: Date
     var fetchRequest: FetchRequest<Medicinas>
     var userMedicines: FetchedResults<Medicinas> {
         fetchRequest.wrappedValue
     }
     var date = Date.now
     
-    /*
-     @FetchRequest(sortDescriptors: [SortDescriptor(\Medicinas.id)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default) var fetchMedicines: FetchedResults<Medicinas>
-     */
     init(currentDate: Date) {
         date = currentDate
         fetchRequest = FetchRequest<Medicinas>(sortDescriptors: [SortDescriptor(\Medicinas.date)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default)

@@ -51,6 +51,7 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    @MainActor
     func save(context: NSManagedObjectContext) {
         Task {
             do {
@@ -59,6 +60,7 @@ final class DetailMedicinasVM: ObservableObject {
                 } else {
                     try await create(context: context)
                 }
+                NotificationCenter.default.post(name: .updateYears, object: nil)
             } catch {
                 print("Error saving data \(error.localizedDescription)")
             }

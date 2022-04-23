@@ -31,6 +31,19 @@ extension Date {
         
         return calendar.isDate(self, inSameDayAs: date)
     }
+    
+    func years(toDate: Date) -> [Int] {
+        var yearsMap:Set<Int> = []
+        var date = self
+        
+        while date <= toDate {
+            yearsMap.insert(Int(date.extractDate(format: "yyyy")) ?? 0)
+            guard let newDate = Calendar.current.date(byAdding: .day, value: 1, to: date) else { break }
+            date = newDate
+        }
+        
+        return Array(yearsMap).sorted()
+    }
 }
 
 let urlBase = URL(string: "https://cima.aemps.es/cima/rest/medicamentos")!
@@ -59,4 +72,6 @@ extension URL {
 extension Notification.Name {
     static let showAlert = Notification.Name("showAlert")
     static let hideAlert = Notification.Name("hideAlert")
+    static let updateYears = Notification.Name("updateYears")
+    static let updateYearsAppoitment = Notification.Name("updateYearsAppoitment")
 }
