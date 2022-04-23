@@ -32,15 +32,13 @@ struct MedicinaView: View {
                     Text(medicine.category ?? "")
                 }
             }
-            .padding(.leading)
-            .foregroundColor(.white)
-            
         }
+        .foregroundColor(.white)
         .padding()
         .frame(width: 330)
         .background(
             RoundedRectangle(cornerRadius: 15)
-                .fill(LinearGradient(gradient: Gradient(colors: [.white, Color("InitialGradient"), Color("MainColor")]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                .fill(LinearGradient(gradient: Gradient(colors: [Color("InitialGradient"), Color("MainColor")]), startPoint: .topLeading, endPoint: .bottomTrailing))
         )
         .contextMenu {
             Button {

@@ -107,7 +107,7 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate, MKLoca
             let longitud = puntoAnotacion.coordinate.longitude
             let coordinate = CLLocationCoordinate2DMake(latitud,longitud)
             let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-            mapItem.name = "Target location"
+            mapItem.name = "Target location" //TODO: Traducir
             mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
         }
         

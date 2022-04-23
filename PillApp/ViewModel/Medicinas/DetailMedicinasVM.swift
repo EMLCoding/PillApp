@@ -13,7 +13,7 @@ final class DetailMedicinasVM: ObservableObject {
     @Published var medicineName = ""
     @Published var medicineNotes = "Add your notes"
     @Published var category: Categories = .others
-    @Published var icon: Icons = .pastillas
+    @Published var icon: Icons = .pills
     
     @Published var initialDate = Date.now
     @Published var finalDate = Date.now
@@ -43,7 +43,7 @@ final class DetailMedicinasVM: ObservableObject {
             medicineName = medicine.name ?? ""
             medicineNotes = medicine.notes ?? ""
             category = Categories(rawValue: medicine.category ?? "Others") ?? .others
-            icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pastillas
+            icon = Icons(rawValue: medicine.icon ?? "Pills") ?? .pills
             medicineDate = medicine.date ?? Date.now
             textEditorTouched = true
         } else {

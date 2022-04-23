@@ -34,7 +34,7 @@ struct Medicine: Identifiable {
             icon = newValue.rawValue
         }
         get {
-            Icons(rawValue: icon) ?? .tirita
+            Icons(rawValue: icon) ?? .pills
         }
     }
 }
@@ -111,11 +111,10 @@ enum Categories: String, Identifiable, CaseIterable {
 }
 
 enum Icons: String, Identifiable, CaseIterable {
-    case tirita = "Band aid"
-    case botiquin = "First aid kit"
-    case corazon = "Heart"
-    case pastillas = "Pills"
-    case frasco = "Vial"
+    case bandage = "Band aid"
+    case crossCase = "First aid kit"
+    case heart = "Heart"
+    case pills = "Pills"
     
     var id: Icons {self}
     
@@ -125,16 +124,14 @@ enum Icons: String, Identifiable, CaseIterable {
     
     func getIconName() -> String {
         switch self {
-        case .tirita:
-            return "tirita"
-        case .botiquin:
-            return "botiquin"
-        case .corazon:
-            return "corazon"
-        case .pastillas:
-            return "pastillas"
-        case .frasco:
-            return "frasco"
+        case .bandage:
+            return "bandage"
+        case .crossCase:
+            return "crossCase"
+        case .heart:
+            return "heart"
+        case .pills:
+            return "pills"
         }
     }
     

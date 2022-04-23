@@ -28,7 +28,7 @@ struct DayPickerView: View {
                         .background {
                             Capsule()
                                 .fill(
-                                    $currentDate.wrappedValue.currentDate(date: day) ? LinearGradient(gradient: Gradient(colors: [.white, Color("MainColor")]), startPoint: .top, endPoint: .bottom) : LinearGradient(gradient: Gradient(colors: [.gray, .black]), startPoint: .top, endPoint: .bottom)
+                                    $currentDate.wrappedValue.currentDate(date: day) ? LinearGradient(gradient: Gradient(colors: [ Color("InitialGradient"), Color("MainColor")]), startPoint: .top, endPoint: .bottom) : LinearGradient(gradient: Gradient(colors: [.gray, .black]), startPoint: .top, endPoint: .bottom)
                                 )
                         }
                         .onTapGesture {
