@@ -197,7 +197,6 @@ struct AlertData {
 struct MedicalAppointment: Identifiable {
     let id: UUID
     let name: String
-    let attended: Bool
     let date: Date
     let dateReminder: Date
     let notes: String

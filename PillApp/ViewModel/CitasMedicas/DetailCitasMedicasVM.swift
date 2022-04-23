@@ -59,8 +59,9 @@ final class DetailCitasMedicasVM: ObservableObject {
         medicalAppoitment.name = appoitmentName.rawValue
         medicalAppoitment.date = date
         medicalAppoitment.dateReminder = dateReminder
-        medicalAppoitment.attended = false
-        medicalAppoitment.notes = appoitmentNotes
+        if textEditorTouched {
+            medicalAppoitment.notes = appoitmentNotes
+        }
         medicalAppoitment.ubication = appoitmentLocation
         
         try await context.perform {
@@ -76,7 +77,7 @@ final class DetailCitasMedicasVM: ObservableObject {
         medicalAppoitment?.notes = appoitmentNotes
         medicalAppoitment?.date = date
         medicalAppoitment?.dateReminder = oldDate
-        // medicalAppointment.ubication -> TODO
+        medicalAppoitment?.ubication = appoitmentLocation
         
         try await context.perform {
             if ((self.medicalAppoitment?.hasChanges) != nil) {
@@ -103,23 +104,6 @@ final class DetailCitasMedicasVM: ObservableObject {
                     print("ERROR deleting medical appoitment: \(error)")
                 }
             }
-        }
-    }
-    
-    func changeState(medicalAppoitment: CitaMedica, context: NSManagedObjectContext) async {
-        medicalAppoitment.attended.toggle()
-        
-        do {
-            try await context.perform {
-                    try context.save()
-                    if (medicalAppoitment.attended) {
-                        Notifications().eliminarNotificacion(id: medicalAppoitment.id ?? UUID())
-                    } else {
-                        Notifications().createNotification(id: medicalAppoitment.id ?? UUID(), date: medicalAppoitment.date ?? Date.now, element: medicalAppoitment.name ?? "", type: 2)
-                    }
-            }
-        } catch {
-            print("ERROR changing state: \(error.localizedDescription)")
         }
     }
 }

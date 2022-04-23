@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="CitaMedica" representedClassName="CitaMedica" syncable="YES" codeGenerationType="class">
-        <attribute name="attended" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateReminder" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -20,7 +19,7 @@
         <attribute name="taken" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <elements>
+        <element name="CitaMedica" positionX="-63" positionY="45" width="128" height="119"/>
         <element name="Medicinas" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="CitaMedica" positionX="-63" positionY="45" width="128" height="134"/>
     </elements>
 </model>

@@ -47,13 +47,6 @@ struct CitaMedicaView: View {
                 Label("Copy to clipboard", systemImage: "doc.on.clipboard")
             }
             Button {
-                Task {
-                    await detailCitasMedicasVM.changeState(medicalAppoitment: medicalAppoitment, context: viewContext)
-                }
-            } label: {
-                Label(medicalAppoitment.attended ? "Demark as attended" : "Mark as attended", systemImage: medicalAppoitment.attended ? "minus.circle" : "checkmark")
-            }
-            Button {
                 showAlert = true
             } label: {
                 Label("Delete", systemImage: "trash.fill")

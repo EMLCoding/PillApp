@@ -36,7 +36,6 @@ struct PersistenceController {
         let pruebaCitaMedica = CitaMedica(context: viewContext)
         pruebaCitaMedica.id = UUID()
         pruebaCitaMedica.name = "Test medical appointment"
-        pruebaCitaMedica.attended = false
         pruebaCitaMedica.date = Date.now
         pruebaCitaMedica.dateReminder = Date.now
         pruebaCitaMedica.notes = "Test notes"
@@ -99,7 +98,6 @@ struct PersistenceController {
         let newMedicalAppointment = CitaMedica(context: context)
         newMedicalAppointment.id = UUID()
         newMedicalAppointment.name = "Test medical appointment"
-        newMedicalAppointment.attended = false
         newMedicalAppointment.date = Date.now
         newMedicalAppointment.dateReminder = Date.now
         newMedicalAppointment.notes = "Test notes"
