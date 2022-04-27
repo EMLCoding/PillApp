@@ -19,6 +19,7 @@ final class StreetsFinderVM: NSObject, ObservableObject, MKLocalSearchCompleterD
     
     var searchCompleter = MKLocalSearchCompleter()
     
+    /// Realiza la búsqueda de las direcciones en función del texto introducido en el buscador, que se guardará en la variable **direction**
     func searchQuery() {
         searchCompleter.delegate = self
         searchCompleter.queryFragment = direction

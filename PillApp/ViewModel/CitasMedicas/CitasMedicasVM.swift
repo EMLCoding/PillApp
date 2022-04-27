@@ -14,6 +14,9 @@ final class CitasMedicasVM: ObservableObject {
     @Published var years: [Int] = []
     @Published var currentDate = Date.now
     
+    /// En función de los datos de citas médicas almacenados en Core Data, se rellenará el array de años, con el que se podrá cambiar el año de visualización en el listado de recordatorios de citas médicas. Coge el elemento con la fecha más vieja y el elemento con la fecha más actual y recupera los años, no el número de años, que hay entre ambas fechas
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func getAllYears(context: NSManagedObjectContext) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CitaMedica")
         fetchRequest.fetchLimit = 1
@@ -37,6 +40,9 @@ final class CitasMedicasVM: ObservableObject {
         }
     }
     
+    /// Cambia el año de la fecha actual por el año seleccionado en el menú desplegable de años, para mostrar las fechas y recordatorios de dicho año
+    ///
+    ///  - Parameter year: Año seleccionado. --> (Int)
     func changeDate(year: Int) {
         let calendar = Calendar(identifier: .gregorian)
         var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: currentDate)

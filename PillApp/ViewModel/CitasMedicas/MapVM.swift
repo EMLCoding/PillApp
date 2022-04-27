@@ -27,18 +27,10 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate, MKLoca
     @Published var localizations: [MKLocalSearchCompletion] = []
     var searchCompleter = MKLocalSearchCompleter()
     
-    // Realiza la busqueda de las localizaciones
-    func searchQuery() {
-        searchCompleter.delegate = self
-        searchCompleter.queryFragment = searchText
-    }
-    
-    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        self.localizations = completer.results
-    }
-    
+    /// Comprueba si el usuario ha dado los permisos necesarios para utilizar la ubicación del dispositivo
+    ///
+    ///  - Parameter manager: (CLLocationManager)
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        // Comprueba los permisos de localizacion
         switch manager.authorizationStatus {
         case .denied:
             // Acceso denegado. Muestra una alerta
@@ -52,12 +44,18 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate, MKLoca
         }
     }
     
-    // Maneja los errores del MapView
+    /// Maneja los errores del MapView
+    ///
+    ///  - Parameter manager: (CLLocationManager)
+    ///  - Parameter didFailWithError: (Error)
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
     
-    // Para obtener la region del usuario segun su localizacion
+    /// Para obtener la region del usuario segun su localizacion
+    ///
+    ///  - Parameter manager: (CLLocationManager)
+    ///  - Parameter didUpdateLocations: [CLLocation]
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0]
         let latitud = userLocation.coordinate.latitude
@@ -74,7 +72,9 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate, MKLoca
         }
     }
     
-    // Funcion que permite hacer el maximo zoom posible en el mapa y mostrar la ubicacion del usuario y la anotacion
+    /// Permite hacer el maximo zoom posible en el mapa y mostrar la ubicacion del usuario y la anotacion
+    ///
+    ///  - Parameter localizacionUsuario: (CLLocationCoordinate2D)
     func fitMapViewToAnnotaionList(localizacionUsuario: CLLocationCoordinate2D) -> Void {
         var zoomRect = MKMapRect.null
         for anotacion in mapView.annotations {
@@ -98,7 +98,8 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate, MKLoca
         mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40), animated: true)
     }
     
-    // Permite abrir la aplicación de mapas con los datos ya cargados para ver la ruta
+    /// Abre la aplicación de mapas con los datos ya cargados para ver la ruta
+    ///
     func seeEnMap() {
         if (mapView.annotations.count > 0) {
             let anotacion = mapView.annotations[0]

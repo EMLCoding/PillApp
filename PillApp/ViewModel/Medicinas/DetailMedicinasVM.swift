@@ -51,6 +51,9 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza la llamada a los métodos de guardar los datos. En función de la variable **isEdition** llamará al método **edit** o al método **create** para editar o crear un recordatorio de medicinas
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     @MainActor
     func save(context: NSManagedObjectContext) {
         Task {
@@ -67,6 +70,9 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza la tarea asíncrona de crear un nuevo recordatorio de medicina. Los errores lanzados (throws) serán gestionados en el método **save**
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func create(context: NSManagedObjectContext) async throws{
         let components = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: initialDate), to: Calendar.current.startOfDay(for: finalDate))
         let idGroup = UUID()
@@ -152,6 +158,9 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza el guardado de un recordatorio de medicina en Core Data de manera asíncrona. Los errores lanzados (throws) serán gestionados en el método **save**
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func createMedicine(context: NSManagedObjectContext, idGroup: UUID, date: Date) async throws {
         let medicine = Medicinas(context: context)
         let id = UUID()
@@ -170,6 +179,9 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza el guardado de los datos editados un recordatorio de medicina en Core Data de manera asíncrona. Los errores lanzados (throws) serán gestionados en el método **save**
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func edit(context: NSManagedObjectContext) async throws {
         let oldDate = medicine?.date ?? Date.now
         medicine?.name = medicineName
@@ -190,6 +202,11 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza la tarea asíncrona de eliminar un recordatorio, o un bloque, de medicinas.
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
+    ///  - Parameter medicine: objeto de la medicina que se quiere eliminar. --> (Medicinas)
+    ///  - Parameter deleteAll: permite indicar si se quiere borrar un recordatorio de forma individual o si se quieren eliminar todos los recordatorios asociados. --> (Bool)
     func delete(context: NSManagedObjectContext, medicine: Medicinas, deleteAll: Bool) {
         Task {
             do {
@@ -202,6 +219,10 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza la tarea asíncrona de eliminar un recordatorio de medicinas.
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
+    ///  - Parameter medicine: objeto de la medicina que se quiere eliminar. --> (Medicinas)
     func deleteOne(context: NSManagedObjectContext, medicine: Medicinas) async throws {
         if let id = medicine.id {
             context.delete(medicine)
@@ -214,6 +235,10 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Realiza la tarea asíncrona de eliminar un bloque de recordatorios de medicinas
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
+    ///  - Parameter medicine: array de objetos medicina que se quiere eliminar. --> ([Medicinas])
     func deleteAllGroup(context: NSManagedObjectContext, medicines: [Medicinas]) async throws {
         for medicine in medicines {
             if let id = medicine.id {
@@ -229,6 +254,11 @@ final class DetailMedicinasVM: ObservableObject {
         }
     }
     
+    /// Recupera de Core Data el array de medicinas asociados por el **idGroup** de una medicina
+    ///
+    /// - Parameter medicament: objeto de la medicina de la que se obtendrán todos los recordatorios asociados. --> (Medicinas)
+    /// - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
+    /// - Returns: [Medicinas]
     func getMedicamentsWith(medicament: Medicinas, context: NSManagedObjectContext) -> [Medicinas] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Medicinas")
         fetchRequest.predicate = NSPredicate(format: "idGroup == %@ && date >= %@", (medicament.idGroup ?? UUID()) as CVarArg, Calendar.current.startOfDay(for: medicament.date ?? Date.now) as CVarArg)
@@ -240,6 +270,10 @@ final class DetailMedicinasVM: ObservableObject {
         return []
     }
     
+    /// Realiza la modificación, de manera asíncrona, del estado de un recordatorio de medicina.
+    ///
+    /// - Parameter medicament: objeto de la medicina que se quiere editar el estado. --> (Medicinas)
+    /// - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func changeState(medicament: Medicinas, context: NSManagedObjectContext) async {
         medicament.taken.toggle()
         

@@ -12,8 +12,8 @@ import CoreLocation
 extension Date {
     /// Devuelve una fecha en formato String utilizando el conjunto de formatos de fechas
     ///
-    ///  - Parameter format: El formato en que se va a recuperar la fecha ('dd' devuelve el numero del dia; 'EEE' devulve el nombre del dia reducido).
-    ///   - Returns: String
+    ///  - Parameter format: El formato en que se va a recuperar la fecha ('dd' devuelve el numero del dia; 'EEE' devulve el nombre del dia reducido). --> (String)
+    ///  - Returns: String
     func extractDate(format: String) -> String {
         let formatter = DateFormatter()
         
@@ -24,8 +24,8 @@ extension Date {
     
     /// Devuelve true o false si dos fechas son iguales
     ///
-    ///  - Parameter date: La fecha con la que se va a comparar.
-    ///   - Returns: Bool
+    ///  - Parameter date: La fecha con la que se va a comparar --> (Date)
+    ///  - Returns: Bool
     func sameDateAs(date: Date) -> Bool {
         let calendar = Calendar.current
         
@@ -34,8 +34,8 @@ extension Date {
     
     /// Devuelve un array con todos los años que hay entre dos fechas
     ///
-    ///  - Parameter toDate: La fecha con la que se va a comparar.
-    ///   - Returns: [Int]
+    ///  - Parameter toDate: La fecha con la que se va a comparar. --> (Date)
+    ///  - Returns: [Int]
     func years(toDate: Date) -> [Int] {
         var yearsMap:Set<Int> = []
         var date = self
@@ -53,6 +53,11 @@ extension Date {
 let urlBase = URL(string: "https://cima.aemps.es/cima/rest/medicamentos")!
 
 extension URL {
+    /// Devuelve la URL de la petición de la API de Medicinas de CIMA
+    ///
+    ///  - Parameter name: Texto escrito en el buscador de medicinas. --> (String)
+    ///  - Parameter page: La página de resultados --> (Int)
+    ///  - Returns: URL
     static func urlMedicines(name: String, page: Int) -> URL {
         guard var urlC = URLComponents(url: urlBase, resolvingAgainstBaseURL: false) else {
             return urlBase

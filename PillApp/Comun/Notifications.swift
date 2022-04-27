@@ -9,6 +9,12 @@ import SwiftUI
 import NotificationCenter
 
 final class Notifications {
+    /// Permite crear una notificación que se mostrará en el dispositivo en la fecha indicada
+    ///
+    ///  - Parameter id: ID del elemento que genera esta notificación (id de un recordatorio de medicina/cita médica). --> (UUID)
+    ///  - Parameter date: La fecha en la que se va a mostrar la notificacón, con la hora y minutos incluidos --> (Date)
+    ///  - Parameter element: Nombre del elemento que genera esta notificación --> (String)
+    ///  - Parameter type: ID del tipo de elemento (1 para recordatorio de medicinas y 2 para recordatorio de citas medicas) --> (Int)
     func createNotification(id: UUID, date: Date, element: String, type: Int) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
@@ -48,10 +54,16 @@ final class Notifications {
         }
     }
     
+    /// Permite eliminar una notificación programada
+    ///
+    ///  - Parameter id: ID de la notificación que se quiere eliminar, que será el ID del elemento que generó la notificación. --> (UUID)
     func eliminarNotificacion(id: UUID) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id.uuidString])
     }
     
+    /// Permite generar mensajes aleatorios para mostrar en las notificaciones de los recordatorios de medicinas
+    ///
+    ///  - Returns: String
     fileprivate func generarMensajeRecordatoriosMedicinas() -> String {
         let mensajeAleatorio = Int.random(in: 0..<4)
         var mensaje: String = ""
@@ -72,6 +84,9 @@ final class Notifications {
         return mensaje
     }
     
+    /// Permite generar mensajes aleatorios para mostrar en las notificaciones de los recordatorios de citas médicas
+    ///
+    ///  - Returns: String
     fileprivate func generarMensajeRecordatorioCitas() -> String {
         let mensajeAleatorio = Int.random(in: 0..<3)
         var mensaje: String = ""

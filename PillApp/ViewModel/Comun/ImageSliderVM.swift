@@ -30,6 +30,8 @@ final class ImageSliderVM: ObservableObject {
         }
     }
     
+    /// Recupera de forma asíncrona las imágenes, de la red, en función del array **images**
+    ///
     @MainActor func getImages() async throws {
         for image in images {
             if let urlImage = URL(string: image.url) {
@@ -41,14 +43,6 @@ final class ImageSliderVM: ObservableObject {
                 }
             }
         }
-//        for image in images {
-//            if let urlImage = URL(string: image.url) {
-//                let image = try await getNetwork(url: urlImage) {
-//                    UIImage(data: $0)
-//                }
-//                downloadedImages.append(image)
-//            }
-//        }
     }
     
     func getNetwork<Element>(url: URL, builder: @escaping (Data) -> Element?) async throws -> Element {

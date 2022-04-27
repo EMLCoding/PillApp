@@ -15,10 +15,9 @@ final class DayPickerVM: ObservableObject {
         fetchDates(currenDate: currentDate)
     }
     
-    /// Esta funcion devuelve array de fechas
+    /// Genera todas las fechas (las bolitas del scroll horizontal) en base a la fecha actual
     ///
-    ///  - Parameter format: El formato en que se va a recuperar la fecha ('dd' devuelve el numero del dia; 'EEE' devulve el nombre del dia reducido).
-    ///   - Returns: Devuelve la fecha en formato texto
+    ///  - Parameter currentDate: Fecha del día seleccionado. --> (Date)
     func fetchDates(currenDate: Date) {
         let today = currenDate 
         let calendar = Calendar.current

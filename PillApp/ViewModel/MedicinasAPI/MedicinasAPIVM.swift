@@ -37,7 +37,7 @@ final class MedicinasAPIVM: ObservableObject {
     @Published var dataSheetURL = ""
     @Published var leaftletURL = ""
     
-    
+    /// Recupera de forma asíncrona las medicinas de la API de medicinas de CIMA.
     @MainActor func find() async {
         do {
             if (query == "") {
@@ -52,7 +52,6 @@ final class MedicinasAPIVM: ObservableObject {
                 }
                 searchedMedicines.append(contentsOf: result.resultados)
                 isLoadingData = false
-                //searchedMedicines.sort(by: {$0.nombre < $1.nombre})
             }
             
         } catch {
@@ -60,6 +59,11 @@ final class MedicinasAPIVM: ObservableObject {
         }
     }
     
+    /// Recupera la url del documento de una medicina, en función del tipo
+    ///
+    ///  - Parameter medicament: Objeto de la medicina --> (MedicineAPI)
+    ///  - Parameter type: Tipo del documento que se quiere obtener. --> (String)
+    ///  - Returns: String
     func getFile(_ medicament: MedicineAPI, type: Int) -> String {
         if let docs = medicament.docs, let document = docs.filter({ $0.tipo == type}).first {
             return document.url

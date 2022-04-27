@@ -38,6 +38,9 @@ final class DetailCitasMedicasVM: ObservableObject {
         }
     }
     
+    /// Realiza la llamada a los métodos de guardar los datos. En función de la variable **isEdition** llamará al método **edit** o al método **create** para editar o crear un recordatorio de citas médicas
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     @MainActor
     func save(context: NSManagedObjectContext) {
         Task {
@@ -54,6 +57,9 @@ final class DetailCitasMedicasVM: ObservableObject {
         }
     }
     
+    /// Realiza la tarea asíncrona de crear un nuevo recordatorio de cita médica. Los errores lanzados (throws) serán gestionados en el método **save**
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func create(context: NSManagedObjectContext) async throws {
         let medicalAppoitment = CitaMedica(context: context)
         let id = UUID()
@@ -73,6 +79,9 @@ final class DetailCitasMedicasVM: ObservableObject {
         
     }
     
+    /// Realiza la tarea asíncrona de editar un recordatorio de cita médica. Los errores lanzados (throws) serán gestionados en el método 'save'
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func edit(context: NSManagedObjectContext) async throws {
         let oldDate = medicalAppoitment?.dateReminder ?? Date.now
         medicalAppoitment?.name = appoitmentName.rawValue
@@ -95,6 +104,10 @@ final class DetailCitasMedicasVM: ObservableObject {
         }
     }
     
+    /// Realiza la tarea asíncrona de eliminar un recordatorio de cita médica.
+    ///
+    ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
+    ///  - Parameter medicalAppoitment: objeto de la cita médica que se quiere eliminar. --> (CitaMedica)
     func delete(context: NSManagedObjectContext, medicalAppoitment: CitaMedica) {
         if let id = medicalAppoitment.id {
             Task {
