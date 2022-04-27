@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 extension Date {
-    /// Esta funcion devuelve una fecha en formato String utilizando el conjunto de formatos de fechas
+    /// Devuelve una fecha en formato String utilizando el conjunto de formatos de fechas
     ///
     ///  - Parameter format: El formato en que se va a recuperar la fecha ('dd' devuelve el numero del dia; 'EEE' devulve el nombre del dia reducido).
     ///   - Returns: Devuelve la fecha en formato texto
@@ -22,11 +22,11 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    /// Esta funcion devuelve true o false si dos fechas son iguales
+    /// Devuelve true o false si dos fechas son iguales
     ///
     ///  - Parameter date: La fecha con la que se va a comparar.
     ///   - Returns: Devuelve un booleano
-    func currentDate(date: Date) -> Bool {
+    func sameDateAs(date: Date) -> Bool {
         let calendar = Calendar.current
         
         return calendar.isDate(self, inSameDayAs: date)

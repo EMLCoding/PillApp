@@ -20,9 +20,7 @@ struct MedicinasListView: View {
     }
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            Text(date.extractDate(format: "MMMM yyyy"))
-                .bold()
+        ScrollView(.vertical, showsIndicators: false) {           
             ForEach(userMedicines) { medicine in
                 NavigationLink {
                     DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))

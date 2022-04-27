@@ -21,8 +21,6 @@ struct CitasMedicasListView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            Text(date.extractDate(format: "MMMM yyyy"))
-                .bold()
             ForEach(userMedicalAppointments) { medicalAppointment in
                 NavigationLink {
                     DetailCitasMedicasView(detailCitasMedicasVM: DetailCitasMedicasVM(medicalAppoitment: medicalAppointment))
