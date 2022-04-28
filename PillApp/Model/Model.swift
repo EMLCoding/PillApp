@@ -8,41 +8,7 @@
 import SwiftUI
 import MapKit
 
-// TODO: Eliminar los structs no necesarios
-
-struct Medicine: Identifiable {
-    let id: UUID
-    let idGroup: UUID
-    let name: String
-    let date: Date
-    var category: String
-    var icon: String
-    var taken: Bool
-    var notes: String
-    
-    var medicineCategory: Categories {
-        set {
-            category = newValue.rawValue
-        }
-        get {
-            Categories(rawValue: category) ?? .others
-        }
-    }
-    
-    var medicineIcon: Icons {
-        set {
-            icon = newValue.rawValue
-        }
-        get {
-            Icons(rawValue: icon) ?? .pills
-        }
-    }
-}
-
-
-
 // MARK: - Objetos para la API de medicinas
-
 struct Results: Decodable {
     var resultados: [MedicineAPI]
 }
@@ -78,7 +44,7 @@ struct Foto: Decodable, Hashable {
     var fecha: Int
 }
 
-// MARK: - Datos almacenados
+// MARK: - Stored Data
 enum Categories: String, Identifiable, CaseIterable {
     case others = "Others"
     case analgesic = "Analgesic"
@@ -177,37 +143,6 @@ enum DaysOfWeek: String, Identifiable, CaseIterable {
     }
 }
 
-// MARK: - Alert
-enum ClicksBoton {
-    case ok
-    case cancel
-    case none
-}
-
-struct AlertData {
-    let title: String
-    let image: String
-    let text: String
-    let textButton: String?
-    
-    static let empty = AlertData(title: "", image: "", text: "", textButton: nil)
-}
-
-// MARK: - Medical appointments
-struct MedicalAppointment: Identifiable {
-    let id: UUID
-    let name: String
-    let date: Date
-    let dateReminder: Date
-    let notes: String
-    let ubication: String
-}
-
-struct Place: Identifiable {
-    var id = UUID().uuidString
-    var place: CLPlacemark
-}
-
 enum DoctorTypes: String, Identifiable, CaseIterable {
     case others = "Others"
     case allergology = "Allergology"
@@ -249,3 +184,16 @@ enum DoctorTypes: String, Identifiable, CaseIterable {
         return title.localizedString()
     }
 }
+
+// MARK: - Alert
+struct AlertData {
+    let title: String
+    let image: String
+    let text: String
+    let textButton: String?
+    
+    static let empty = AlertData(title: "", image: "", text: "", textButton: nil)
+}
+
+// MARK: - Medical appointments
+
