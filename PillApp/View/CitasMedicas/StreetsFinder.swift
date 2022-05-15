@@ -14,7 +14,7 @@ struct StreetsFinder: View {
     @Binding var location: String
     
     var body: some View {
-        VStack {
+        ZStack {
             if (streetsFinderVM.localizations.isEmpty) {
                 VStack(alignment: .center) {
                     Image(systemName: "magnifyingglass.circle")
@@ -26,7 +26,7 @@ struct StreetsFinder: View {
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
                 }
-            } else {
+            }
                 List {
                     ForEach(streetsFinderVM.localizations, id: \.self) { localization in
                         HStack {
@@ -51,7 +51,6 @@ struct StreetsFinder: View {
                         }
                     }
                 }
-            }
         }
         .searchable(text: $streetsFinderVM.direction)
         .navigationTitle("Search localization")

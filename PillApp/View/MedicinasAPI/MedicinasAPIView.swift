@@ -54,6 +54,7 @@ struct MedicinasAPIView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -14,22 +14,46 @@ struct MedicinasListView: View {
     }
     var date = Date.now
     
+    let columns: [GridItem] = [GridItem(.adaptive(minimum: 300))]
+    
     init(currentDate: Date) {
         date = currentDate
         fetchRequest = FetchRequest<Medicinas>(sortDescriptors: [SortDescriptor(\Medicinas.date)], predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg) ,animation: .default)
     }
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {           
-            ForEach(userMedicines) { medicine in
-                NavigationLink {
-                    DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))
-                } label: {
-                    MedicinaView(medicine: medicine)
-                        .padding(.bottom)
+        if userMedicines.count == 0 {
+            Group {
+                Spacer()
+                
+                VStack(alignment: .center) {
+                    Image(systemName: "pills.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(Color("MainColor"))
+                        .frame(width: 80, height: 80)
+                    Text("Add the medications you want me to remind you of.")
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                }
+                
+                Spacer()
+            }
+        } else {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVGrid(columns: columns) {
+                    ForEach(userMedicines) { medicine in
+                        NavigationLink {
+                            DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))
+                        } label: {
+                            MedicinaView(medicine: medicine)
+                                .padding(.bottom)
+                        }
+                    }
                 }
             }
         }
+        
     }
 }
 

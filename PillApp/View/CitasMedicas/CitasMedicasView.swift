@@ -47,6 +47,7 @@ struct CitasMedicasView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             citasMedicasVM.getAllYears(context: viewContext)
         }
