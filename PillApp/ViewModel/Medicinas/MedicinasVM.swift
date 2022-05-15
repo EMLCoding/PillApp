@@ -17,7 +17,7 @@ final class MedicinesVM: ObservableObject {
     /// En función de los datos de medicinas almacenadas en Core Data, se rellenará el array de años, con el que se podrá cambiar el año de visualización en el listado de recordatorios de medicinas. Coge el elemento con la fecha más vieja y el elemento con la fecha más actual y recupera los años, no el número de años, que hay entre ambas fechas
     ///
     ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
-    func getAllYears(context: NSManagedObjectContext) {        
+    func getAllYears(context: NSManagedObjectContext) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Medicinas")
         fetchRequest.fetchLimit = 1
         fetchRequest.sortDescriptors = [
@@ -31,9 +31,14 @@ final class MedicinesVM: ObservableObject {
             ]
             let newer = try context.fetch(fetchRequest) as! [Medicinas]
             
-            if let olderDate = older[0].date, let newerDate = newer[0].date {
-                years = olderDate.years(toDate: newerDate)
+            if (older.count > 0) {
+                if let olderDate = older[0].date, let newerDate = newer[0].date {
+                    years = olderDate.years(toDate: newerDate)
+                }
+            } else {
+                years = Date.now.years(toDate: Date.now)
             }
+            
             
         } catch {
             print("ERROR: \(error.localizedDescription)")

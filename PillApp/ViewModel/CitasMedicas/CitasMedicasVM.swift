@@ -31,9 +31,14 @@ final class CitasMedicasVM: ObservableObject {
             ]
             let newer = try context.fetch(fetchRequest) as! [CitaMedica]
             
-            if let olderDate = older[0].date, let newerDate = newer[0].date {
-                years = olderDate.years(toDate: newerDate)
+            if (older.count > 0) {
+                if let olderDate = older[0].date, let newerDate = newer[0].date {
+                                years = olderDate.years(toDate: newerDate)
+                            }
+            } else {
+                years = Date.now.years(toDate: Date.now)
             }
+            
             
         } catch {
             print("ERROR: \(error.localizedDescription)")
