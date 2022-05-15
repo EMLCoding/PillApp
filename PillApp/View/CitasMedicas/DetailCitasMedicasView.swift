@@ -71,7 +71,7 @@ struct DetailCitasMedicasView: View {
                     Button("See on the map", action: {isShowingSheetMap.toggle()})
                         .sheet(isPresented: $isShowingSheetMap, content: {
                             NavigationView {
-                                MapView(mapVM: MapVM(), localization: detailCitasMedicasVM.appoitmentLocation)
+                                MapView(mapVM: MapVM(localization: detailCitasMedicasVM.appoitmentLocation))
                             }
                         })
                 }

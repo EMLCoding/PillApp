@@ -42,7 +42,6 @@
 		CBF7161A27E7590D00A96AFD /* MedicinaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7161927E7590D00A96AFD /* MedicinaView.swift */; };
 		CBF794B8280DB31300BF5995 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF794B7280DB31300BF5995 /* MapView.swift */; };
 		CBF794BA280DB32800BF5995 /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF794B9280DB32800BF5995 /* MapVM.swift */; };
-		CBF794BC280DB4A800BF5995 /* MapComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF794BB280DB4A800BF5995 /* MapComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +81,6 @@
 		CBF7161927E7590D00A96AFD /* MedicinaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinaView.swift; sourceTree = "<group>"; };
 		CBF794B7280DB31300BF5995 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		CBF794B9280DB32800BF5995 /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
-		CBF794BB280DB4A800BF5995 /* MapComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +241,6 @@
 				CB230EBD280CAC430089B01D /* CitaMedicaView.swift */,
 				CB63AF1A280DA271005B4386 /* StreetsFinder.swift */,
 				CBF794B7280DB31300BF5995 /* MapView.swift */,
-				CBF794BB280DB4A800BF5995 /* MapComponentView.swift */,
 			);
 			path = CitasMedicas;
 			sourceTree = "<group>";
@@ -344,7 +341,6 @@
 				CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */,
 				CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */,
 				CB32826627EE753500CA70B1 /* ImageSliderVM.swift in Sources */,
-				CBF794BC280DB4A800BF5995 /* MapComponentView.swift in Sources */,
 				CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */,
 				CBB6DB4B2807180900221459 /* CitasMedicasView.swift in Sources */,
 				CB63AF1B280DA271005B4386 /* StreetsFinder.swift in Sources */,

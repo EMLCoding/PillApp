@@ -6,23 +6,40 @@
 //
 
 import SwiftUI
+import MapKit
 import CoreLocation
 
 struct MapView: View {
     @ObservedObject var mapVM: MapVM
     @State var locationManager = CLLocationManager()
+    @State var showInfoLocation = false
     
-    init(mapVM: MapVM, localization: String) {
+    let annotations: [Ubication] = []
+    
+    init(mapVM: MapVM) {
         self.mapVM = mapVM
-        self.mapVM.localization = localization
-        self.locationManager.delegate = mapVM
-        self.locationManager.requestWhenInUseAuthorization()
     }
     
     var body: some View {
         ZStack {
-            MapComponentView(mapVM: mapVM)
-                .ignoresSafeArea()
+            Map(coordinateRegion: $mapVM.region, annotationItems: mapVM.annotations) { location in
+                MapAnnotation(coordinate: location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 1.0)) {
+                    VStack {
+                        Text("\(location.name)")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(RoundedRectangle(cornerRadius: 10.0, style: .continuous).foregroundColor(Color("MainColor")))
+                            .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 10)
+                        
+                        Image(systemName: "mappin.circle.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color("MainColor"))
+                    }
+                }
+            }
+            .ignoresSafeArea()
             
             VStack {
                 Spacer()
@@ -37,20 +54,14 @@ struct MapView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
-
+                
             }
         }
-        .alert(isPresented: $mapVM.permissionDenied, content: {
-            Alert(title: Text("Denied permissions"), message: Text("If you want to use the map enable the permissions in the settings"), dismissButton: .default(Text("Go to settings")) {
-                // Redirecciona a los ajustes
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            })
-        })
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(mapVM: MapVM(), localization: "")
+        MapView(mapVM: MapVM(localization: ""))
     }
 }

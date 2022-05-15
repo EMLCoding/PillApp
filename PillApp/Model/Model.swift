@@ -195,5 +195,10 @@ struct AlertData {
     static let empty = AlertData(title: "", image: "", text: "", textButton: nil)
 }
 
-// MARK: - Medical appointments
+// MARK: - Map
+struct Ubication: Identifiable {
+    let id: Int
+    let name: String
+    var coordinate: CLLocationCoordinate2D
+}
 
