@@ -11,47 +11,54 @@ struct ContentView: View {
     @State private var showAlert = false
     @State private var showBlurEffect = false
     @State private var alertData = AlertData.empty
-
+    
+    @State var notShowTutorial = UserDefaults.standard.bool(forKey: "notShowTutorial")
     
     var body: some View {
-        TabView {
-            MedicinasView(medicinesVM: MedicinesVM())
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
-                .tabItem {
-                    Label("Medicines", systemImage: "pills")
-                }
-            CitasMedicasView(citasMedicasVM: CitasMedicasVM())
-                .tabItem {
-                    Label("Schedule", systemImage: "calendar")
-                }
-        }
-        .onAppear {
-                    let appearance = UITabBarAppearance()
-                    appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-                    appearance.backgroundColor = UIColor(Color("MainColor").opacity(0.2))
-                    
-                    // Use this appearance when scrolling behind the TabView:
-                    UITabBar.appearance().standardAppearance = appearance
-                    // Use this appearance when scrolled all the way up:
-                    UITabBar.appearance().scrollEdgeAppearance = appearance
-                }
-        .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
-            if let data = notification.object as? AlertData {
-                showAlert = true
-                alertData = data
+        if (notShowTutorial) {
+            TabView {
+                MedicinasView(medicinesVM: MedicinesVM())
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
+                    .tabItem {
+                        Label("Medicines", systemImage: "pills")
+                    }
+                CitasMedicasView(citasMedicasVM: CitasMedicasVM())
+                    .tabItem {
+                        Label("Schedule", systemImage: "calendar")
+                    }
             }
-            showBlurEffect = true
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+                appearance.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.1)
+                
+                // Use this appearance when scrolling behind the TabView:
+                UITabBar.appearance().standardAppearance = appearance
+                // Use this appearance when scrolled all the way up:
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .showAlert)) { notification in
+                if let data = notification.object as? AlertData {
+                    showAlert = true
+                    alertData = data
+                }
+                showBlurEffect = true
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
+                showAlert = false
+                showBlurEffect = false
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(alertData.title), message: Text(alertData.text), dismissButton: .default(Text(alertData.textButton ?? "Got it")))
+            }
+        } else {
+            TutorialView(notShowTutorial: $notShowTutorial)
+                .edgesIgnoringSafeArea(.all)
         }
-        .onReceive(NotificationCenter.default.publisher(for: .hideAlert)) { _ in
-            showAlert = false
-            showBlurEffect = false
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text(alertData.title), message: Text(alertData.text), dismissButton: .default(Text(alertData.textButton ?? "Got it")))
-        }
+        
         
     }
 }
