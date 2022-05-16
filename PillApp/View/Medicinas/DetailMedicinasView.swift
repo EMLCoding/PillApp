@@ -54,7 +54,7 @@ struct DetailMedicinasView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 5, height: 5)
-                                Text(icon.rawValue)
+                                Text(icon.localizedString())
                             }
                         }
                     }
@@ -68,16 +68,19 @@ struct DetailMedicinasView: View {
                     }
                 }
                 
-                TextEditor(text: $detailMedicinasVM.medicineNotes)
-                    .frame(minHeight: 100)
-                    .focused($actualField, equals: .notes)
-                    .submitLabel(.done)
-                    .onTapGesture {
-                        if (!detailMedicinasVM.textEditorTouched) {
-                            detailMedicinasVM.medicineNotes = ""
-                            detailMedicinasVM.textEditorTouched = true
-                        }
+                ZStack(alignment: .topLeading) {
+                    if (detailMedicinasVM.medicineNotes.isEmpty) {
+                        Text("Add your notes")
+                            .foregroundColor(.gray.opacity(0.5))
+                            .padding(.top, 6)
+                            .padding(.leading, 5)
                     }
+                    
+                    TextEditor(text: $detailMedicinasVM.medicineNotes)
+                        .frame(minHeight: 100)
+                        .focused($actualField, equals: .notes)
+                        .submitLabel(.done)
+                }
             }
             
             if !detailMedicinasVM.isEdition {
@@ -126,9 +129,19 @@ struct DetailMedicinasView: View {
                             DatePicker("Fourth dose", selection: $detailMedicinasVM.hourFourthTime, in: detailMedicinasVM.hourThirdTime...,displayedComponents: .hourAndMinute)
                         }
                     } else if detailMedicinasVM.periodicity == .week {
-                        Picker(selection: $detailMedicinasVM.dayOfWeek, label: Text("Day of the week")) {
-                            ForEach(DaysOfWeek.allCases) { day in
-                                Text(day.localizedString())
+                        Menu {
+                            Picker(selection: $detailMedicinasVM.dayOfWeek, label: Text("Day of the week")) {
+                                ForEach(DaysOfWeek.allCases) { day in
+                                    Text(day.localizedString())
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Text("Day of the week")
+                                
+                                Spacer()
+                                
+                                Text("\(detailMedicinasVM.dayOfWeek.localizedString())")
                             }
                         }
                         DatePicker("Time of first dose", selection: $detailMedicinasVM.hourFirstTime, displayedComponents: .hourAndMinute)

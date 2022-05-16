@@ -49,7 +49,6 @@ enum Categories: String, Identifiable, CaseIterable {
     case others = "Others"
     case analgesic = "Analgesic"
     case antacid = "Antacid"
-    case antialérgico = "Antialérgico"
     case antiallergy = "Anti-allergy"
     case antibiotic = "Antibiotic"
     case antifungal = "Antifungal"
@@ -65,7 +64,6 @@ enum Categories: String, Identifiable, CaseIterable {
     
     var id: Categories {self}
     
-    // TODO: Pruebas para la traduccion
     func localizedString() -> String {
         return NSLocalizedString(self.rawValue, comment: "")
     }

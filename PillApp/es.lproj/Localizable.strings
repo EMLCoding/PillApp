@@ -1,0 +1,308 @@
+/* No comment provided by engineer. */
+"-" = "-";
+
+/* No comment provided by engineer. */
+"Add" = "Añadir";
+
+/* No comment provided by engineer. */
+"Add reminders" = "Añadir recordatorios";
+
+/* No comment provided by engineer. */
+"Add the medical appointments you want to be reminded of" = "Añade las citas médicas que quieres que te recuerde";
+
+/* No comment provided by engineer. */
+"Add the medications you want me to remind you of." = "Añade los medicamentos que quieres que te recuerde";
+
+"Add your notes" = "Añade tus notas";
+
+"Allergology" = "Alergología";
+
+"Analgesic" = "Analgésico";
+
+"Analytics" = "Analíticas";
+
+"Anesthetist" = "Anestesista";
+
+"Antacid" = "Antiácido";
+
+"Anti-allergy" = "Antialérgico";
+
+"Anti-inflammatories" = "Antiinflamatorios";
+
+"Antibiotic" = "Antibiótico";
+
+"Antidepressant" = "Antidepresivos";
+
+"Antifungal" = "Antifúngico";
+
+"Antiparasitic" = "Antiparasitario";
+
+"Antipyretic" = "Antipirético";
+
+"Antitussive" = "Antitusivo";
+
+/* No comment provided by engineer. */
+"Appointment date" = "Fecha de la cita";
+
+"Band aid" = "Tirita";
+
+"Cardiology" = "Cardiología";
+
+/* No comment provided by engineer. */
+"Category" = "Categoría";
+
+/* No comment provided by engineer. */
+"Category: " = "Categoría:";
+
+"Chiropody" = "Podología";
+
+/* No comment provided by engineer. */
+"Continue" = "Continuar";
+
+/* No comment provided by engineer. */
+"Copy to clipboard" = "Copiar al portapapeles";
+
+/* No comment provided by engineer. */
+"Create" = "Crear";
+
+/* No comment provided by engineer. */
+"Create reminders of your medical appointments to know when you should go to the doctor" = "Crea recordatorios de tus citas médicas para saber cuándo debes ir al médico";
+
+/* No comment provided by engineer. */
+"Create reminders of your medications to know when to take them" = "Crea recordatorios de tus medicamentos para saber cuándo debes tomarlos";
+
+"Clinical neurophysiology" = "Neurofisiología clínica";
+
+/* No comment provided by engineer. */
+"Date" = "Fecha";
+
+/* No comment provided by engineer. */
+"Dates" = "Fechas";
+
+/* No comment provided by engineer. */
+"Day of the week" = "Día de la semana";
+
+/* No comment provided by engineer. */
+"Delete" = "Eliminar";
+
+/* No comment provided by engineer. */
+"Delete all reminder group" = "Eliminar todo el grupo de recordatorios";
+
+/* No comment provided by engineer. */
+"Delete reminder" = "Eliminar recordatorio";
+
+/* No comment provided by engineer. */
+"Delete this reminder" = "Eliminar este recordatorio";
+
+/* No comment provided by engineer. */
+"Demark as taken" = "Desmarcar como tomado";
+
+"Dentist" = "Dentista";
+
+/* No comment provided by engineer. */
+"Details" = "Detalles";
+
+"Digestive system" = "Sistema digestivo";
+
+/* No comment provided by engineer. */
+"Do you want to delete this reminder or all future reminders for this medication?" = "¿Quieres eliminar este recordatorio o todos los recordatorios futuros de este medicamento?";
+
+/* No comment provided by engineer. */
+"Do you want to delete this reminder?" = "¿Quieres eliminar este recordatorio?";
+
+/* No comment provided by engineer. */
+"Drug Finder" = "Buscador de medicinas";
+
+"Each 15 days" = "Cada 15 días";
+
+/* No comment provided by engineer. */
+"Edit" = "Editar";
+
+/* No comment provided by engineer. */
+"Edit reminder" = "Editar recordatorio";
+
+/* No comment provided by engineer. */
+"End" = "Final";
+
+"Endocrine" = "Endocrino";
+
+"Every day" = "Todos los días";
+
+/* No comment provided by engineer. */
+"Find the address of your medical center or hospital here." = "Busca la dirección de tu centro de salud u hospital aquí";
+
+/* No comment provided by engineer. */
+"Find the medicine you want here." = "Busca la medicina que quieras aquí";
+
+"First aid kit" = "Kit de primeros auxilios";
+
+/* No comment provided by engineer. */
+"First dose" = "Primera dosis";
+
+/* No comment provided by engineer. */
+"Fourth dose" = "Cuarta dosis";
+
+"Friday" = "Viernes";
+
+"Geriatrics" = "Geriatría";
+
+"GP" = "Medicina de cabecera";
+
+"Heart" = "Corazón";
+
+"Hermatology" = "Hematología";
+
+/* No comment provided by engineer. */
+"Home" = "Inicio";
+
+/* No comment provided by engineer. */
+"Icon" = "Icono";
+
+/* No comment provided by engineer. */
+"Icons" = "Iconos";
+
+/* No comment provided by engineer. */
+"Initial" = "Inicial";
+
+"Intensive medicine" = "Medicina intesiva";
+
+"Internal Medicine" = "Medicina interna";
+
+/* No comment provided by engineer. */
+"Location" = "Ubicación";
+
+"Laxative" = "Laxante";
+
+/* No comment provided by engineer. */
+"Mark as taken" = "Marcar como tomada";
+
+/* No comment provided by engineer. */
+"Medical Appointment Reminder" = "Recordatorio de cita médica";
+
+/* No comment provided by engineer. */
+"Medical appointments" = "Citas médicas";
+
+/* No comment provided by engineer. */
+"Medical consultation" = "Consulta médica";
+
+/* No comment provided by engineer. */
+"Medication Reminder" = "Recordatorio de medicina";
+
+/* No comment provided by engineer. */
+"Medication reminders" = "Medicinas";
+
+"Medicine of physical education and sports" = "Medicina de la educación física y el deporte";
+
+/* No comment provided by engineer. */
+"Medicine time" = "Hora de la medicina";
+
+/* No comment provided by engineer. */
+"Medicines" = "Medicinas";
+
+"Monday" = "Lunes";
+
+"Mucolytic" = "Mucolítico";
+
+/* No comment provided by engineer. */
+"Name" = "Nombre";
+
+/* No comment provided by engineer. */
+"Name of medicine" = "Nombre de la medicina";
+
+"Nephrology" = "Nefrología";
+
+"Neurology" = "Neurología";
+
+/* No comment provided by engineer. */
+"Notifications" = "Notificaciones";
+
+"Once a month" = "Una al mes";
+
+"Once a week" = "Una a la semana";
+
+"Oncology" = "Oncología";
+
+"Ophthalmology" = "Oftalmología";
+
+"Others" = "Otros";
+
+"Otorhinolaryngology" = "Otorrinolaringología";
+
+"Pediatrics" = "Pediatría";
+
+/* No comment provided by engineer. */
+"Periodicity" = "Periodicidad";
+
+"Pills" = "Pastillas";
+
+"Pneumology" = "Neumología";
+
+"Psychology" = "Psicología";
+
+"Rehabilitation" = "Rehabilitación";
+
+/* No comment provided by engineer. */
+"Reminder date" = "Fecha de recordatorio";
+
+"Rheumatology" = "Reumatología";
+
+"Saturday" = "Sábado";
+
+/* No comment provided by engineer. */
+"Schedule" = "Calendario";
+
+/* No comment provided by engineer. */
+"Search drugs to see their most relevant information" = "Busca medicinas para consultar su información más relevante";
+
+/* No comment provided by engineer. */
+"Search localization" = "Buscar dirección";
+
+/* No comment provided by engineer. */
+"Search medicaments" = "Buscar medicamentos";
+
+/* No comment provided by engineer. */
+"Second dose" = "Segunda dosis";
+
+/* No comment provided by engineer. */
+"See data sheet" = "Ver ficha técnica";
+
+/* No comment provided by engineer. */
+"See leaflet" = "Ver prospecto";
+
+/* No comment provided by engineer. */
+"See on the map" = "Ver en el mapa";
+
+"Space medicine" = "Medicina espacial";
+
+"Sunday" = "Domingo";
+
+/* No comment provided by engineer. */
+"Third dose" = "Tercera dosis";
+
+"Thursday" = "Jueves";
+
+/* No comment provided by engineer. */
+"Time of first dose" = "Hora de la primera dosis";
+
+/* No comment provided by engineer. */
+"Times a day" = "Veces en un día";
+
+/* No comment provided by engineer. */
+"Today" = "Hoy";
+
+"Tuesday" = "Martes";
+
+"Urology" = "Urología";
+
+"Vitamin" = "Vitamina";
+
+"Wednesday" = "Miércoles";
+
+/* No comment provided by engineer. */
+"Welcome to PillApp" = "Bienvenid@ a PillApp";
+
+"Work medicine" = "Medicina laboral";
+
+/* No comment provided by engineer. */
+"Year" = "Año";
+

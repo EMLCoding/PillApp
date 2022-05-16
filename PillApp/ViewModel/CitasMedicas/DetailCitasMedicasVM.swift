@@ -11,15 +11,12 @@ import CoreData
 final class DetailCitasMedicasVM: ObservableObject {
     
     @Published var appoitmentName: DoctorTypes = .headboard
-    @Published var appoitmentNotes = "Add your notes"
+    @Published var appoitmentNotes = ""
     @Published var date = Date.now
     @Published var dateReminder = Date.now
     @Published var appoitmentLocation = ""
     
     @Published var isEdition = false
-    
-    // To control the placeholder of TextEditor
-    @Published var textEditorTouched: Bool
     
     var medicalAppoitment: CitaMedica?
     
@@ -32,9 +29,6 @@ final class DetailCitasMedicasVM: ObservableObject {
             self.dateReminder = medicalAppoitment.dateReminder ?? Date.now
             self.appoitmentLocation = medicalAppoitment.ubication ?? ""
             isEdition = true
-            textEditorTouched = true
-        } else {
-            textEditorTouched = false
         }
     }
     
@@ -67,9 +61,7 @@ final class DetailCitasMedicasVM: ObservableObject {
         medicalAppoitment.name = appoitmentName.rawValue
         medicalAppoitment.date = date
         medicalAppoitment.dateReminder = dateReminder
-        if textEditorTouched {
-            medicalAppoitment.notes = appoitmentNotes
-        }
+        medicalAppoitment.notes = appoitmentNotes
         medicalAppoitment.ubication = appoitmentLocation
         
         try await context.perform {

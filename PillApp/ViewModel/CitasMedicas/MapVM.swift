@@ -42,7 +42,7 @@ final class MapVM: ObservableObject {
         annotations.forEach { annotation in
             let coordinate = CLLocationCoordinate2DMake(annotation.coordinate.latitude,annotation.coordinate.longitude)
             let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-            mapItem.name = "Target location" //TODO: Traducir
+            mapItem.name = NSLocale.preferredLanguages[0] != "es" ? "Destination" : "Destino"
             mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
         }
     }

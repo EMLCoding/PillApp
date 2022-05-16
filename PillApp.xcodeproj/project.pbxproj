@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB02A8632832A8A100A6151C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02A8612832A8A100A6151C /* Localizable.strings */; };
+		CB02A8662832A8A100A6151C /* PillApp-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */; };
 		CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */; };
 		CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */; };
 		CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DC27E60FB0008A9AFF /* Notifications.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB02A8622832A8A100A6151C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CB02A8652832A8A100A6151C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/PillApp-InfoPlist.strings"; sourceTree = "<group>"; };
 		CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasView.swift; sourceTree = "<group>"; };
 		CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasVM.swift; sourceTree = "<group>"; };
 		CB0F61DC27E60FB0008A9AFF /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		CBAE85E227A049C600E95536 = {
 			isa = PBXGroup;
 			children = (
+				CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */,
 				CBAE85ED27A049C600E95536 /* PillApp */,
 				CBAE85EC27A049C600E95536 /* Products */,
 			);
@@ -124,6 +129,7 @@
 		CBAE85ED27A049C600E95536 /* PillApp */ = {
 			isa = PBXGroup;
 			children = (
+				CB02A8612832A8A100A6151C /* Localizable.strings */,
 				CB7CAD9527A09CF80009DAC7 /* Comun */,
 				CBAE860627A053E200E95536 /* ViewModel */,
 				CBAE860527A053DE00E95536 /* Model */,
@@ -318,7 +324,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB02A8662832A8A100A6151C /* PillApp-InfoPlist.strings in Resources */,
 				CBAE85F627A049C900E95536 /* Preview Assets.xcassets in Resources */,
+				CB02A8632832A8A100A6151C /* Localizable.strings in Resources */,
 				CBAE85F327A049C900E95536 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +376,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CB02A8612832A8A100A6151C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB02A8622832A8A100A6151C /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB02A8652832A8A100A6151C /* es */,
+			);
+			name = "PillApp-InfoPlist.strings";
+			path = PillApp;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CBAE85FC27A049C900E95536 /* Debug */ = {
@@ -497,7 +525,6 @@
 				DEVELOPMENT_TEAM = 5Q3AH9TS7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -527,7 +554,6 @@
 				DEVELOPMENT_TEAM = 5Q3AH9TS7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

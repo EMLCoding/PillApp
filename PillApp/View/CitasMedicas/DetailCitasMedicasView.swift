@@ -40,15 +40,20 @@ struct DetailCitasMedicasView: View {
                     Text("\(detailCitasMedicasVM.appoitmentName.localizedString())")
                 }
                 
-                TextEditor(text: $detailCitasMedicasVM.appoitmentNotes)
-                    .frame(minHeight: 100)
-                    .submitLabel(.done)
-                    .onTapGesture {
-                        if (!detailCitasMedicasVM.textEditorTouched) {
-                            detailCitasMedicasVM.appoitmentNotes = ""
-                            detailCitasMedicasVM.textEditorTouched = true
-                        }
+                ZStack(alignment: .topLeading) {
+                    if (detailCitasMedicasVM.appoitmentNotes.isEmpty) {
+                        Text("Add your notes")
+                            .foregroundColor(.gray.opacity(0.5))
+                            .padding(.top, 6)
+                            .padding(.leading, 5)
                     }
+                    
+                    TextEditor(text: $detailCitasMedicasVM.appoitmentNotes)
+                        .frame(minHeight: 100)
+                        .submitLabel(.done)
+                }
+                
+                
             }
             
             Section {

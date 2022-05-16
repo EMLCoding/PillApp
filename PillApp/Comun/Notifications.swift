@@ -65,43 +65,45 @@ final class Notifications {
     ///
     ///  - Returns: String
     fileprivate func generarMensajeRecordatoriosMedicinas() -> String {
-        let mensajeAleatorio = Int.random(in: 0..<4)
-        var mensaje: String = ""
+        let randomMessage = Int.random(in: 0..<4)
+        var message: String = ""
+        let spanish = NSLocale.preferredLanguages[0] == "es" ? true : false
         
-        switch mensajeAleatorio {
+        switch randomMessage {
         case 0:
-            mensaje = "Hey, it's your turn to take the medicine"
+            message = spanish ? "Oye, es el momento de tomarse la medicina" : "Hey, it's your turn to take the medicine"
         case 1:
-            mensaje = "I think you have to take your medicine, don't you?"
+            message = spanish ? "Creo que tienes que tomar tu medicina, ¿no?" : "I think you have to take your medicine, don't you?"
         case 2:
-            mensaje = "It's medicine time!"
+            message = spanish ? "¡Es la hora de la medicina!" : "It's medicine time!"
         case 3:
-            mensaje = "Hey, you have to take your medicine, don't forget"
+            message = spanish ? "Oye, tienes que tomar tu medicina, no lo olvides" : "Hey, you have to take your medicine, don't forget"
         default:
-            mensaje = "It's your turn to take the medicine"
+            message = spanish ? "Es el momento de tomarse la medicina" : "It's your turn to take the medicine"
         }
         
-        return mensaje
+        return message
     }
     
     /// Permite generar mensajes aleatorios para mostrar en las notificaciones de los recordatorios de citas médicas
     ///
     ///  - Returns: String
     fileprivate func generarMensajeRecordatorioCitas() -> String {
-        let mensajeAleatorio = Int.random(in: 0..<3)
-        var mensaje: String = ""
+        let randomMessage = Int.random(in: 0..<3)
+        var message: String = ""
+        let spanish = NSLocale.preferredLanguages[0] == "es" ? true : false
         
-        switch mensajeAleatorio {
+        switch randomMessage {
         case 0:
-            mensaje = "Hey, in no time it's your medical appointment"
+            message = spanish ? "Oye, en poco tiempo es tu cita médica" : "Hey, in no time it's your medical appointment"
         case 1:
-            mensaje = "You have to go to the doctor soon, right?"
+            message = spanish ? "Tienes que ir al médico pronto, ¿verdad?" : "You have to go to the doctor soon, right?"
         case 2:
-            mensaje = "Don't forget your medical appointment"
+            message = spanish ? "No olvides tu cita médica" : "Don't forget your medical appointment"
         default:
-            mensaje = "You have to go to the doctor soon"
+            message = spanish ? "En poco tiempo es tu cita médica" : "You have to go to the doctor soon"
         }
         
-        return mensaje
+        return message
     }
 }
