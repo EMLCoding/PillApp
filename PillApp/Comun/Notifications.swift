@@ -71,13 +71,11 @@ final class Notifications {
         
         switch randomMessage {
         case 0:
-            message = spanish ? "Oye, es el momento de tomarse la medicina" : "Hey, it's your turn to take the medicine"
-        case 1:
             message = spanish ? "Creo que tienes que tomar tu medicina, ¿no?" : "I think you have to take your medicine, don't you?"
-        case 2:
+        case 1:
             message = spanish ? "¡Es la hora de la medicina!" : "It's medicine time!"
-        case 3:
-            message = spanish ? "Oye, tienes que tomar tu medicina, no lo olvides" : "Hey, you have to take your medicine, don't forget"
+        case 2:
+            message = spanish ? "Tienes que tomar tu medicina, no lo olvides" : "You have to take your medicine, don't forget"
         default:
             message = spanish ? "Es el momento de tomarse la medicina" : "It's your turn to take the medicine"
         }
@@ -95,10 +93,8 @@ final class Notifications {
         
         switch randomMessage {
         case 0:
-            message = spanish ? "Oye, en poco tiempo es tu cita médica" : "Hey, in no time it's your medical appointment"
-        case 1:
             message = spanish ? "Tienes que ir al médico pronto, ¿verdad?" : "You have to go to the doctor soon, right?"
-        case 2:
+        case 1:
             message = spanish ? "No olvides tu cita médica" : "Don't forget your medical appointment"
         default:
             message = spanish ? "En poco tiempo es tu cita médica" : "You have to go to the doctor soon"

@@ -16,6 +16,8 @@ struct DetailCitasMedicasView: View {
     @State var isShowingSheetStreets = false
     @State var isShowingSheetMap = false
     
+    @FocusState var actualField: MAppoitmentField?
+    
     init(detailCitasMedicasVM: DetailCitasMedicasVM) {
         self.detailCitasMedicasVM = detailCitasMedicasVM
         UITableView.appearance().backgroundColor = .clear
@@ -50,16 +52,15 @@ struct DetailCitasMedicasView: View {
                     
                     TextEditor(text: $detailCitasMedicasVM.appoitmentNotes)
                         .frame(minHeight: 100)
+                        .focused($actualField, equals: .notes)
                         .submitLabel(.done)
                 }
-                
-                
             }
             
             Section {
                 DatePicker("Appointment date", selection: $detailCitasMedicasVM.date)
                     .datePickerStyle(.graphical)
-                DatePicker("Reminder date", selection: $detailCitasMedicasVM.date, in: ...detailCitasMedicasVM.date,displayedComponents: .date)
+                DatePicker("Reminder", selection: $detailCitasMedicasVM.dateReminder, in: ...detailCitasMedicasVM.date)
             } header: {
                 Text("Dates")
             }
@@ -91,6 +92,16 @@ struct DetailCitasMedicasView: View {
                 Button(detailCitasMedicasVM.isEdition ? "Edit" : "Create") {
                     detailCitasMedicasVM.save(context: viewContext)
                     dismiss()
+                }
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button {
+                        actualField = nil
+                    } label: {
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
                 }
             }
         }

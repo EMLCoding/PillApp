@@ -64,9 +64,11 @@ final class DetailCitasMedicasVM: ObservableObject {
         medicalAppoitment.notes = appoitmentNotes
         medicalAppoitment.ubication = appoitmentLocation
         
+        let textNotification = self.appoitmentName.rawValue + " - " + date.extractDate(format: "MMM d, h:mm a")
+        
         try await context.perform {
             try context.save()
-            Notifications().createNotification(id: id, date: self.date, element: self.appoitmentName.rawValue, type: 2)
+            Notifications().createNotification(id: id, date: self.dateReminder, element: textNotification, type: 2)
         }
         
     }
@@ -86,11 +88,9 @@ final class DetailCitasMedicasVM: ObservableObject {
             if ((self.medicalAppoitment?.hasChanges) != nil) {
                 try context.save()
                 let id = self.medicalAppoitment?.id ?? UUID()
-                if self.dateReminder != oldDate {
+                    let textNotification = self.appoitmentName.rawValue + " - " + self.date.extractDate(format: "MMM d, h:mm a")
                     Notifications().eliminarNotificacion(id: id)
-                    Notifications().createNotification(id: id, date: self.dateReminder, element: self.appoitmentName.rawValue, type: 2)
-                }
-                
+                    Notifications().createNotification(id: id, date: self.dateReminder, element: textNotification, type: 2)                
             }
             
         }

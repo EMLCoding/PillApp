@@ -44,6 +44,11 @@ struct DayPickerView: View {
                             value.scrollTo(dayPickerVM.dates[index])
                         }
                     }
+                    .onChange(of: currentDate) { _ in
+                        if let index = dayPickerVM.dates.firstIndex(where: {Calendar.current.startOfDay(for: $0) == Calendar.current.startOfDay(for: currentDate)}) {
+                            value.scrollTo(dayPickerVM.dates[index])
+                        }
+                    }
                 }
             }
             HStack {

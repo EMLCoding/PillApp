@@ -200,3 +200,12 @@ struct Ubication: Identifiable {
     var coordinate: CLLocationCoordinate2D
 }
 
+// MARK: - For Keyboard
+enum MedicamentsField {
+    case name, notes
+}
+
+enum MAppoitmentField {
+    case notes
+}
+

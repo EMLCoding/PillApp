@@ -13,9 +13,6 @@ struct DetailMedicinasView: View {
     
     @ObservedObject var detailMedicinasVM: DetailMedicinasVM
     
-    enum MedicamentsField {
-        case name, notes
-    }
     @FocusState var actualField: MedicamentsField?
     
     

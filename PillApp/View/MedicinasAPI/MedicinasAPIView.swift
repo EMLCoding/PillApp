@@ -38,10 +38,10 @@ struct MedicinasAPIView: View {
                                 }
                             }
                         }
-                        if (medicinesAPIVM.isLoadingData) {
-                            ProgressView()
-                                .frame(alignment: .center)
-                        }
+                    }
+                    if (medicinesAPIVM.isLoadingData) {
+                        ProgressView()
+                            .frame(alignment: .center)
                     }
                 }
             }
