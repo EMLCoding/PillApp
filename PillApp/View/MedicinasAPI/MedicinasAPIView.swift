@@ -33,8 +33,9 @@ struct MedicinasAPIView: View {
                                 DetalleMedicinaApiView(medicinasAPIVM: medicinesAPIVM, medicament: medicine)
                             }
                             .onAppear {
-                                if medicine.id == medicinesAPIVM.searchedMedicines.last?.id {
+                                if (medicinesAPIVM.searchedMedicines.count > 24 && medicine.id == medicinesAPIVM.searchedMedicines.last?.id) {
                                     medicinesAPIVM.page += 1
+                                    medicinesAPIVM.launchAsync()
                                 }
                             }
                         }

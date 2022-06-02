@@ -14,6 +14,8 @@ struct ContentView: View {
     
     @State var notShowTutorial = UserDefaults.standard.bool(forKey: "notShowTutorial")
     
+    @StateObject var analyticsVM = AnalyticsVM()
+    
     var body: some View {
         if (notShowTutorial) {
             TabView {
@@ -28,6 +30,11 @@ struct ContentView: View {
                 CitasMedicasView(citasMedicasVM: CitasMedicasVM())
                     .tabItem {
                         Label("Schedule", systemImage: "calendar")
+                    }
+                AnalyticsView()
+                    .environmentObject(analyticsVM)
+                    .tabItem {
+                        Label("Analytics", systemImage: "waveform.path.ecg.rectangle")
                     }
             }
             .onAppear {

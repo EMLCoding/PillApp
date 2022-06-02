@@ -82,4 +82,5 @@ extension Notification.Name {
     static let hideAlert = Notification.Name("hideAlert")
     static let updateYears = Notification.Name("updateYears")
     static let updateYearsAppoitment = Notification.Name("updateYearsAppoitment")
+    static let loadUserParameters = Notification.Name("loadUserParameters")
 }

@@ -16,32 +16,41 @@ final class MedicinasAPIVM: ObservableObject {
     @Published var query = "" {
         didSet {
             page = 1
+            allResultsFound = false
             
             if !query.isEmpty {
                 if task != nil {
                     task?.cancel()
+                    print("PETICION CANCELADA")
                 }
                 task = Task { await find() }
-            }             
+            } else {
+                searchedMedicines.removeAll()
+            }
         }
     }
     
-    @Published var page = 1 {
-        didSet {
+    @Published var page = 1
+    @Published var dataSheetURL = ""
+    @Published var leaftletURL = ""
+    
+    var allResultsFound = false
+    
+    /// Metodo que lanzara la peticion asincrona cada vez que se llegue al final del listado
+    func launchAsync() {
+        if !allResultsFound {
             Task(priority: .high) {
                 await find()
             }
         }
     }
     
-    @Published var dataSheetURL = ""
-    @Published var leaftletURL = ""
-    
     /// Recupera de forma asíncrona las medicinas de la API de medicinas de CIMA.
     @MainActor func find() async {
         do {
             if (query == "") {
                 searchedMedicines.removeAll()
+                allResultsFound = false
             } else {
                 isLoadingData = true
                 let decoder = JSONDecoder()
@@ -50,10 +59,13 @@ final class MedicinasAPIVM: ObservableObject {
                 if self.page == 1 {
                     self.searchedMedicines.removeAll()
                 }
-                searchedMedicines.append(contentsOf: result.resultados)
+                if result.resultados.count == 0 {
+                    allResultsFound = true
+                } else {
+                    searchedMedicines.append(contentsOf: result.resultados)
+                }
                 isLoadingData = false
             }
-            
         } catch {
             print("Error recuperando la lista de medicinas \(error)")
         }

@@ -41,6 +41,12 @@ struct PersistenceController {
         pruebaCitaMedica.notes = "Test notes"
         pruebaCitaMedica.ubication = "Test ubication"
         
+        let pruebaParameter = Parameter(context: viewContext)
+        pruebaParameter.id = UUID()
+        pruebaParameter.value = 1.1
+        pruebaParameter.date = Date.now
+        pruebaParameter.type = 1
+        
         do {
             try viewContext.save()
         } catch {
@@ -104,5 +110,17 @@ struct PersistenceController {
         newMedicalAppointment.ubication = "Test ubication"
         
         return newMedicalAppointment
+    }()
+    
+    static let testParameter: Parameter = {
+        let context = PersistenceController.preview.container.viewContext
+        
+        let newParameter = Parameter(context: context)
+        newParameter.id = UUID()
+        newParameter.value = 1.0
+        newParameter.date = Date.now
+        newParameter.type = 1
+        
+        return newParameter
     }()
 }

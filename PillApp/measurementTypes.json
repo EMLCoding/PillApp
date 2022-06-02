@@ -1,0 +1,22 @@
+
+[
+    {
+    "id": 1,
+        "name": "name1",
+        "minValue": 1,
+        "maxValue": 10,
+        "descriptionEs": "descripcion español",
+        "descriptionEn": "description english",
+        "unit": "unity"
+    },
+    {
+    "id": 2,
+        "name": "name2",
+        "minValue": 10,
+        "maxValue": 20,
+        "descriptionEs": "descripcion español 2",
+        "descriptionEn": "description english 2",
+        "unit": "unity 2"
+    }
+    
+]
