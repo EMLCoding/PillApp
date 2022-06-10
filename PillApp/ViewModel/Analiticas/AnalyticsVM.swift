@@ -11,7 +11,7 @@ import CoreData
 final class AnalyticsVM: ObservableObject {
     @Published var parameterTypes: [ParameterType] = []
     @Published var parameterChoosed: ParameterType?
-    @Published var userParameters: [Parameter] = []
+    //@Published var userParameters: [Parameter] = []
     
     init() {
         parameterTypes = loadParametersTypes()
@@ -32,28 +32,51 @@ final class AnalyticsVM: ObservableObject {
         }
     }
     
-    func loadParameters(context: NSManagedObjectContext) {
+    func loadParameters(context: NSManagedObjectContext) -> [Parameter] {
         if let parameter = parameterChoosed {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Parameter")
             fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Parameter.date, ascending: false)]
             fetchRequest.predicate = NSPredicate(format: "type = %@", NSNumber(value: parameter.id))
             
             do {
-                userParameters = try context.fetch(fetchRequest) as! [Parameter]
-                print("DATOS CARGADOS")
+                return try context.fetch(fetchRequest) as! [Parameter]
             } catch {
                 print("ERROR loading user parameters: \(error.localizedDescription)")
+                return []
+            }
+        } else {
+            return []
+        }
+    }
+    
+    func deleteUserParameterAt(indexSet: IndexSet, userParameters: [Parameter], context: NSManagedObjectContext) {
+        if let userParameter = indexSet.map({ userParameters[$0] }).first {
+            Task {
+                try await deleteParameter(context: context, parameter: userParameter)
+//                if let indexDelete = userParameters.firstIndex(of: userParameter) {
+//                    userParameters.remove(at: indexDelete)
+//                }
             }
         }
-        
     }
     
-    func addNewElement(parameter: Parameter) {
-        print("Se añade el elemento a la lista \(parameter.value)")
+    func deleteParameter(context: NSManagedObjectContext, parameter: Parameter) async throws {
+        context.delete(parameter)
+        do {
+            try context.save()
+        } catch {
+            print("ERROR deleting user parameter value: \(error.localizedDescription)")
+        }
     }
     
-    func deleteUserParameter(indexSet: IndexSet) {
+    func getValuesOf(parameters: [Parameter]) -> [CGFloat] {
+        var values: [CGFloat] = []
         
+        parameters.reversed().forEach { parameter in
+            values.append(parameter.value)
+        }
+        
+        return values
     }
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB02A8632832A8A100A6151C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02A8612832A8A100A6151C /* Localizable.strings */; };
 		CB02A8662832A8A100A6151C /* PillApp-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */; };
+		CB0543AF285356B90059539B /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0543AE285356B90059539B /* LineGraph.swift */; };
 		CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */; };
 		CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */; };
 		CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61DC27E60FB0008A9AFF /* Notifications.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		CB02A8622832A8A100A6151C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CB02A8652832A8A100A6151C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/PillApp-InfoPlist.strings"; sourceTree = "<group>"; };
+		CB0543AE285356B90059539B /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 		CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasView.swift; sourceTree = "<group>"; };
 		CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasVM.swift; sourceTree = "<group>"; };
 		CB0F61DC27E60FB0008A9AFF /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		CB2A1C40284780CE0061BB03 /* Analiticas */ = {
 			isa = PBXGroup;
 			children = (
+				CB0543AE285356B90059539B /* LineGraph.swift */,
 				CB2A1C41284780F30061BB03 /* AnalyticsView.swift */,
 				CB2A1C4A28478BDE0061BB03 /* DetailUserParameterView.swift */,
 				CB2A1C4C28478CCD0061BB03 /* ListUserParametersView.swift */,
@@ -393,6 +396,7 @@
 				CB32826627EE753500CA70B1 /* ImageSliderVM.swift in Sources */,
 				CBAE85FB27A049C900E95536 /* PillApp.xcdatamodeld in Sources */,
 				CBB6DB4B2807180900221459 /* CitasMedicasView.swift in Sources */,
+				CB0543AF285356B90059539B /* LineGraph.swift in Sources */,
 				CB63AF1B280DA271005B4386 /* StreetsFinder.swift in Sources */,
 				CB2A1C42284780F30061BB03 /* AnalyticsView.swift in Sources */,
 				CBAE860227A0501A00E95536 /* ContentView.swift in Sources */,

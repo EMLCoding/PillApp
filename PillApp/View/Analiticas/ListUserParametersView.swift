@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct ListUserParameters: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var analyticsVM: AnalyticsVM
-    @State var userParameters: [Parameter]
+    @Binding var userParameters: [Parameter]
     let nameParameter: String
     
     var body: some View {
         Group {
             if userParameters.isEmpty {
                 Group {
-                    
-
                     VStack(alignment: .center) {
                         Image(systemName: "staroflife.circle")
                             .resizable()
@@ -49,7 +48,7 @@ struct ListUserParameters: View {
                         }
                     }
                     .onDelete { index in
-                        analyticsVM.deleteUserParameter(indexSet: index)
+                        analyticsVM.deleteUserParameterAt(indexSet: index, userParameters: userParameters, context: viewContext)
                     }
                 }
             }
@@ -61,6 +60,6 @@ struct ListUserParameters: View {
 
 struct ListMeasurements_Previews: PreviewProvider {
     static var previews: some View {
-        ListUserParameters(analyticsVM: AnalyticsVM(), userParameters: [PersistenceController.testParameter], nameParameter: "Parameter")
+        ListUserParameters(analyticsVM: AnalyticsVM(), userParameters: .constant([PersistenceController.testParameter]), nameParameter: "Parameter")
     }
 }

@@ -2,18 +2,18 @@
 [
     {
     "id": 1,
-        "name": "name1",
-        "minValue": 1,
-        "maxValue": 10,
+        "name": "Leucocitos",
+        "minValue": 1.0,
+        "maxValue": 10.0,
         "descriptionEs": "descripcion español",
         "descriptionEn": "description english",
         "unit": "unity"
     },
     {
     "id": 2,
-        "name": "name2",
-        "minValue": 10,
-        "maxValue": 20,
+        "name": "Hierro",
+        "minValue": 10.0,
+        "maxValue": 20.0,
         "descriptionEs": "descripcion español 2",
         "descriptionEn": "description english 2",
         "unit": "unity 2"

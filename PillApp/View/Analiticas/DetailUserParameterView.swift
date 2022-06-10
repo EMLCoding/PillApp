@@ -17,11 +17,11 @@ struct DetailUserParameter: View {
     @FocusState var actualField: ParametersField?
     
     let formatter: NumberFormatter = {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            return formatter
-        }()
-
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
     
     var body: some View {
         Form {
@@ -30,9 +30,9 @@ struct DetailUserParameter: View {
                 .focused($actualField, equals: .value)
             DatePicker("Analytic date", selection: $detailParametersVM.parameterDate,displayedComponents: .date)
             Menu {
-                Picker(selection: $detailParametersVM.parameterTypeSelected, label: Text("Parameter type")) {
-                    ForEach(detailParametersVM.parameterTypes) { type in
-                        Text("\(type.name)")
+                ForEach(detailParametersVM.parameterTypes) { type in
+                    Button(type.name) {
+                        detailParametersVM.parameterTypeSelected = type
                     }
                 }
             } label: {
@@ -51,7 +51,6 @@ struct DetailUserParameter: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(detailParametersVM.isEdition ? "Edit" : "Create") {
                     detailParametersVM.save(context: viewContext)
-                    analyticsVM.loadParameters(context: viewContext)
                     dismiss()
                 }
                 .disabled(detailParametersVM.parameterValue == 0.0)
