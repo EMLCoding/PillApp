@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LineGraph: View {
-    @State var currentPlot = ""
+    @State var valuePoint = ""
+    @State var valueDate = ""
     @State var offset: CGSize = .zero
     @State var showPlot = false
     @State var translation: CGFloat = 0
@@ -54,14 +55,27 @@ struct LineGraph: View {
             }
             .overlay(
                 VStack(spacing: 0) {
-                    Text(currentPlot)
-                        .font(.caption.bold())
-                        .foregroundColor(.white)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        .background(Color("MainColor"), in: Capsule())
-                        .offset(x: translation < 10 ? 30 : 0)
-                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
+                    VStack {
+                        HStack {
+                            Text("Value:")
+                                .font(.caption)
+                            Text(valuePoint)
+                        }
+                        
+                        HStack {
+                            Text("Date:")
+                                .font(.caption)
+                            Text(valueDate)
+                        }
+                    }
+                    .font(.caption.bold())
+                    .foregroundColor(.white)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 10)
+                    .background(Color("MainColor"), in: Capsule())
+                    .offset(x: translation < 10 ? 30 : 0)
+                    .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
+                    
                     
                     Rectangle()
                         .fill(Color("MainColor"))
@@ -83,7 +97,7 @@ struct LineGraph: View {
                         .opacity(0)
                 }
                     .frame(width: 120, height: 170)
-                    .offset(y: 70)
+                    .offset(y: 60)
                     .offset(offset)
                     .opacity(showPlot ? 1 : 0 ),
                 
@@ -97,9 +111,9 @@ struct LineGraph: View {
                 
                 let index = max(min(Int((translation / width).rounded() + 1), data.count - 1), 0)
                 
-                let date = (parameters[index].date ?? Date.now).extractDate(format: "MM-yyyy")
+                valuePoint = "\(parameters[index].value)"
+                valueDate = (parameters[index].date ?? Date.now).extractDate(format: "MM-yyyy")
                 
-                currentPlot = "\(parameters[index].value)" + " - " + date
                 self.translation = translation
                 
                 offset = CGSize(width: points[index].x - 60, height: points[index].y - height)
@@ -110,12 +124,12 @@ struct LineGraph: View {
         .overlay(
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Minimum value: ")
+                    Text("Minimum value:")
                         .font(.caption.bold())
                     Text("\(parameterType.minValue, specifier: "%.2f") \(parameterType.unit)")
                         .font(.caption.bold())
                     Spacer()
-                    Text("Maximum value: ")
+                    Text("Maximum value:")
                         .font(.caption.bold())
                     Text("\(parameterType.maxValue, specifier: "%.2f") \(parameterType.unit)")
                         .font(.caption.bold())

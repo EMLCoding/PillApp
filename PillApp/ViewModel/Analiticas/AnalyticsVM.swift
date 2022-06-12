@@ -19,7 +19,7 @@ final class AnalyticsVM: ObservableObject {
     
     func loadParametersTypes() -> [ParameterType] {
         guard let urlJson = Bundle.main.url(forResource: "measurementTypes", withExtension: "json") else {
-            print("Json not find")
+            print("ERROR JSON not find")
             return []
         }
         
@@ -27,25 +27,22 @@ final class AnalyticsVM: ObservableObject {
             let data = try Data(contentsOf: urlJson)
             return try JSONDecoder().decode([ParameterType].self, from: data)
         } catch {
-            print("Error loading measurement types: \(error)")
+            print("ERROR loading measurement types: \(error)")
             return []
         }
     }
     
-    func loadParameters(context: NSManagedObjectContext) -> [Parameter] {
+    func loadParameters(context: NSManagedObjectContext) {
         if let parameter = parameterChoosed {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Parameter")
             fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Parameter.date, ascending: false)]
             fetchRequest.predicate = NSPredicate(format: "type = %@", NSNumber(value: parameter.id))
             
             do {
-                return try context.fetch(fetchRequest) as! [Parameter]
+                userParameters = try context.fetch(fetchRequest) as! [Parameter]
             } catch {
                 print("ERROR loading user parameters: \(error.localizedDescription)")
-                return []
             }
-        } else {
-            return []
         }
     }
     
@@ -53,9 +50,6 @@ final class AnalyticsVM: ObservableObject {
         if let userParameter = indexSet.map({ userParameters[$0] }).first {
             Task {
                 try await deleteParameter(context: context, parameter: userParameter)
-//                if let indexDelete = userParameters.firstIndex(of: userParameter) {
-//                    userParameters.remove(at: indexDelete)
-//                }
             }
         }
     }

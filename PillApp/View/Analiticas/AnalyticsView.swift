@@ -13,8 +13,6 @@ struct AnalyticsView: View {
     @State var isShowingSheetDetails = false
     @State var isShowingSheetList = false
     
-    @State var userParameters: [Parameter] = []
-    
     @State var pruebadataPoints: [Double] = [15, 2, 7, 16, 32, 39, 5, 3, 25, 21]
     
     var body: some View {
@@ -24,12 +22,13 @@ struct AnalyticsView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         HStack {
-                            Text("Choose parameter")
+                            Text("Choose parameter:")
                             
-                            Menu(analyticsVM.parameterChoosed?.name ?? "Parameter") {
+                            Menu(analyticsVM.parameterChoosed?.name ?? (NSLocale.preferredLanguages[0] == "es" ? "Parámetro" : "Parameter")) {
                                 ForEach(analyticsVM.parameterTypes) { type in
                                     Button {
                                         analyticsVM.parameterChoosed = type
+                                        analyticsVM.loadParameters(context: viewContext)
                                         NotificationCenter.default.post(name: .loadUserParameters, object: nil)
                                     } label: {
                                         Text(type.name)
@@ -39,10 +38,10 @@ struct AnalyticsView: View {
                             }
                         }
                         .frame(maxWidth: .infinity)
-                        Text(analyticsVM.parameterChoosed?.descriptionEn ?? "")
+                        Text((NSLocale.preferredLanguages[0] == "es" ? analyticsVM.parameterChoosed?.descriptionEs : analyticsVM.parameterChoosed?.descriptionEn) ?? "")
                         
-                        if (analyticsVM.parameterChoosed != nil && userParameters.count > 1) {
-                            LineGraph(data: analyticsVM.getValuesOf(parameters: userParameters), parameters: userParameters.reversed(), parameterType: analyticsVM.parameterChoosed!)
+                        if (analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count > 1) {
+                            LineGraph(data: analyticsVM.getValuesOf(parameters: analyticsVM.userParameters), parameters: analyticsVM.userParameters.reversed(), parameterType: analyticsVM.parameterChoosed!)
                                 .frame(height: 250)
                                 .padding(.top, 25)
                                 .padding(.bottom, 25)
@@ -77,14 +76,14 @@ struct AnalyticsView: View {
                     Button("Add", action: {isShowingSheetDetails.toggle()})
                         .sheet(isPresented: $isShowingSheetDetails, content: {
                             NavigationView {
-                                DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: nil, parameterTypes: analyticsVM.parameterTypes, userParameters: userParameters))
+                                DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: nil, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters))
                             }
                         })
                 }
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .loadUserParameters)) { notification in
-            userParameters = analyticsVM.loadParameters(context: viewContext)
+            analyticsVM.loadParameters(context: viewContext)
         }
     }
 }

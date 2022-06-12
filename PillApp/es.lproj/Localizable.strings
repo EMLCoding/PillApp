@@ -184,7 +184,7 @@
 /* No comment provided by engineer. */
 "Mark as taken" = "Marcar como tomada";
 
-"Maximum value" = "Valor máximo";
+"Maximum value:" = "Valor máximo:";
 
 /* No comment provided by engineer. */
 "Medical Appointment Reminder" = "Recordatorio de cita médica";
@@ -209,7 +209,7 @@
 /* No comment provided by engineer. */
 "Medicines" = "Medicinas";
 
-"Minimum value" = "Valor mínimo";
+"Minimum value:" = "Valor mínimo:";
 
 "Monday" = "Lunes";
 
