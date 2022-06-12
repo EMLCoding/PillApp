@@ -46,7 +46,7 @@ struct DetailUserParameter: View {
             }
         }
         .background(Color("Background"))
-        .navigationTitle(detailParametersVM.isEdition ? "Edit parameter" : "Add parameter")
+        .navigationTitle(detailParametersVM.isEdition ? "Edit register" : "Add register")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(detailParametersVM.isEdition ? "Edit" : "Create") {

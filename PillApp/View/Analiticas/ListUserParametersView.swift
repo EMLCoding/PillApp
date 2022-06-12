@@ -10,12 +10,11 @@ import SwiftUI
 struct ListUserParameters: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var analyticsVM: AnalyticsVM
-    @Binding var userParameters: [Parameter]
     let nameParameter: String
     
     var body: some View {
         Group {
-            if userParameters.isEmpty {
+            if analyticsVM.userParameters.isEmpty {
                 Group {
                     VStack(alignment: .center) {
                         Image(systemName: "staroflife.circle")
@@ -30,25 +29,31 @@ struct ListUserParameters: View {
                 }
             } else {
                 List {
-                    ForEach(userParameters) { userParameter in
-                        HStack {
-                            Image(systemName: "heart.text.square")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundColor(Color("MainColor"))
-                                .frame(width: 20, height: 20)
-                            Text("\(userParameter.value, specifier: "%.2f")")
-                                .padding(5)
-                            
-                            Spacer()
-                            Text("\((userParameter.date ?? Date.now).extractDate(format: "dd/MM/yyyy"))")
-                                .opacity(0.5)
-                                .padding(5)
-                            
+                    ForEach(analyticsVM.userParameters) { userParameter in
+                        NavigationLink {
+                            DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: userParameter, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters))
+                        } label: {
+                            HStack {
+                                Image(systemName: "heart.text.square")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(Color("MainColor"))
+                                    .frame(width: 20, height: 20)
+                                Text("\(userParameter.value, specifier: "%.2f")")
+                                    .padding(5)
+                                
+                                Spacer()
+                                Text("\((userParameter.date ?? Date.now).extractDate(format: "dd/MM/yyyy"))")
+                                    .opacity(0.5)
+                                    .padding(5)
+                                
+                            }
                         }
+
+                        
                     }
                     .onDelete { index in
-                        analyticsVM.deleteUserParameterAt(indexSet: index, userParameters: userParameters, context: viewContext)
+                        analyticsVM.deleteUserParameterAt(indexSet: index, userParameters: analyticsVM.userParameters, context: viewContext)
                     }
                 }
             }
@@ -60,6 +65,6 @@ struct ListUserParameters: View {
 
 struct ListMeasurements_Previews: PreviewProvider {
     static var previews: some View {
-        ListUserParameters(analyticsVM: AnalyticsVM(), userParameters: .constant([PersistenceController.testParameter]), nameParameter: "Parameter")
+        ListUserParameters(analyticsVM: AnalyticsVM(), nameParameter: "Parameter")
     }
 }

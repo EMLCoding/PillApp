@@ -15,6 +15,8 @@ struct LineGraph: View {
     
     var data: [CGFloat]
     var parameters: [Parameter]
+    var parameterType: ParameterType
+    
     var body: some View {
         GeometryReader { proxy in
             let height = proxy.size.height
@@ -78,6 +80,7 @@ struct LineGraph: View {
                     Rectangle()
                         .fill(Color("MainColor"))
                         .frame(width: 1, height: 50)
+                        .opacity(0)
                 }
                     .frame(width: 120, height: 170)
                     .offset(y: 70)
@@ -106,15 +109,22 @@ struct LineGraph: View {
         }
         .overlay(
             VStack(alignment: .leading) {
-                let max = data.max() ?? 0
+                HStack {
+                    Text("Minimum value: ")
+                        .font(.caption.bold())
+                    Text("\(parameterType.minValue, specifier: "%.2f") \(parameterType.unit)")
+                        .font(.caption.bold())
+                    Spacer()
+                    Text("Maximum value: ")
+                        .font(.caption.bold())
+                    Text("\(parameterType.maxValue, specifier: "%.2f") \(parameterType.unit)")
+                        .font(.caption.bold())
+                }
                 
-                Text("$ \(Int(max))")
-                    .font(.caption.bold())
                 
                 Spacer()
                 
-                Text("$ 0")
-                    .font(.caption.bold())
+                
             }
                 .frame(maxWidth: .infinity, alignment: .leading)
         )
@@ -135,6 +145,6 @@ func FillBG() -> some View {
 
 struct LineGraph_Previews: PreviewProvider {
     static var previews: some View {
-        LineGraph(data: [], parameters: [PersistenceController.testParameter])
+        LineGraph(data: [], parameters: [PersistenceController.testParameter], parameterType: PersistenceController.testParameterType)
     }
 }

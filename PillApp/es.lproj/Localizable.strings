@@ -13,6 +13,8 @@
 /* No comment provided by engineer. */
 "Add the medications you want me to remind you of." = "Añade los medicamentos que quieres que te recuerde";
 
+"Add register" = "Añadir registro";
+
 "Add your notes" = "Añade tus notas";
 
 "Allergology" = "Alergología";
@@ -20,6 +22,8 @@
 "Analgesic" = "Analgésico";
 
 "Analytics" = "Analíticas";
+
+"Analytic date" = "Fecha de análisis";
 
 "Anesthetist" = "Anestesista";
 
@@ -55,6 +59,8 @@
 "Category: " = "Categoría:";
 
 "Chiropody" = "Podología";
+
+"Choose parameter:" = "Elige el parámetro";
 
 /* No comment provided by engineer. */
 "Continue" = "Continuar";
@@ -118,6 +124,8 @@
 /* No comment provided by engineer. */
 "Edit" = "Editar";
 
+"Edit register" = "Editar registro";
+
 /* No comment provided by engineer. */
 "Edit reminder" = "Editar recordatorio";
 
@@ -176,6 +184,8 @@
 /* No comment provided by engineer. */
 "Mark as taken" = "Marcar como tomada";
 
+"Maximum value" = "Valor máximo";
+
 /* No comment provided by engineer. */
 "Medical Appointment Reminder" = "Recordatorio de cita médica";
 
@@ -198,6 +208,8 @@
 
 /* No comment provided by engineer. */
 "Medicines" = "Medicinas";
+
+"Minimum value" = "Valor mínimo";
 
 "Monday" = "Lunes";
 
@@ -227,6 +239,8 @@
 "Others" = "Otros";
 
 "Otorhinolaryngology" = "Otorrinolaringología";
+
+"Parameter" = "Parámetro";
 
 "Pediatrics" = "Pediatría";
 
@@ -263,6 +277,8 @@
 /* No comment provided by engineer. */
 "Second dose" = "Segunda dosis";
 
+"See all registers" = "Ver todos los registros";
+
 /* No comment provided by engineer. */
 "See data sheet" = "Ver ficha técnica";
 
@@ -275,6 +291,8 @@
 "Space medicine" = "Medicina espacial";
 
 "Sunday" = "Domingo";
+
+"* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor." = "* Los valores máximos y mínimos indicados para cada parámetro son estimaciones. Para más información consulte a su médico.";
 
 /* No comment provided by engineer. */
 "Third dose" = "Tercera dosis";
@@ -293,6 +311,8 @@
 "Tuesday" = "Martes";
 
 "Urology" = "Urología";
+
+"Value" = "Valor";
 
 "Vitamin" = "Vitamina";
 

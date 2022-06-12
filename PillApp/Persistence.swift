@@ -123,4 +123,6 @@ struct PersistenceController {
         
         return newParameter
     }()
+    
+    static let testParameterType: ParameterType = ParameterType(id: 1, name: "test type", minValue: 0, maxValue: 100, descriptionEs: "description es", descriptionEn: "description en", unit: "g")
 }
