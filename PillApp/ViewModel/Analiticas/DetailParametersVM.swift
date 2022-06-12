@@ -39,7 +39,7 @@ final class DetailParametersVM: ObservableObject {
         Task {
             do {
                 if isEdition {
-                    
+                    try await edit(context: context)
                 } else {
                     try await create(context: context)
                 }
@@ -63,6 +63,17 @@ final class DetailParametersVM: ObservableObject {
                 self.userParameters.append(parameter)
             }
         }
+    }
+    
+    func edit(context: NSManagedObjectContext) async throws {
+        parameter?.value = parameterValue
+        parameter?.type = Int64(parameterTypeSelected?.id ?? -1)
+        parameter?.date = parameterDate
         
+        try await context.perform {
+            if (self.parameter?.hasChanges != nil) {
+                try context.save()
+            }
+        }
     }
 }
