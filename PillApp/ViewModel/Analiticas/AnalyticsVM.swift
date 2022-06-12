@@ -11,7 +11,7 @@ import CoreData
 final class AnalyticsVM: ObservableObject {
     @Published var parameterTypes: [ParameterType] = []
     @Published var parameterChoosed: ParameterType?
-    //@Published var userParameters: [Parameter] = []
+    @Published var userParameters: [Parameter] = []
     
     init() {
         parameterTypes = loadParametersTypes()

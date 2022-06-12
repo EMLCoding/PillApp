@@ -38,28 +38,37 @@ struct AnalyticsView: View {
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity)
                         Text(analyticsVM.parameterChoosed?.descriptionEn ?? "")
                         
                         if (analyticsVM.parameterChoosed != nil && userParameters.count > 1) {
-                            LineGraph(data: analyticsVM.getValuesOf(parameters: userParameters), parameters: userParameters.reversed())
+                            LineGraph(data: analyticsVM.getValuesOf(parameters: userParameters), parameters: userParameters.reversed(), parameterType: analyticsVM.parameterChoosed!)
                                 .frame(height: 250)
                                 .padding(.top, 25)
+                                .padding(.bottom, 25)
                         }
                         
-                        
-                        Button("See all registers", action: {isShowingSheetList.toggle()})
-                            .sheet(isPresented: $isShowingSheetList, content: {
-                                NavigationView {
-                                    ListUserParameters(analyticsVM: analyticsVM, userParameters: $userParameters, nameParameter: analyticsVM.parameterChoosed?.name ?? "")
-                                }
-                            })
-                            .disabled(analyticsVM.parameterChoosed == nil)
                         
                         if analyticsVM.parameterChoosed != nil {
-                            Text("The values state for each parameter are estimates. For more information consult your doctor")
+                            Button("See all registers", action: {isShowingSheetList.toggle()})
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(Color("MainColor"))
+                                )
+                                .sheet(isPresented: $isShowingSheetList, content: {
+                                    NavigationView {
+                                        ListUserParameters(analyticsVM: analyticsVM, nameParameter: analyticsVM.parameterChoosed?.name ?? "")
+                                    }
+                                })
+                            
+                            Text("* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor.")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .padding()
                         }
                     }
-                    
                 }
             }
             .navigationTitle("Analytics")
@@ -85,6 +94,3 @@ struct AnalyticsView_Previews: PreviewProvider {
         AnalyticsView()
     }
 }
-
-// TODO: Eliminar
-let samplePlot: [CGFloat] = [98, 120,75,79,60,95,120,60,50,60,89,120,140,90,125,160,120,50,60,89,120,140,90,125,160,120]

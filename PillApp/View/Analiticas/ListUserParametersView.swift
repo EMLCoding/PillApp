@@ -10,6 +10,7 @@ import SwiftUI
 struct ListUserParameters: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var analyticsVM: AnalyticsVM
+    //var userParameters: [Parameter]
     let nameParameter: String
     
     var body: some View {
@@ -59,12 +60,12 @@ struct ListUserParameters: View {
             }
         }
         .navigationTitle(nameParameter)
-        
     }
 }
 
 struct ListMeasurements_Previews: PreviewProvider {
     static var previews: some View {
-        ListUserParameters(analyticsVM: AnalyticsVM(), nameParameter: "Parameter")
+        ListUserParameters(analyticsVM: AnalyticsVM(),
+                           nameParameter: "Parameter")
     }
 }
