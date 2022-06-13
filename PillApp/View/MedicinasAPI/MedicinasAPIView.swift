@@ -11,6 +11,11 @@ struct MedicinasAPIView: View {
     @ObservedObject var medicinesAPIVM: MedicinasAPIVM
     @AppStorage("hideLanguageDialog") private var hideLanguageDialog = false
     
+    init(medicinesAPIVM: MedicinasAPIVM) {
+        self.medicinesAPIVM = medicinesAPIVM
+        UITableView.appearance().backgroundColor = UIColor(Color("Background"))
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
