@@ -46,10 +46,12 @@ final class AnalyticsVM: ObservableObject {
         }
     }
     
+    @MainActor
     func deleteUserParameterAt(indexSet: IndexSet, userParameters: [Parameter], context: NSManagedObjectContext) {
         if let userParameter = indexSet.map({ userParameters[$0] }).first {
             Task {
                 try await deleteParameter(context: context, parameter: userParameter)
+                NotificationCenter.default.post(name: .loadUserParameters, object: nil)
             }
         }
     }

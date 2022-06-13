@@ -32,6 +32,7 @@ struct TutorialView: View {
                             .foregroundColor(.white)
                         Text("Create reminders of your medications to know when to take them")
                             .foregroundColor(.white)
+                            .font(.caption)
                     }
                 }
                 .padding()
@@ -48,6 +49,7 @@ struct TutorialView: View {
                             .foregroundColor(.white)
                         Text("Search drugs to see their most relevant information")
                             .foregroundColor(.white)
+                            .font(.caption)
                     }
                 }
                 .padding()
@@ -64,6 +66,24 @@ struct TutorialView: View {
                             .foregroundColor(.white)
                         Text("Create reminders of your medical appointments to know when you should go to the doctor")
                             .foregroundColor(.white)
+                            .font(.caption)
+                    }
+                }
+                .padding()
+                
+                HStack {
+                    Image(systemName: "waveform.path.ecg.rectangle")
+                        .resizable()
+                        .frame(width: 45, height: 45)
+                        .foregroundColor(.white)
+                        .padding(.trailing)
+                    VStack(alignment: .leading) {
+                        Text("Health analytics")
+                            .bold()
+                            .foregroundColor(.white)
+                        Text("Add the results of your analytics to see your health progress")
+                            .foregroundColor(.white)
+                            .font(.caption)
                     }
                 }
                 .padding()

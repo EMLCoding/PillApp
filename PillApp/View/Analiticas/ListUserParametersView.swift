@@ -10,7 +10,6 @@ import SwiftUI
 struct ListUserParameters: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var analyticsVM: AnalyticsVM
-    //var userParameters: [Parameter]
     let nameParameter: String
     
     var body: some View {

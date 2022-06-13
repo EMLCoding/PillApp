@@ -33,7 +33,7 @@ struct AnalyticsView: View {
                                     } label: {
                                         Text(type.name)
                                     }
-
+                                    
                                 }
                             }
                         }
@@ -44,11 +44,17 @@ struct AnalyticsView: View {
                             LineGraph(data: analyticsVM.getValuesOf(parameters: analyticsVM.userParameters), parameters: analyticsVM.userParameters.reversed(), parameterType: analyticsVM.parameterChoosed!)
                                 .frame(height: 250)
                                 .padding(.top, 25)
-                                .padding(.bottom, 25)
+                                .padding(.bottom, 30)
+                            
+                            Text("* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor.")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .padding(.horizontal)
+                                .padding(.bottom)
                         }
                         
                         
-                        if analyticsVM.parameterChoosed != nil {
+                        if analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count > 0 {
                             Button("See all registers", action: {isShowingSheetList.toggle()})
                                 .foregroundColor(.white)
                                 .padding()
@@ -61,11 +67,6 @@ struct AnalyticsView: View {
                                         ListUserParameters(analyticsVM: analyticsVM, nameParameter: analyticsVM.parameterChoosed?.name ?? "")
                                     }
                                 })
-                            
-                            Text("* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor.")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                .padding()
                         }
                     }
                 }
@@ -82,6 +83,7 @@ struct AnalyticsView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onReceive(NotificationCenter.default.publisher(for: .loadUserParameters)) { notification in
             analyticsVM.loadParameters(context: viewContext)
         }

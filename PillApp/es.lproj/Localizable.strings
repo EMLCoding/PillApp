@@ -13,6 +13,8 @@
 /* No comment provided by engineer. */
 "Add the medications you want me to remind you of." = "Añade los medicamentos que quieres que te recuerde";
 
+"Add the results of your analytics to see your health progress" = "Añade los resultados de tus analíticas para ver tu progreso sanitario";
+
 "Add register" = "Añadir registro";
 
 "Add your notes" = "Añade tus notas";
@@ -155,6 +157,8 @@
 "Geriatrics" = "Geriatría";
 
 "GP" = "Medicina de cabecera";
+
+"Health analytics" = "Analíticas sanitarias";
 
 "Heart" = "Corazón";
 

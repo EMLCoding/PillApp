@@ -33,96 +33,7 @@ struct LineGraph: View {
                 return CGPoint(x: pathWidth, y: -pathHeight + height)
             }
             
-            ZStack {
-                Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLines(points)
-                }
-                .strokedPath(StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                .fill(
-                    Color("MainColor")
-                )
-                
-                FillBG()
-                    .clipShape(
-                        Path { path in
-                            path.move(to: CGPoint(x: 0, y: 0))
-                            path.addLines(points)
-                            path.addLine(to: CGPoint(x: proxy.size.width, y: height))
-                            path.addLine(to: CGPoint(x: 0, y: height))
-                        }
-                    )
-            }
-            .overlay(
-                VStack(spacing: 0) {
-                    VStack {
-                        HStack {
-                            Text("Value:")
-                                .font(.caption)
-                            Text(valuePoint)
-                        }
-                        
-                        HStack {
-                            Text("Date:")
-                                .font(.caption)
-                            Text(valueDate)
-                        }
-                    }
-                    .font(.caption.bold())
-                    .foregroundColor(.white)
-                    .padding(.vertical, 6)
-                    .padding(.horizontal, 10)
-                    .background(Color("MainColor"), in: Capsule())
-                    .offset(x: translation < 10 ? 30 : 0)
-                    .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
-                    
-                    
-                    Rectangle()
-                        .fill(Color("MainColor"))
-                        .frame(width: 1, height: 45)
-                        .padding(.top)
-                    
-                    Circle()
-                        .fill(Color("MainColor"))
-                        .frame(width: 22, height: 22)
-                        .overlay(
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 10, height: 10)
-                        )
-                    
-                    Rectangle()
-                        .fill(Color("MainColor"))
-                        .frame(width: 1, height: 50)
-                        .opacity(0)
-                }
-                    .frame(width: 120, height: 170)
-                    .offset(y: 60)
-                    .offset(offset)
-                    .opacity(showPlot ? 1 : 0 ),
-                
-                alignment: .bottomLeading
-            )
-            .contentShape(Rectangle())
-            .gesture(DragGesture().onChanged({ value in
-                withAnimation{showPlot = true}
-                
-                let translation = value.location.x - 40
-                
-                let index = max(min(Int((translation / width).rounded() + 1), data.count - 1), 0)
-                
-                valuePoint = "\(parameters[index].value)"
-                valueDate = (parameters[index].date ?? Date.now).extractDate(format: "MM-yyyy")
-                
-                self.translation = translation
-                
-                offset = CGSize(width: points[index].x - 60, height: points[index].y - height)
-            }).onEnded({ value in
-                withAnimation{showPlot = false}
-            }))
-        }
-        .overlay(
-            VStack(alignment: .leading) {
+            VStack {
                 HStack {
                     Text("Minimum value:")
                         .font(.caption.bold())
@@ -134,14 +45,95 @@ struct LineGraph: View {
                     Text("\(parameterType.maxValue, specifier: "%.2f") \(parameterType.unit)")
                         .font(.caption.bold())
                 }
-                
-                
-                Spacer()
-                
-                
+                ZStack {
+                    Path { path in
+                        path.move(to: CGPoint(x: 0, y: 0))
+                        path.addLines(points)
+                    }
+                    .strokedPath(StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+                    .fill(
+                        Color("MainColor")
+                    )
+                    
+                    FillBG()
+                        .clipShape(
+                            Path { path in
+                                path.move(to: CGPoint(x: 0, y: 0))
+                                path.addLines(points)
+                                path.addLine(to: CGPoint(x: proxy.size.width, y: height))
+                                path.addLine(to: CGPoint(x: 0, y: height))
+                            }
+                        )
+                }
+                .overlay(
+                    VStack(spacing: 0) {
+                        VStack {
+                            HStack {
+                                Text("Value:")
+                                    .font(.caption)
+                                Text(valuePoint)
+                            }
+                            
+                            HStack {
+                                Text("Date:")
+                                    .font(.caption)
+                                Text(valueDate)
+                            }
+                        }
+                        .font(.caption.bold())
+                        .foregroundColor(.white)
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 10)
+                        .background(Color("MainColor"), in: Capsule())
+                        .offset(x: translation < 10 ? 30 : 0)
+                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
+                        
+                        
+                        Rectangle()
+                            .fill(Color("MainColor"))
+                            .frame(width: 1, height: 45)
+                            .padding(.top)
+                        
+                        Circle()
+                            .fill(Color("MainColor"))
+                            .frame(width: 22, height: 22)
+                            .overlay(
+                                Circle()
+                                    .fill(.white)
+                                    .frame(width: 10, height: 10)
+                            )
+                        
+                        Rectangle()
+                            .fill(Color("MainColor"))
+                            .frame(width: 1, height: 50)
+                            .opacity(0)
+                    }
+                        .frame(width: 120, height: 170)
+                        .offset(y: 80)
+                        .offset(offset)
+                        .opacity(showPlot ? 1 : 0 ),
+                    
+                    alignment: .bottomLeading
+                )
+                .contentShape(Rectangle())
+                .gesture(DragGesture().onChanged({ value in
+                    withAnimation{showPlot = true}
+                    
+                    let translation = value.location.x - 40
+                    
+                    let index = max(min(Int((translation / width).rounded() + 1), data.count - 1), 0)
+                    
+                    valuePoint = "\(parameters[index].value)"
+                    valueDate = (parameters[index].date ?? Date.now).extractDate(format: "MM-yyyy")
+                    
+                    self.translation = translation
+                    
+                    offset = CGSize(width: points[index].x - 60, height: points[index].y - height)
+                }).onEnded({ value in
+                    withAnimation{showPlot = false}
+                }))
             }
-                .frame(maxWidth: .infinity, alignment: .leading)
-        )
+        }
         .padding(.horizontal, 10)
     }
 }
