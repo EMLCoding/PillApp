@@ -40,6 +40,14 @@ struct AnalyticsView: View {
                         .frame(maxWidth: .infinity)
                         Text((NSLocale.preferredLanguages[0] == "es" ? analyticsVM.parameterChoosed?.descriptionEs : analyticsVM.parameterChoosed?.descriptionEn) ?? "")
                         
+                        if (analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count <= 1) {
+                            Text("* Add two or more records to see the progress in a graph.")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .padding(.horizontal)
+                                .padding(.top)
+                        }
+                        
                         if (analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count > 1) {
                             LineGraph(data: analyticsVM.getValuesOf(parameters: analyticsVM.userParameters), parameters: analyticsVM.userParameters.reversed(), parameterType: analyticsVM.parameterChoosed!)
                                 .frame(height: 250)

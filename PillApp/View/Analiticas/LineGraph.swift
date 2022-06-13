@@ -68,23 +68,17 @@ struct LineGraph: View {
                 .overlay(
                     VStack(spacing: 0) {
                         VStack {
-                            HStack {
-                                Text("Value:")
-                                    .font(.caption)
-                                Text(valuePoint)
-                            }
+                            Text(valuePoint + " " + parameterType.unit)
+                                .font(.caption)
                             
-                            HStack {
-                                Text("Date:")
-                                    .font(.caption)
-                                Text(valueDate)
-                            }
+                            Text(valueDate)
+                                
                         }
                         .font(.caption.bold())
                         .foregroundColor(.white)
                         .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        .background(Color("MainColor"), in: Capsule())
+                        .padding(.horizontal, 8)
+                        .background(Color("MainColor"), in:Capsule())
                         .offset(x: translation < 10 ? 30 : 0)
                         .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
                         
@@ -108,11 +102,10 @@ struct LineGraph: View {
                             .frame(width: 1, height: 50)
                             .opacity(0)
                     }
-                        .frame(width: 120, height: 170)
+                        .frame(width: 80, height: 170)
                         .offset(y: 80)
                         .offset(offset)
                         .opacity(showPlot ? 1 : 0 ),
-                    
                     alignment: .bottomLeading
                 )
                 .contentShape(Rectangle())
@@ -121,14 +114,14 @@ struct LineGraph: View {
                     
                     let translation = value.location.x - 40
                     
-                    let index = max(min(Int((translation / width).rounded() + 1), data.count - 1), 0)
+                    let index = (min(Int((translation / width).rounded()), data.count - 1))
                     
                     valuePoint = "\(parameters[index].value)"
-                    valueDate = (parameters[index].date ?? Date.now).extractDate(format: "MM-yyyy")
+                    valueDate = (parameters[index].date ?? Date.now).extractDate(format: "MMM-yyyy")
                     
                     self.translation = translation
                     
-                    offset = CGSize(width: points[index].x - 60, height: points[index].y - height)
+                    offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
                 }).onEnded({ value in
                     withAnimation{showPlot = false}
                 }))
