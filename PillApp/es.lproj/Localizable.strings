@@ -213,7 +213,7 @@
 "Medicine time" = "Hora de la medicina";
 
 /* No comment provided by engineer. */
-"Medicines" = "Medicinas";
+"Medicaments" = "Medicinas";
 
 "Minimum value:" = "Valor mínimo:";
 
@@ -270,6 +270,8 @@
 
 /* No comment provided by engineer. */
 "Schedule" = "Calendario";
+
+"Search" = "Buscar";
 
 /* No comment provided by engineer. */
 "Search drugs to see their most relevant information" = "Busca medicinas para consultar su información más relevante";

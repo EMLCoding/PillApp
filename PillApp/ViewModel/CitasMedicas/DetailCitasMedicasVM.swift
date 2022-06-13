@@ -46,7 +46,7 @@ final class DetailCitasMedicasVM: ObservableObject {
                 }
                 NotificationCenter.default.post(name: .updateYearsAppoitment, object: nil)
             } catch {
-                print("Error saving data \(error.localizedDescription)")
+                print("ERROR saving data \(error.localizedDescription)")
             }
         }
     }

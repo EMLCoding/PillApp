@@ -21,7 +21,6 @@ final class MedicinasAPIVM: ObservableObject {
             if !query.isEmpty {
                 if task != nil {
                     task?.cancel()
-                    print("PETICION CANCELADA")
                 }
                 task = Task { await find() }
             } else {
@@ -67,7 +66,7 @@ final class MedicinasAPIVM: ObservableObject {
                 isLoadingData = false
             }
         } catch {
-            print("Error recuperando la lista de medicinas \(error)")
+            print("ERROR recuperando la lista de medicinas \(error)")
         }
     }
     

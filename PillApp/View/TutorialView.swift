@@ -21,7 +21,7 @@ struct TutorialView: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Image(systemName: "house")
+                    Image(systemName: "pills")
                         .resizable()
                         .frame(width: 45, height: 45)
                         .foregroundColor(.white)
@@ -38,7 +38,7 @@ struct TutorialView: View {
                 .padding()
                 
                 HStack {
-                    Image(systemName: "pills")
+                    Image(systemName: "magnifyingglass")
                         .resizable()
                         .frame(width: 45, height: 45)
                         .foregroundColor(.white)

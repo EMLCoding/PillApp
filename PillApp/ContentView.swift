@@ -21,11 +21,11 @@ struct ContentView: View {
             TabView {
                 MedicinasView(medicinesVM: MedicinesVM())
                     .tabItem {
-                        Label("Home", systemImage: "house")
+                        Label("Medicaments", systemImage: "pills")
                     }
                 MedicinasAPIView(medicinesAPIVM: MedicinasAPIVM())
                     .tabItem {
-                        Label("Medicines", systemImage: "pills")
+                        Label("Search", systemImage: "magnifyingglass")
                     }
                 CitasMedicasView(citasMedicasVM: CitasMedicasVM())
                     .tabItem {
@@ -65,8 +65,6 @@ struct ContentView: View {
             TutorialView(notShowTutorial: $notShowTutorial)
                 .edgesIgnoringSafeArea(.all)
         }
-        
-        
     }
 }
 

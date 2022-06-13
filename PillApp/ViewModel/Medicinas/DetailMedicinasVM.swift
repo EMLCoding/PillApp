@@ -59,7 +59,7 @@ final class DetailMedicinasVM: ObservableObject {
                 }
                 NotificationCenter.default.post(name: .updateYears, object: nil)
             } catch {
-                print("Error saving data \(error.localizedDescription)")
+                print("ERROR saving data \(error.localizedDescription)")
             }
         }
     }

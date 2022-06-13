@@ -72,7 +72,6 @@ extension URL {
             urlC.queryItems = [pagination, comerc, authorized]
         }
         
-        print("URL: \(urlC.url!)")
         return urlC.url!
     }
 }
