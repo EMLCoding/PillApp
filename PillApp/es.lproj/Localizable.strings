@@ -190,7 +190,9 @@
 /* No comment provided by engineer. */
 "Mark as taken" = "Marcar como tomada";
 
-"Maximum value:" = "Valor máximo:";
+"Maximum man:" = "Máximo hombre:";
+
+"Maximum woman:" = "Máximo mujer:";
 
 /* No comment provided by engineer. */
 "Medical Appointment Reminder" = "Recordatorio de cita médica";
@@ -215,7 +217,9 @@
 /* No comment provided by engineer. */
 "Medicaments" = "Medicinas";
 
-"Minimum value:" = "Valor mínimo:";
+"Minimum man:" = "Mínimo hombre:";
+
+"Minimum woman:" = "Mínimo mujer:";
 
 "Monday" = "Lunes";
 

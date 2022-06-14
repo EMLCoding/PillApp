@@ -217,8 +217,10 @@ enum ParametersField {
 struct ParameterType: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
-    let minValue: Double
-    let maxValue: Double
+    let minValueM: Double
+    let maxValueM: Double
+    let minValueF: Double?
+    let maxValueF: Double?
     let descriptionEs: String
     let descriptionEn: String
     let unit: String

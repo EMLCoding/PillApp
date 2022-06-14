@@ -48,8 +48,43 @@ struct AnalyticsView: View {
                                 .padding(.top)
                         }
                         
-                        if (analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count > 1) {
-                            LineGraph(data: analyticsVM.getValuesOf(parameters: analyticsVM.userParameters), parameters: analyticsVM.userParameters.reversed(), parameterType: analyticsVM.parameterChoosed!)
+                        if let parameterType = analyticsVM.parameterChoosed, analyticsVM.userParameters.count > 1 {
+                            Group {
+                                Text("Valores:")
+                                    .foregroundColor(Color("MainColor"))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.top)
+                                
+                                HStack {
+                                    Text("Minimum man:")
+                                        .font(.caption.bold())
+                                    Text("\(parameterType.minValueM, specifier: "%.2f") \(parameterType.unit)")
+                                        .font(.caption.bold())
+                                    Spacer()
+                                    Text("Maximum man:")
+                                        .font(.caption.bold())
+                                    Text("\(parameterType.maxValueM, specifier: "%.2f") \(parameterType.unit)")
+                                        .font(.caption.bold())
+                                }
+                                .padding(.top, 3)
+                                if let minValue = parameterType.minValueF, let maxValue = parameterType.maxValueF {
+                                    HStack {
+                                        Text("Minimum woman:")
+                                            .font(.caption.bold())
+                                        Text("\(minValue, specifier: "%.2f") \(parameterType.unit)")
+                                            .font(.caption.bold())
+                                        Spacer()
+                                        Text("Maximum woman:")
+                                            .font(.caption.bold())
+                                        Text("\(maxValue, specifier: "%.2f") \(parameterType.unit)")
+                                            .font(.caption.bold())
+                                    }
+                                    .padding(.vertical, 3)
+                                }
+                            }
+                            .padding(.horizontal)
+                            LineGraph(data: analyticsVM.getValuesOf(parameters: analyticsVM.userParameters), parameters: analyticsVM.userParameters.reversed(), parameterType: parameterType)
                                 .frame(height: 250)
                                 .padding(.top, 25)
                                 .padding(.bottom, 30)
