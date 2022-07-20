@@ -13,8 +13,19 @@ final class AnalyticsVM: ObservableObject {
     @Published var parameterChoosed: ParameterType?
     @Published var userParameters: [Parameter] = []
     
+    @Published var isSpanish = true
+    
     init() {
         parameterTypes = loadParametersTypes()
+        getLanguage()
+    }
+    
+    func getLanguage() {
+        if NSLocale.preferredLanguages[0] == "es" {
+            isSpanish = true
+        } else {
+            isSpanish = false
+        }
     }
     
     func loadParametersTypes() -> [ParameterType] {

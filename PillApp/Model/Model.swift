@@ -216,9 +216,10 @@ enum ParametersField {
 // MARK: - Analytics
 struct ParameterType: Codable, Identifiable, Hashable {
     let id: Int
-    let name: String
-    let minValueM: Double
-    let maxValueM: Double
+    let nameEs: String
+    let nameEn: String
+    let minValueM: Double?
+    let maxValueM: Double?
     let minValueF: Double?
     let maxValueF: Double?
     let descriptionEs: String

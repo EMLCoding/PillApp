@@ -23,7 +23,7 @@ struct LineGraph: View {
             let height = proxy.size.height
             let width = (proxy.size.width) / CGFloat(data.count - 1)
             
-            let maxPoint = (data.max() ?? 0) + 100
+            let maxPoint = (data.max() ?? 0)
             
             let points = data.enumerated().compactMap { item -> CGPoint  in
                 let progress = item.element / maxPoint

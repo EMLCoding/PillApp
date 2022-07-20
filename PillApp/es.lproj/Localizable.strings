@@ -66,6 +66,8 @@
 
 "Choose parameter:" = "Elige el parámetro";
 
+"Choose year" = "Seleccionar año";
+
 /* No comment provided by engineer. */
 "Continue" = "Continuar";
 
@@ -190,9 +192,9 @@
 /* No comment provided by engineer. */
 "Mark as taken" = "Marcar como tomada";
 
-"Maximum man:" = "Máximo hombre:";
+"Max man:" = "Máx hombre:";
 
-"Maximum woman:" = "Máximo mujer:";
+"Max woman:" = "Máx mujer:";
 
 /* No comment provided by engineer. */
 "Medical Appointment Reminder" = "Recordatorio de cita médica";
@@ -217,9 +219,9 @@
 /* No comment provided by engineer. */
 "Medicaments" = "Medicinas";
 
-"Minimum man:" = "Mínimo hombre:";
+"Min man:" = "Mín hombre:";
 
-"Minimum woman:" = "Mínimo mujer:";
+"Min woman:" = "Mín mujer:";
 
 "Monday" = "Lunes";
 

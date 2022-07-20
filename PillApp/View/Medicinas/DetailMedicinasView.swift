@@ -15,7 +15,6 @@ struct DetailMedicinasView: View {
     
     @FocusState var actualField: MedicamentsField?
     
-    
     init(detailMedicinasVM: DetailMedicinasVM){
         self.detailMedicinasVM = detailMedicinasVM
         UITableView.appearance().backgroundColor = .clear

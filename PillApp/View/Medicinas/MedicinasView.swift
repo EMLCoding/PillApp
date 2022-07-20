@@ -34,7 +34,7 @@ struct MedicinasView: View {
                             })                        
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Menu("Year") {
+                        Menu("Choose year") {
                             ForEach(medicinesVM.years, id:\.self) { year in
                                 Button {
                                     medicinesVM.changeDate(year: year)

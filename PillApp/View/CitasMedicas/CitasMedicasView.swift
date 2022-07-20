@@ -34,7 +34,7 @@ struct CitasMedicasView: View {
                             })
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Menu("Year") {
+                        Menu("Choose year") {
                             ForEach(citasMedicasVM.years, id:\.self) { year in
                                 Button {
                                     citasMedicasVM.changeDate(year: year)

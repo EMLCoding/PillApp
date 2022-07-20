@@ -29,19 +29,21 @@ struct DetailUserParameter: View {
                 .keyboardType(.decimalPad)
                 .focused($actualField, equals: .value)
             DatePicker("Analytic date", selection: $detailParametersVM.parameterDate,displayedComponents: .date)
-            Menu {
-                ForEach(detailParametersVM.parameterTypes) { type in
-                    Button(type.name) {
-                        detailParametersVM.parameterTypeSelected = type
+            if !detailParametersVM.isEdition {
+                Menu {
+                    ForEach(detailParametersVM.parameterTypes) { type in
+                        Button((analyticsVM.isSpanish ? type.nameEs : type.nameEn)) {
+                            detailParametersVM.parameterTypeSelected = type
+                        }
                     }
-                }
-            } label: {
-                HStack {
-                    Text("Parameter")
-                    
-                    Spacer()
-                    
-                    Text("\(detailParametersVM.parameterTypeSelected?.name ?? "")")
+                } label: {
+                    HStack {
+                        Text("Parameter")
+                        
+                        Spacer()
+                        
+                        Text("\((analyticsVM.isSpanish ? detailParametersVM.parameterTypeSelected?.nameEs : detailParametersVM.parameterTypeSelected?.nameEs) ?? "")")
+                    }
                 }
             }
         }
@@ -71,6 +73,6 @@ struct DetailUserParameter: View {
 
 struct DetailMeasurement_Previews: PreviewProvider {
     static var previews: some View {
-        DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: nil, parameterTypes: [], userParameters: []))
+        DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: nil, parameterTypes: [], userParameters: [], parameterType: nil))
     }
 }

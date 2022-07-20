@@ -19,7 +19,11 @@ final class DetailParametersVM: ObservableObject {
     var parameter: Parameter?
     let parameterTypes: [ParameterType]
     
-    init(parameter: Parameter?, parameterTypes: [ParameterType], userParameters: [Parameter]) {
+    init(parameter: Parameter?, parameterTypes: [ParameterType], userParameters: [Parameter], parameterType: ParameterType?) {
+        self.parameterTypes = parameterTypes
+        
+        self.userParameters = userParameters
+        
         if let parameter = parameter {
             isEdition = true
             self.parameter = parameter
@@ -27,11 +31,13 @@ final class DetailParametersVM: ObservableObject {
             self.parameterDate = parameter.date ?? Date.now
         }
         
-        self.parameterTypes = parameterTypes
-        if self.parameterTypes.count > 0 {
-            self.parameterTypeSelected = parameterTypes.first
+        if let typeSelected = parameterType, let type = parameterTypes.filter({ $0.id == typeSelected.id}).first {
+            self.parameterTypeSelected = type
+        } else {
+            if self.parameterTypes.count > 0 {
+                self.parameterTypeSelected = parameterTypes.first
+            }
         }
-        self.userParameters = userParameters
     }
     
     @MainActor
@@ -67,7 +73,6 @@ final class DetailParametersVM: ObservableObject {
     
     func edit(context: NSManagedObjectContext) async throws {
         parameter?.value = parameterValue
-        parameter?.type = Int64(parameterTypeSelected?.id ?? -1)
         parameter?.date = parameterDate
         
         try await context.perform {

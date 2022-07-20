@@ -24,21 +24,22 @@ struct AnalyticsView: View {
                         HStack {
                             Text("Choose parameter:")
                             
-                            Menu(analyticsVM.parameterChoosed?.name ?? (NSLocale.preferredLanguages[0] == "es" ? "Parámetro" : "Parameter")) {
+                            Menu((analyticsVM.isSpanish ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? (analyticsVM.isSpanish ? "Parámetro" : "Parameter")) {
                                 ForEach(analyticsVM.parameterTypes) { type in
                                     Button {
                                         analyticsVM.parameterChoosed = type
                                         analyticsVM.loadParameters(context: viewContext)
                                         NotificationCenter.default.post(name: .loadUserParameters, object: nil)
                                     } label: {
-                                        Text(type.name)
+                                        Text((analyticsVM.isSpanish ? type.nameEs : type.nameEn))
                                     }
-                                    
                                 }
                             }
                         }
                         .frame(maxWidth: .infinity)
-                        Text((NSLocale.preferredLanguages[0] == "es" ? analyticsVM.parameterChoosed?.descriptionEs : analyticsVM.parameterChoosed?.descriptionEn) ?? "")
+                        
+                        Text((analyticsVM.isSpanish ? analyticsVM.parameterChoosed?.descriptionEs : analyticsVM.parameterChoosed?.descriptionEn) ?? "")
+                            .padding(.horizontal)
                         
                         if (analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count <= 1) {
                             Text("* Add two or more records to see the progress in a graph.")
@@ -57,37 +58,44 @@ struct AnalyticsView: View {
                                     .padding(.top)
                                 
                                 HStack {
-                                    Text("Minimum man:")
-                                        .font(.caption.bold())
-                                    Text("\(parameterType.minValueM, specifier: "%.2f") \(parameterType.unit)")
-                                        .font(.caption.bold())
-                                    Spacer()
-                                    Text("Maximum man:")
-                                        .font(.caption.bold())
-                                    Text("\(parameterType.maxValueM, specifier: "%.2f") \(parameterType.unit)")
-                                        .font(.caption.bold())
+                                    if let minValueM = parameterType.minValueM {
+                                        Text("Min man:")
+                                            .font(.caption.bold())
+                                        Text("\(minValueM, specifier: "%.2f") \(parameterType.unit)")
+                                            .font(.caption.bold())
+                                        Spacer()
+                                    }
+                                    
+                                    if let maxValueM = parameterType.maxValueM {
+                                        Text("Max man:")
+                                            .font(.caption.bold())
+                                        Text("\(maxValueM, specifier: "%.2f") \(parameterType.unit)")
+                                            .font(.caption.bold())
+                                    }
                                 }
                                 .padding(.top, 3)
-                                if let minValue = parameterType.minValueF, let maxValue = parameterType.maxValueF {
-                                    HStack {
-                                        Text("Minimum woman:")
+                                HStack {
+                                    if let minValue = parameterType.minValueF {
+                                        Text("Min woman:")
                                             .font(.caption.bold())
                                         Text("\(minValue, specifier: "%.2f") \(parameterType.unit)")
                                             .font(.caption.bold())
                                         Spacer()
-                                        Text("Maximum woman:")
+                                    }
+                                    
+                                    if let maxValue = parameterType.maxValueF {
+                                        Text("Max woman:")
                                             .font(.caption.bold())
                                         Text("\(maxValue, specifier: "%.2f") \(parameterType.unit)")
                                             .font(.caption.bold())
                                     }
-                                    .padding(.vertical, 3)
                                 }
+                                .padding(.vertical, 3)
                             }
                             .padding(.horizontal)
                             LineGraph(data: analyticsVM.getValuesOf(parameters: analyticsVM.userParameters), parameters: analyticsVM.userParameters.reversed(), parameterType: parameterType)
                                 .frame(height: 250)
                                 .padding(.top, 25)
-                                .padding(.bottom, 30)
                             
                             Text("* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor.")
                                 .font(.caption)
@@ -105,9 +113,10 @@ struct AnalyticsView: View {
                                     RoundedRectangle(cornerRadius: 25)
                                         .fill(Color("MainColor"))
                                 )
+                                .padding(.bottom)
                                 .sheet(isPresented: $isShowingSheetList, content: {
                                     NavigationView {
-                                        ListUserParameters(analyticsVM: analyticsVM, nameParameter: analyticsVM.parameterChoosed?.name ?? "")
+                                        ListUserParameters(analyticsVM: analyticsVM, nameParameter: (analyticsVM.isSpanish ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? "")
                                     }
                                 })
                         }
@@ -120,7 +129,7 @@ struct AnalyticsView: View {
                     Button("Add", action: {isShowingSheetDetails.toggle()})
                         .sheet(isPresented: $isShowingSheetDetails, content: {
                             NavigationView {
-                                DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: nil, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters))
+                                DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: nil, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters, parameterType: analyticsVM.parameterChoosed))
                             }
                         })
                 }

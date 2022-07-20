@@ -31,7 +31,7 @@ struct ListUserParameters: View {
                 List {
                     ForEach(analyticsVM.userParameters) { userParameter in
                         NavigationLink {
-                            DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: userParameter, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters))
+                            DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: userParameter, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters, parameterType: nil))
                         } label: {
                             HStack {
                                 Image(systemName: "heart.text.square")
