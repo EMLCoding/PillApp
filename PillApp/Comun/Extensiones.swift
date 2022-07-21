@@ -48,6 +48,14 @@ extension Date {
         
         return Array(yearsMap).sorted()
     }
+    
+    /// Devuelve un bool indicando si la fecha original es anterior a la fecha pasada por parametro
+    ///
+    ///  - Parameter toDate: La fecha con la que se va a comparar. --> (Date)
+    ///  - Returns: Bool
+    func isBefore(toDate: Date) -> Bool {
+        return self < toDate
+    }
 }
 
 let urlBase = URL(string: "https://cima.aemps.es/cima/rest/medicamentos")!

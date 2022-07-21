@@ -33,8 +33,12 @@ final class CitasMedicasVM: ObservableObject {
             
             if (older.count > 0) {
                 if let olderDate = older[0].date, let newerDate = newer[0].date {
-                                years = olderDate.years(toDate: newerDate)
-                            }
+                    if newerDate.isBefore(toDate: Date.now) {
+                        years = olderDate.years(toDate: Date.now)
+                    } else {
+                        years = olderDate.years(toDate: newerDate)
+                    }
+                }
             } else {
                 years = Date.now.years(toDate: Date.now)
             }

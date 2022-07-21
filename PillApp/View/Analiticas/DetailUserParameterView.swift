@@ -32,7 +32,7 @@ struct DetailUserParameter: View {
             if !detailParametersVM.isEdition {
                 Menu {
                     ForEach(detailParametersVM.parameterTypes) { type in
-                        Button((analyticsVM.isSpanish ? type.nameEs : type.nameEn)) {
+                        Button((isSpanish() ? type.nameEs : type.nameEn)) {
                             detailParametersVM.parameterTypeSelected = type
                         }
                     }
@@ -42,7 +42,7 @@ struct DetailUserParameter: View {
                         
                         Spacer()
                         
-                        Text("\((analyticsVM.isSpanish ? detailParametersVM.parameterTypeSelected?.nameEs : detailParametersVM.parameterTypeSelected?.nameEs) ?? "")")
+                        Text("\((isSpanish() ? detailParametersVM.parameterTypeSelected?.nameEs : detailParametersVM.parameterTypeSelected?.nameEs) ?? "")")
                     }
                 }
             }

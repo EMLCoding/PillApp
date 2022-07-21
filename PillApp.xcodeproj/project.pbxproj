@@ -27,6 +27,7 @@
 		CB55D03F28329C8200D8F152 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55D03E28329C8200D8F152 /* TutorialView.swift */; };
 		CB63AF1B280DA271005B4386 /* StreetsFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB63AF1A280DA271005B4386 /* StreetsFinder.swift */; };
 		CB63AF1D280DA329005B4386 /* StreetsFinderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB63AF1C280DA328005B4386 /* StreetsFinderVM.swift */; };
+		CB706690288932940033E6F4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70668F288932940033E6F4 /* Language.swift */; };
 		CB7CAD9727A09D0A0009DAC7 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */; };
 		CB939DD82848C400001BDBEB /* DetailParametersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB939DD72848C400001BDBEB /* DetailParametersVM.swift */; };
 		CB9965E428072E0300B0BF2A /* DetailCitasMedicasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */; };
@@ -75,6 +76,7 @@
 		CB55D03E28329C8200D8F152 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		CB63AF1A280DA271005B4386 /* StreetsFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetsFinder.swift; sourceTree = "<group>"; };
 		CB63AF1C280DA328005B4386 /* StreetsFinderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetsFinderVM.swift; sourceTree = "<group>"; };
+		CB70668F288932940033E6F4 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
 		CB939DD72848C400001BDBEB /* DetailParametersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailParametersVM.swift; sourceTree = "<group>"; };
 		CB9965E328072E0200B0BF2A /* DetailCitasMedicasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCitasMedicasView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				CB7CAD9627A09D0A0009DAC7 /* Extensiones.swift */,
 				CB0F61DC27E60FB0008A9AFF /* Notifications.swift */,
+				CB70668F288932940033E6F4 /* Language.swift */,
 			);
 			path = Comun;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				CB2A1C42284780F30061BB03 /* AnalyticsView.swift in Sources */,
 				CBAE860227A0501A00E95536 /* ContentView.swift in Sources */,
 				CB0F61DF27E623D2008A9AFF /* AlertView.swift in Sources */,
+				CB706690288932940033E6F4 /* Language.swift in Sources */,
 				CB939DD82848C400001BDBEB /* DetailParametersVM.swift in Sources */,
 				CBAE861227A0584800E95536 /* DayPickerView.swift in Sources */,
 				CB0F61DD27E60FB0008A9AFF /* Notifications.swift in Sources */,

@@ -15,7 +15,7 @@ struct DayPickerView: View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { value in
-                    HStack {
+                    LazyHStack {
                         ForEach(dayPickerVM.dates, id:\.self) { day in
                             VStack(spacing: 5) {
                                 Text(day.extractDate(format: "dd"))
@@ -52,7 +52,7 @@ struct DayPickerView: View {
                 }
             }
             HStack {
-                Text(Date.now.extractDate(format: "MMMM yyyy"))
+                Text(currentDate.extractDate(format: "MMMM yyyy"))
                     .bold()
                 
                 if (!currentDate.sameDateAs(date: Date.now)) {

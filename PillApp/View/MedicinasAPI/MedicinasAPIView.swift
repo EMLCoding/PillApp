@@ -54,7 +54,7 @@ struct MedicinasAPIView: View {
             .navigationTitle("Search medicaments")
             .searchable(text: $medicinesAPIVM.query)
             .onAppear {
-                if (!hideLanguageDialog && NSLocale.preferredLanguages[0] != "es") {
+                if (!hideLanguageDialog && !isSpanish()) {
                     NotificationCenter.default.post(name: .showAlert, object: AlertData(title: "Data Notice", image: "heart.text.square.fill", text: "The medicines that appear in this functionality are only medicines sold in Spain.", textButton: "See spanish info"))
                     hideLanguageDialog = true
                 }

@@ -20,6 +20,7 @@ struct CitasMedicasView: View {
                 Color("Background").edgesIgnoringSafeArea(.all)
                 VStack {
                     DayPickerView(dayPickerVM: DayPickerVM(currentDate: citasMedicasVM.currentDate), currentDate: $citasMedicasVM.currentDate)
+                        .frame(height: 120)
                     
                     CitasMedicasListView(currentDate: citasMedicasVM.currentDate)
                 }
@@ -43,6 +44,7 @@ struct CitasMedicasView: View {
                                 }
                             }
                         }
+                        .disabled(citasMedicasVM.years.count < 2)
                     }
                 }
             }

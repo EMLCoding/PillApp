@@ -67,7 +67,7 @@ final class Notifications {
     fileprivate func generarMensajeRecordatoriosMedicinas() -> String {
         let randomMessage = Int.random(in: 0..<4)
         var message: String = ""
-        let spanish = NSLocale.preferredLanguages[0] == "es" ? true : false
+        let spanish = isSpanish()
         
         switch randomMessage {
         case 0:
@@ -89,7 +89,7 @@ final class Notifications {
     fileprivate func generarMensajeRecordatorioCitas() -> String {
         let randomMessage = Int.random(in: 0..<3)
         var message: String = ""
-        let spanish = NSLocale.preferredLanguages[0] == "es" ? true : false
+        let spanish = isSpanish()
         
         switch randomMessage {
         case 0:

@@ -24,21 +24,21 @@ struct AnalyticsView: View {
                         HStack {
                             Text("Choose parameter:")
                             
-                            Menu((analyticsVM.isSpanish ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? (analyticsVM.isSpanish ? "Parámetro" : "Parameter")) {
+                            Menu((isSpanish() ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? (isSpanish() ? "Parámetro" : "Parameter")) {
                                 ForEach(analyticsVM.parameterTypes) { type in
                                     Button {
                                         analyticsVM.parameterChoosed = type
                                         analyticsVM.loadParameters(context: viewContext)
                                         NotificationCenter.default.post(name: .loadUserParameters, object: nil)
                                     } label: {
-                                        Text((analyticsVM.isSpanish ? type.nameEs : type.nameEn))
+                                        Text((isSpanish() ? type.nameEs : type.nameEn))
                                     }
                                 }
                             }
                         }
                         .frame(maxWidth: .infinity)
                         
-                        Text((analyticsVM.isSpanish ? analyticsVM.parameterChoosed?.descriptionEs : analyticsVM.parameterChoosed?.descriptionEn) ?? "")
+                        Text((isSpanish() ? analyticsVM.parameterChoosed?.descriptionEs : analyticsVM.parameterChoosed?.descriptionEn) ?? "")
                             .padding(.horizontal)
                         
                         if (analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count <= 1) {
@@ -116,7 +116,7 @@ struct AnalyticsView: View {
                                 .padding(.bottom)
                                 .sheet(isPresented: $isShowingSheetList, content: {
                                     NavigationView {
-                                        ListUserParameters(analyticsVM: analyticsVM, nameParameter: (analyticsVM.isSpanish ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? "")
+                                        ListUserParameters(analyticsVM: analyticsVM, nameParameter: (isSpanish() ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? "")
                                     }
                                 })
                         }
