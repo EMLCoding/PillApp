@@ -27,9 +27,19 @@ struct MedicinasAPIView: View {
                             .scaledToFit()
                             .foregroundColor(Color("MainColor"))
                             .frame(width: 80, height: 80)
-                        Text("Find the medicine you want here.")
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
+                        if (!medicinesAPIVM.isLoadingData && !medicinesAPIVM.query.isEmpty) {
+                            Text("No results found")
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
+                        } else if (medicinesAPIVM.isLoadingData) {
+                            Text("Searching...")
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
+                        } else {
+                            Text("Find the medicine you want here.")
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
+                        }
                     }
                 } else {
                     List {

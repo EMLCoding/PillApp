@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CB02A8632832A8A100A6151C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02A8612832A8A100A6151C /* Localizable.strings */; };
-		CB02A8662832A8A100A6151C /* PillApp-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */; };
 		CB0543AF285356B90059539B /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0543AE285356B90059539B /* LineGraph.swift */; };
 		CB0F61D527E5E43C008A9AFF /* DetailMedicinasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */; };
 		CB0F61D727E5E5FF008A9AFF /* DetailMedicinasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */; };
@@ -56,8 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB02481B288BE6F100BDC105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CB02A8622832A8A100A6151C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CB02A8652832A8A100A6151C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/PillApp-InfoPlist.strings"; sourceTree = "<group>"; };
 		CB0543AE285356B90059539B /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 		CB0F61D427E5E43C008A9AFF /* DetailMedicinasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasView.swift; sourceTree = "<group>"; };
 		CB0F61D627E5E5FF008A9AFF /* DetailMedicinasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicinasVM.swift; sourceTree = "<group>"; };
@@ -149,7 +148,6 @@
 		CBAE85E227A049C600E95536 = {
 			isa = PBXGroup;
 			children = (
-				CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */,
 				CBAE85ED27A049C600E95536 /* PillApp */,
 				CBAE85EC27A049C600E95536 /* Products */,
 			);
@@ -348,6 +346,7 @@
 				en,
 				Base,
 				es,
+				"en-001",
 			);
 			mainGroup = CBAE85E227A049C600E95536;
 			productRefGroup = CBAE85EC27A049C600E95536 /* Products */;
@@ -364,7 +363,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB02A8662832A8A100A6151C /* PillApp-InfoPlist.strings in Resources */,
 				CB2A1C49284789B10061BB03 /* measurementTypes.json in Resources */,
 				CBAE85F627A049C900E95536 /* Preview Assets.xcassets in Resources */,
 				CB02A8632832A8A100A6151C /* Localizable.strings in Resources */,
@@ -430,17 +428,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				CB02A8622832A8A100A6151C /* es */,
+				CB02481B288BE6F100BDC105 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		CB02A8642832A8A100A6151C /* PillApp-InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB02A8652832A8A100A6151C /* es */,
-			);
-			name = "PillApp-InfoPlist.strings";
-			path = PillApp;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

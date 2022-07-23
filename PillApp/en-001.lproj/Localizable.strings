@@ -240,8 +240,6 @@
 /* No comment provided by engineer. */
 "Notifications" = "Notificaciones";
 
-"No results found" = "No se han encontrado resultados";
-
 "Once a month" = "Una al mes";
 
 "Once a week" = "Una a la semana";
@@ -280,8 +278,6 @@
 "Schedule" = "Calendario";
 
 "Search" = "Buscar";
-
-"Searching..." = "Buscando...";
 
 /* No comment provided by engineer. */
 "Search drugs to see their most relevant information" = "Busca medicinas para consultar su información más relevante";

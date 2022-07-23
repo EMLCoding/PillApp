@@ -1,0 +1,346 @@
+/* No comment provided by engineer. */
+"-" = "-";
+
+/* No comment provided by engineer. */
+"Add" = "Add";
+
+/* No comment provided by engineer. */
+"Add reminders" = "Add reminders";
+
+/* No comment provided by engineer. */
+"Add the medical appointments you want to be reminded of" = "Add the medical appointments you want to be reminded of";
+
+/* No comment provided by engineer. */
+"Add the medications you want me to remind you of." = "Add the medications you want me to remind you of.";
+
+"Add the results of your analytics to see your health progress" = "Add the results of your analytics to see your health progress";
+
+"* Add two or more records to see the progress in a graph." = "* Add two or more records to see the progress in a graph.";
+
+"Add register" = "Add register";
+
+"Add your notes" = "Add your notes";
+
+"Allergology" = "Allergology";
+
+"Analgesic" = "Analgesic";
+
+"Analytics" = "Analytics";
+
+"Analytic date" = "Analytic date";
+
+"Anesthetist" = "Anesthetist";
+
+"Antacid" = "Antacid";
+
+"Anti-allergy" = "Anti-allergy";
+
+"Anti-inflammatories" = "Anti-inflammatories";
+
+"Antibiotic" = "Antibiotic";
+
+"Antidepressant" = "Antidepressant";
+
+"Antifungal" = "Antifungal";
+
+"Antiparasitic" = "Antiparasitic";
+
+"Antipyretic" = "Antipyretic";
+
+"Antitussive" = "Antitussive";
+
+/* No comment provided by engineer. */
+"Appointment date" = "Appointment date";
+
+"Band aid" = "Band aid";
+
+"Cardiology" = "Cardiology";
+
+/* No comment provided by engineer. */
+"Category" = "Category";
+
+/* No comment provided by engineer. */
+"Category: " = "Category: ";
+
+"Chiropody" = "Chiropody";
+
+"Choose parameter:" = "Choose parameter:";
+
+"Choose year" = "Choose year";
+
+/* No comment provided by engineer. */
+"Continue" = "Continue";
+
+/* No comment provided by engineer. */
+"Copy to clipboard" = "Copy to clipboard";
+
+/* No comment provided by engineer. */
+"Create" = "Create";
+
+/* No comment provided by engineer. */
+"Create reminders of your medical appointments to know when you should go to the doctor" = "Create reminders of your medical appointments to know when you should go to the doctor";
+
+/* No comment provided by engineer. */
+"Create reminders of your medications to know when to take them" = "Create reminders of your medications to know when to take them";
+
+"Clinical neurophysiology" = "Clinical neurophysiology";
+
+/* No comment provided by engineer. */
+"Date" = "Date";
+
+/* No comment provided by engineer. */
+"Dates" = "Dates";
+
+/* No comment provided by engineer. */
+"Day of the week" = "Day of the week";
+
+/* No comment provided by engineer. */
+"Delete" = "Delete";
+
+/* No comment provided by engineer. */
+"Delete all reminder group" = "Delete all reminder group";
+
+/* No comment provided by engineer. */
+"Delete reminder" = "Delete reminder";
+
+/* No comment provided by engineer. */
+"Delete this reminder" = "Delete this reminder";
+
+/* No comment provided by engineer. */
+"Demark as taken" = "Demark as taken";
+
+"Dentist" = "Dentist";
+
+/* No comment provided by engineer. */
+"Details" = "Details";
+
+"Digestive system" = "Digestive system";
+
+/* No comment provided by engineer. */
+"Do you want to delete this reminder or all future reminders for this medication?" = "Do you want to delete this reminder or all future reminders for this medication?";
+
+/* No comment provided by engineer. */
+"Do you want to delete this reminder?" = "Do you want to delete this reminder?";
+
+/* No comment provided by engineer. */
+"Drug Finder" = "Drug Finder";
+
+"Each 15 days" = "Each 15 days";
+
+/* No comment provided by engineer. */
+"Edit" = "Edit";
+
+"Edit register" = "Edit register";
+
+/* No comment provided by engineer. */
+"Edit reminder" = "Edit reminder";
+
+/* No comment provided by engineer. */
+"End" = "End";
+
+"Endocrine" = "Endocrine";
+
+"Every day" = "Every day";
+
+/* No comment provided by engineer. */
+"Find the address of your medical center or hospital here." = "Find the address of your medical center or hospital here.";
+
+/* No comment provided by engineer. */
+"Find the medicine you want here." = "Find the medicine you want here.";
+
+"First aid kit" = "First aid kit";
+
+/* No comment provided by engineer. */
+"First dose" = "First dose";
+
+/* No comment provided by engineer. */
+"Fourth dose" = "Fourth dose";
+
+"Friday" = "Friday";
+
+"Geriatrics" = "Geriatrics";
+
+"GP" = "GP";
+
+"Health analytics" = "Health analytics";
+
+"Heart" = "Heart";
+
+"Hermatology" = "Hermatology";
+
+/* No comment provided by engineer. */
+"Home" = "Home";
+
+/* No comment provided by engineer. */
+"Icon" = "Icon";
+
+/* No comment provided by engineer. */
+"Icons" = "Icons";
+
+/* No comment provided by engineer. */
+"Initial" = "Initial";
+
+"Intensive medicine" = "Intensive medicine";
+
+"Internal Medicine" = "Internal Medicine";
+
+/* No comment provided by engineer. */
+"Location" = "Location";
+
+"Laxative" = "Laxative";
+
+/* No comment provided by engineer. */
+"Mark as taken" = "Mark as taken";
+
+"Max man:" = "Max man:";
+
+"Max woman:" = "Max woman:";
+
+/* No comment provided by engineer. */
+"Medical Appointment Reminder" = "Medical Appointment Reminder";
+
+/* No comment provided by engineer. */
+"Medical appointments" = "Medical appointments";
+
+/* No comment provided by engineer. */
+"Medical consultation" = "Medical consultation";
+
+/* No comment provided by engineer. */
+"Medication Reminder" = "Medication Reminder";
+
+/* No comment provided by engineer. */
+"Medication reminders" = "Medication reminders";
+
+"Medicine of physical education and sports" = "Medicine of physical education and sports";
+
+/* No comment provided by engineer. */
+"Medicine time" = "Medicine time";
+
+/* No comment provided by engineer. */
+"Medicaments" = "Medicaments";
+
+"Min man:" = "Min man:";
+
+"Min woman:" = "Min woman:";
+
+"Monday" = "Monday";
+
+"Mucolytic" = "Mucolytic";
+
+/* No comment provided by engineer. */
+"Name" = "Name";
+
+/* No comment provided by engineer. */
+"Name of medicine" = "Name of medicine";
+
+"Nephrology" = "Nephrology";
+
+"Neurology" = "Neurology";
+
+/* No comment provided by engineer. */
+"Notifications" = "Notifications";
+
+"No results found" = "No results found";
+
+"Once a month" = "Once a month";
+
+"Once a week" = "Once a week";
+
+"Oncology" = "Oncology";
+
+"Ophthalmology" = "Ophthalmology";
+
+"Others" = "Others";
+
+"Otorhinolaryngology" = "Otorhinolaryngology";
+
+"Parameter" = "Parameter";
+
+"Pediatrics" = "Pediatrics";
+
+/* No comment provided by engineer. */
+"Periodicity" = "Periodicity";
+
+"Pills" = "Pills";
+
+"Pneumology" = "Pneumology";
+
+"Psychology" = "Psychology";
+
+"Rehabilitation" = "Rehabilitation";
+
+/* No comment provided by engineer. */
+"Reminder" = "Reminder";
+
+"Rheumatology" = "Rheumatology";
+
+"Saturday" = "Saturday";
+
+/* No comment provided by engineer. */
+"Schedule" = "Schedule";
+
+"Search" = "Search";
+
+"Searching..." = "Buscando...";
+
+/* No comment provided by engineer. */
+"Search drugs to see their most relevant information" = "Search drugs to see their most relevant information";
+
+/* No comment provided by engineer. */
+"Search localization" = "Search localization";
+
+/* No comment provided by engineer. */
+"Search medicaments" = "Search medicaments";
+
+/* No comment provided by engineer. */
+"Second dose" = "Second dose";
+
+"See all registers" = "See all registers";
+
+/* No comment provided by engineer. */
+"See data sheet" = "See data sheet";
+
+/* No comment provided by engineer. */
+"See leaflet" = "See leaflet";
+
+/* No comment provided by engineer. */
+"See on the map" = "See on the map";
+
+"Space medicine" = "Space medicine";
+
+"Sunday" = "Sunday";
+
+"* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor." = "* The maximum and minimum values ​​indicated for each parameter are estimates. For more information consult your doctor.";
+
+/* No comment provided by engineer. */
+"Third dose" = "Third dose";
+
+"Thursday" = "Thursday";
+
+/* No comment provided by engineer. */
+"Time of first dose" = "Time of first dose";
+
+/* No comment provided by engineer. */
+"Times a day" = "Times a day";
+
+/* No comment provided by engineer. */
+"Today" = "Today";
+
+"Tuesday" = "Tuesday";
+
+"Urology" = "Urology";
+
+"Value" = "Value";
+
+"Vitamin" = "Vitamin";
+
+"Wednesday" = "Wednesday";
+
+/* No comment provided by engineer. */
+"Welcome to PillApp" = "Welcome to PillApp";
+
+"Work medicine" = "Work medicine";
+
+/* No comment provided by engineer. */
+"Year" = "Year";
+

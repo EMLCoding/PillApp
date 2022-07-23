@@ -19,7 +19,6 @@ final class DayPickerVM: ObservableObject {
     ///
     ///  - Parameter currentDate: Fecha del día seleccionado. --> (Date)
     func fetchDates(currenDate: Date) {
-        print("INICIO \(Date.now)")
         let today = currenDate 
         let calendar = Calendar.current
         
@@ -35,9 +34,6 @@ final class DayPickerVM: ObservableObject {
                 dates.append(yearDay)
             }
         }
-        
-        print("FIN \(Date.now)")
     }
-    
     
 }
