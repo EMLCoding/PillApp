@@ -58,13 +58,13 @@ final class DetailCitasMedicasVM: ObservableObject {
         let medicalAppoitment = CitaMedica(context: context)
         let id = UUID()
         medicalAppoitment.id = id
-        medicalAppoitment.name = appoitmentName.rawValue
+        medicalAppoitment.name = appoitmentName.localizedString()
         medicalAppoitment.date = date
         medicalAppoitment.dateReminder = dateReminder
         medicalAppoitment.notes = appoitmentNotes
         medicalAppoitment.ubication = appoitmentLocation
         
-        let textNotification = self.appoitmentName.rawValue + " - " + date.extractDate(format: "MMM d, h:mm a")
+        let textNotification = self.appoitmentName.localizedString() + " - " + date.extractDate(format: "MMM d, h:mm a")
         
         try await context.perform {
             try context.save()
@@ -78,7 +78,7 @@ final class DetailCitasMedicasVM: ObservableObject {
     ///  - Parameter context: contexto de la aplicación para la gestión de los datos de Core Data. --> (NSManagedObjectContext)
     func edit(context: NSManagedObjectContext) async throws {
         let oldDate = medicalAppoitment?.dateReminder ?? Date.now
-        medicalAppoitment?.name = appoitmentName.rawValue
+        medicalAppoitment?.name = appoitmentName.localizedString()
         medicalAppoitment?.notes = appoitmentNotes
         medicalAppoitment?.date = date
         medicalAppoitment?.dateReminder = oldDate
@@ -88,7 +88,7 @@ final class DetailCitasMedicasVM: ObservableObject {
             if ((self.medicalAppoitment?.hasChanges) != nil) {
                 try context.save()
                 let id = self.medicalAppoitment?.id ?? UUID()
-                    let textNotification = self.appoitmentName.rawValue + " - " + self.date.extractDate(format: "MMM d, h:mm a")
+                    let textNotification = self.appoitmentName.localizedString() + " - " + self.date.extractDate(format: "MMM d, h:mm a")
                     Notifications().eliminarNotificacion(id: id)
                     Notifications().createNotification(id: id, date: self.dateReminder, element: textNotification, type: 2)                
             }

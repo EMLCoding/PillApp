@@ -163,7 +163,7 @@ final class DetailMedicinasVM: ObservableObject {
         medicine.name = medicineName
         medicine.notes = medicineNotes
         medicine.date = date
-        medicine.category = category.rawValue
+        medicine.category = category.localizedString()
         medicine.icon = icon.rawValue
         medicine.taken = false
         
@@ -180,7 +180,7 @@ final class DetailMedicinasVM: ObservableObject {
         let oldDate = medicine?.date ?? Date.now
         medicine?.name = medicineName
         medicine?.notes = medicineNotes
-        medicine?.category = category.rawValue
+        medicine?.category = category.localizedString()
         medicine?.icon = icon.rawValue
         medicine?.date = medicineDate
         
