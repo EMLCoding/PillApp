@@ -29,6 +29,7 @@ final class Notifications {
                 }
                 
                 content.body = element
+                content.sound = UNNotificationSound.default
                 
                 let calendar = Calendar.current
                 var dateComponents = DateComponents()
