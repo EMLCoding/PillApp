@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MedicinasListView: View {
+    
     var fetchRequest: FetchRequest<Medicinas>
     var userMedicines: FetchedResults<Medicinas> {
         fetchRequest.wrappedValue
@@ -33,6 +34,7 @@ struct MedicinasListView: View {
                         .foregroundColor(Color("MainColor"))
                         .frame(width: 80, height: 80)
                     Text("Add the medications you want me to remind you of.")
+                        .padding(.horizontal)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
                 }
@@ -43,12 +45,7 @@ struct MedicinasListView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: columns) {
                     ForEach(userMedicines) { medicine in
-                        NavigationLink {
-                            DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine))
-                        } label: {
-                            MedicinaView(medicine: medicine)
-                                .padding(.bottom)
-                        }
+                        MedicinaView(medicine: medicine)
                     }
                 }
             }

@@ -12,6 +12,7 @@ struct MedicinaView: View {
     @ObservedObject var detailMedicinasVM = DetailMedicinasVM(medicine: nil)
     
     @State var showAlert = false
+    @State var showDetail = false
     
     let medicine: Medicinas
     
@@ -40,6 +41,9 @@ struct MedicinaView: View {
             RoundedRectangle(cornerRadius: 15)
                 .fill(LinearGradient(gradient: Gradient(colors: [Color("InitialGradient"), Color("MainColor")]), startPoint: .topLeading, endPoint: .bottomTrailing))
         )
+        .onTapGesture {
+            showDetail = true
+        }
         .contextMenu {
             Button {
                 Task {
@@ -48,9 +52,8 @@ struct MedicinaView: View {
             } label: {
                 Label(medicine.taken ? "Demark as taken" : "Mark as taken", systemImage: medicine.taken ? "minus.circle" : "checkmark")
             }
-            Button {
-                showAlert = true
-            } label: {
+            
+            Button(role: .destructive, action: { showAlert = true }) {
                 Label("Delete", systemImage: "trash.fill")
             }
         }
@@ -66,11 +69,13 @@ struct MedicinaView: View {
             } label: {
                 Text("Delete all reminder group")
             }
-
+            
         } message: {
             Text("Do you want to delete this reminder or all future reminders for this medication?")
         }
-        
+        .background(
+            NavigationLink("", destination: DetailMedicinasView(detailMedicinasVM: DetailMedicinasVM(medicine: medicine)), isActive: $showDetail)
+        )
         
     }
     
