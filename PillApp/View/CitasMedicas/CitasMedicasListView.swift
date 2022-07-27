@@ -43,12 +43,7 @@ struct CitasMedicasListView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: columns) {
                     ForEach(userMedicalAppointments) { medicalAppointment in
-                        NavigationLink {
-                            DetailCitasMedicasView(detailCitasMedicasVM: DetailCitasMedicasVM(medicalAppoitment: medicalAppointment))
-                        } label: {
-                            CitaMedicaView(medicalAppoitment: medicalAppointment)
-                                .padding(.bottom)
-                        }
+                        CitaMedicaView(medicalAppoitment: medicalAppointment)
                     }
                 }
             }

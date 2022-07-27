@@ -13,6 +13,7 @@ struct CitaMedicaView: View {
     @ObservedObject var detailCitasMedicasVM = DetailCitasMedicasVM(medicalAppoitment: nil)
     
     @State var showAlert = false
+    @State var showDetail = false
     
     let medicalAppoitment: CitaMedica
     
@@ -39,6 +40,9 @@ struct CitaMedicaView: View {
             RoundedRectangle(cornerRadius: 15)
                 .fill(LinearGradient(gradient: Gradient(colors: [Color("InitialGradient"), Color("MainColor")]), startPoint: .topLeading, endPoint: .bottomTrailing))
         )
+        .onTapGesture {
+            showDetail = true
+        }
         .contextMenu {
             Button {
                 UIPasteboard.general.setValue(medicalAppoitment.ubication ?? "",
@@ -46,7 +50,7 @@ struct CitaMedicaView: View {
             } label: {
                 Label("Copy to clipboard", systemImage: "doc.on.clipboard")
             }
-            Button {
+            Button(role: .destructive) {
                 showAlert = true
             } label: {
                 Label("Delete", systemImage: "trash.fill")
@@ -61,6 +65,9 @@ struct CitaMedicaView: View {
         } message: {
             Text("Do you want to delete this reminder?")
         }
+        .background(
+            NavigationLink("", destination: DetailCitasMedicasView(detailCitasMedicasVM: DetailCitasMedicasVM(medicalAppoitment: medicalAppoitment)), isActive: $showDetail)
+        )
     }
 }
 
