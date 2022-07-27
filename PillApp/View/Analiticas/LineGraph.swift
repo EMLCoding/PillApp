@@ -97,8 +97,7 @@ struct LineGraph: View {
                 alignment: .bottomLeading
             )
             .contentShape(Rectangle())
-            .gesture(DragGesture().onChanged({ value in
-                withAnimation{showPlot = true}
+                .gesture(DragGesture(minimumDistance: 30, coordinateSpace: .local).onChanged({ value in
                 
                 let translation = value.location.x - 40
                 
@@ -110,6 +109,8 @@ struct LineGraph: View {
                 self.translation = translation
                 
                 offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
+                
+                
             }).onEnded({ value in
                 withAnimation{showPlot = false}
             }))

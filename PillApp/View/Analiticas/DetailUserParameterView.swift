@@ -28,7 +28,7 @@ struct DetailUserParameter: View {
             TextField("Value", value: $detailParametersVM.parameterValue, formatter: formatter)
                 .keyboardType(.decimalPad)
                 .focused($actualField, equals: .value)
-            DatePicker("Analytic date", selection: $detailParametersVM.parameterDate,displayedComponents: .date)
+            DatePicker("Analytic date", selection: $detailParametersVM.parameterDate, in: ...Date.now, displayedComponents: .date)
             if !detailParametersVM.isEdition {
                 Menu {
                     ForEach(detailParametersVM.parameterTypes) { type in

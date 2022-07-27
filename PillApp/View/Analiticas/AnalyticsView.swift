@@ -9,11 +9,16 @@ import SwiftUI
 
 struct AnalyticsView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.defaultMinListRowHeight) var minRowHeight
     @EnvironmentObject var analyticsVM: AnalyticsVM
     @State var isShowingSheetDetails = false
     @State var isShowingSheetList = false
     
     @State var pruebadataPoints: [Double] = [15, 2, 7, 16, 32, 39, 5, 3, 25, 21]
+    
+    init() {
+            UITableView.appearance().showsVerticalScrollIndicator = false
+        }
     
     var body: some View {
         NavigationView {
@@ -106,19 +111,34 @@ struct AnalyticsView: View {
                         
                         
                         if analyticsVM.parameterChoosed != nil && analyticsVM.userParameters.count > 0 {
-                            Button("See all registers", action: {isShowingSheetList.toggle()})
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .fill(Color("MainColor"))
-                                )
-                                .padding(.bottom)
-                                .sheet(isPresented: $isShowingSheetList, content: {
-                                    NavigationView {
-                                        ListUserParameters(analyticsVM: analyticsVM, nameParameter: (isSpanish() ? analyticsVM.parameterChoosed?.nameEs : analyticsVM.parameterChoosed?.nameEn) ?? "")
+                            
+                            List {
+                                ForEach(analyticsVM.userParameters) { userParameter in
+                                    NavigationLink {
+                                        DetailUserParameter(detailParametersVM: DetailParametersVM(parameter: userParameter, parameterTypes: analyticsVM.parameterTypes, userParameters: analyticsVM.userParameters, parameterType: nil))
+                                    } label: {
+                                        HStack {
+                                            Image(systemName: "heart.text.square")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .foregroundColor(Color("MainColor"))
+                                                .frame(width: 20, height: 20)
+                                            Text("\(userParameter.value, specifier: "%.2f")")
+                                                .padding(5)
+                                            
+                                            Spacer()
+                                            Text("\((userParameter.date ?? Date.now).extractDate(format: "dd/MM/yyyy"))")
+                                                .opacity(0.5)
+                                                .padding(5)
+                                            
+                                        }
                                     }
-                                })
+
+                                }
+                                .onDelete { index in
+                                    analyticsVM.deleteUserParameterAt(indexSet: index, userParameters: analyticsVM.userParameters, context: viewContext)
+                                }
+                            }.frame(height: minRowHeight * CGFloat(analyticsVM.userParameters.count + 1))
                         }
                     }
                 }
